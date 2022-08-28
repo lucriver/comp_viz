@@ -38,5 +38,3 @@ def describe_model(name: str) -> tuple:
   model["faster_rcnn_fpn_syncbn_resnest269_coco"] = "cool4"
   return name, model[name]
 
-def get_selection():
-  selections = ["Choose another model"]
