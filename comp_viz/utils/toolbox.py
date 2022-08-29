@@ -16,17 +16,20 @@ def list_networks():
 def get_networks():
   return _get_networks()
 
-def _get_networks():
-  networks = available_networks
-  return networks
-
 def verify_exists(fname):
   if not _exists(fname):
     print(f"Error: file {fname} could not be located.")
     return
-    
+
+def _get_networks():
+  networks = available_networks
+  return networks
+
 def _exists(fname):
   if os.path.exists(fname):
     return True
   return False
+
+def hello():
+  return "hello"
 

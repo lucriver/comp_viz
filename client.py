@@ -35,7 +35,7 @@ if __name__ == "__main__":
     # user wants to pick a new model
     if input_char == str(0):
       model_name = client_helper.get_model_choice(available_models)
-      model = comp_viz.Model(model_name)
+      model = comp_viz.models.Model(model_name)
       continue
 
     # user wants to predict with chosen model and an image
@@ -44,7 +44,7 @@ if __name__ == "__main__":
         os.mkdir("inference")
       print("Please enter the path to your image.")
       image_path = input("> ")
-      prediction = model.predict(image_path)
+      prediction = model.get_prediction(image_path)
       print(prediction)
       input("Press any button to continue...")
 
