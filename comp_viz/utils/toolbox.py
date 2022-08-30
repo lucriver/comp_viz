@@ -30,6 +30,3 @@ def _exists(fname):
     return True
   return False
 
-def hello():
-  return "hello"
-
