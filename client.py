@@ -10,13 +10,13 @@ if __name__ == "__main__":
   print("===========================================")
 
   # get all available computer vision models from comp_viz package
-  available_models = comp_viz.utils.get_networks()
+  available_models = comp_viz.utils.ObjectDetection.get_networks()
 
   # show all models and acquire user's choice
   model_name = client_helper.get_model_choice(available_models)
 
   # instantiate the detection model
-  model = comp_viz.Model(model_name)
+  model = comp_viz.object_detection.Model(model_name)
   print(f"{model_name} initialized!")
 
   print("-------------------------------------------")

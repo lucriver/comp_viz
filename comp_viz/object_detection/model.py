@@ -11,7 +11,7 @@ class Model:
     self.net = gluoncv.model_zoo.get_model(network_name, pretrained=True)
 
   def get_prediction(self,fname,nms=0) -> dict:
-    utils.verify_exists(fname)
+    utils.Tools.verify_exists(fname)
     start = time.time()
     cids, scores, bboxes = self.predict(fname,nms)
     end = time.time()
