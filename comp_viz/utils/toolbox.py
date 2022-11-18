@@ -32,15 +32,26 @@ class ObjectDetection:
 
 
 class Tools:
-  def verify_exists(fname):
-    if not Tool._exists(fname):
+  def verify_exists(fname: str):
+    if not Tools._exists(fname):
       print(f"Error: file {fname} could not be located.")
       return
 
-  def exists(fname):
-    return Tool._exists(fname)
+  def exists(fname: str) -> bool:
+    return Tools._exists(fname)
+
+  def format_object_classes(object_classes: list) -> list:
+    i = 0
+    while i < len(object_classes):
+      if object_classes[i] == "":
+        object_classes.pop(i)
+        continue
+      object_classes[i] = object_classes[i].lower().strip()
+      i += 1
+    return object_classes
+
     
-  def _exists(fname):
+  def _exists(fname: str) -> bool:
     if os.path.exists(fname):
       return True
     return False

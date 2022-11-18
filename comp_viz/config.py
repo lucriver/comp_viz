@@ -10,5 +10,6 @@ class ObjectDetection:
     "center_net_resnet101_v1b_dcnv2_coco",
     "ssd_512_resnet50_v1_coco",
     "yolo3_darknet53_coco",
+    "faster_rcnn_fpn_resnest50_v1b_coco",
     "faster_rcnn_fpn_syncbn_resnest269_coco"
     ]

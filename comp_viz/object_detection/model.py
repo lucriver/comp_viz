@@ -41,6 +41,9 @@ class Model:
     nms_cids, nms_scores, nms_bboxes = self._apply_nms(cids, scores, bboxes, nms)
     return (nms_cids,nms_scores,nms_bboxes)
 
+  def set_object_classes(self,object_classes):
+    self.net.reset_class(object_classes, reuse_weights=object_classes)
+
   def _extract_cids_scores_bboxes(self,pred):
     cids = self._get_class_ids(pred[0])
     scores = self._get_scores(pred[1])
