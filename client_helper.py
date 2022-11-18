@@ -1,6 +1,8 @@
+import comp_viz
+
 def get_model_choice(models: list) -> str:
   print("Please choose from the following models:")
-  print("Models are in order from fastest (0) to most precise (4).")
+  print("Models are in order from fastest (lowest number) to most precise (highest num).")
   print_enum(models)
   print("To see information about a model, enter it's corresponding number followed by the letter d. Ex: 0d or 1d")
   user_input = input("> ")
@@ -38,5 +40,14 @@ def describe_model(name: str) -> tuple:
   model["yolo3_darknet53_coco"] = "Gold standard for balance between precision and speed. Commonly used in real-time inference applications."
   model["faster_rcnn_fpn_syncbn_resnest269_coco"] = "As precise as it gets. Comes with a large cost in speed. Not recommended for real-time inference."
   model["ssd_512_resnet50_v1_coco"]  = "Third fastest network. Slightly faster than YOLO3 darkent, but comes with a cost in accuracy."
+  if name not in model:
+    return name, "No model description available at this time."
   return name, model[name]
 
+def is_valid_object_classes(model, object_classes) -> bool:
+  model_classes = model.get_classes()
+  for object_class in object_classes:
+    if object_class not in model_classes:
+      print(f"Object class {object_class} is not available for chosen model.")
+      return False
+  return True
