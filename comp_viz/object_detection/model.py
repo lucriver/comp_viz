@@ -9,8 +9,14 @@ class Model:
   def __init__(self,network_name=None):
     self.net_name = network_name
     self.net = gluoncv.model_zoo.get_model(network_name, pretrained=True)
+    self.default_object_classes = gluoncv.model_zoo.get_model(network_name, pretrained=True).classes
 
-  def get_prediction(self,fname,nms=0) -> dict:
+  def show_image_prediction(self,fname,nms=.5):
+    image, prediction = self.get_image_prediction(fname)
+    utils.Tools.show_image(image)
+    print(prediction)
+
+  def get_prediction(self,fname,nms=.5) -> dict:
     utils.Tools.verify_exists(fname)
     start = time.time()
     cids, scores, bboxes = self.predict(fname,nms)
@@ -21,9 +27,18 @@ class Model:
     prediction['confidence_scores'] = scores
     prediction['bounding_boxes'] = bboxes
     prediction['nms_thresh'] = nms
-    prediction['class_map'] = [{cid: self.get_classes()[cid]} for cid in set(cids)]
+    prediction['class_map'] = {cid: self.get_classes()[cid] for cid in set(cids)}
     prediction['time'] = round(float(end - start),4)
     return prediction
+
+  def get_image_prediction(self,fname,nms=0):
+    pred = self.get_prediction(fname)
+    pred_img = utils.ObjectDetection.get_pred_bboxes_image(fname,
+                                                           pred["bounding_boxes"],
+                                                           [key for key in pred["class_map"].keys()],
+                                                           [val for val in pred["class_map"].values()],
+                                                           pred["confidence_scores"])
+    return pred_img, pred
 
   def list_classes(self):
     print(self.net.classes)
@@ -36,14 +51,26 @@ class Model:
     x, _ = self.__prepare_image(img)
     pred = self.net(x)
     cids, scores, bboxes = self._extract_cids_scores_bboxes(pred)
+    bboxes = [utils.ObjectDetection.resize_bbox(bbox,_.shape,img.shape) for bbox in bboxes]
     if nms == 0:
       return (cids,scores,bboxes)
     nms_cids, nms_scores, nms_bboxes = self._apply_nms(cids, scores, bboxes, nms)
     return (nms_cids,nms_scores,nms_bboxes)
 
-  def set_object_classes(self,object_classes):
+  def set_classes(self,object_classes: list):
+    unsupported = []
+    for obj_class in object_classes:
+      if obj_class not in self.default_object_classes:
+        unsupported.append(obj_class)
+    if unsupported:    
+      print(f"WARNING: object classes \"{unsupported}\" are not supported by default for object detection. Expect no capability for detection.")
     self.net.reset_class(object_classes, reuse_weights=object_classes)
+    print(f"Complete. Model set to detect for object classes: {self.get_classes()}.")
 
+  def reset_classes(self):
+    self.net.reset_class(self.default_object_classes,reuse_weights=self.default_object_classes)
+    print("Object classes for detection restored to defaults.")
+    
   def _extract_cids_scores_bboxes(self,pred):
     cids = self._get_class_ids(pred[0])
     scores = self._get_scores(pred[1])
@@ -82,14 +109,14 @@ class Model:
     for ndarray in bboxes[0]:
       nparray = ndarray.asnumpy()
       if nparray[0] != -1:
-        bb = [int(corner) for corner in nparray.tolist()]
+        bb = [float(corner) for corner in nparray.tolist()]
         bounding_boxes.append(bb)
     return bounding_boxes
 
   def __prepare_image(self,image):
     if "yolo" in self.net_name:
-      return gluoncv.data.transforms.presets.yolo.transform_test(image,short=512)
+      return gluoncv.data.transforms.presets.yolo.transform_test(image,short=608)
     elif "rcnn" in self.net_name:
-      return gluoncv.data.rcnn.presets.yolo.transform_test(image,short=512)
+      return gluoncv.data.rcnn.presets.rcnn.transform_test(image,short=512)
     elif "ssd" in self.net_name:
       return gluoncv.data.transforms.presets.ssd.transform_test(image,short=512)

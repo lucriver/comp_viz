@@ -6,6 +6,9 @@ inorder_traverse(tree: `SupportedTreeType`, recursive: `bool`)
 """
 
 import os
+import mxnet
+import gluoncv
+import numpy
 
 from ..config import Models as models_config
 from ..config import ObjectDetection as obj_det_config
@@ -20,25 +23,13 @@ class Models:
   def _get_tasks():
     return Models.models_config.tasks
 
+
 class ObjectDetection:
   def list_networks():
     print(ObjectDetection._get_networks())
 
   def get_networks():
     return ObjectDetection._get_networks()
-
-  def _get_networks():
-    return obj_det_config.networks
-
-
-class Tools:
-  def verify_exists(fname: str):
-    if not Tools._exists(fname):
-      print(f"Error: file {fname} could not be located.")
-      return
-
-  def exists(fname: str) -> bool:
-    return Tools._exists(fname)
 
   def format_object_classes(object_classes: list) -> list:
     i = 0
@@ -50,6 +41,46 @@ class Tools:
       i += 1
     return object_classes
 
+  def resize_bbox(bbox: list, orig: tuple, dest: tuple):
+    x_min, y_min, x_max, y_max = bbox[0], bbox[1], bbox[2], bbox[3]
+    x_scale = dest[1] / orig[1]
+    y_scale = dest[0] / orig[0]
+    return [float(numpy.round(x_min*x_scale)), 
+            float(numpy.round(y_min*y_scale)),
+            float(numpy.round(x_max*x_scale)),
+            float(numpy.round(y_max*y_scale))]
+
+  def show_pred_bboxes_image(img_fname: str, bboxes: list, labels = [], class_names = [], scores = []):
+    img = ObjectDetection.get_pred_bboxes_image(img_fname,bboxes,labels,class_names,scores)
+    gluoncv.utils.viz.plot_image(img)
+
+  def get_pred_bboxes_image(img_fname: str, bboxes: list, labels = [], class_names = [], scores = []):
+    img = Tools.get_mxnet_image(img_fname)
+    return gluoncv.utils.viz.cv_plot_bbox(img,numpy.array(bboxes),labels=numpy.array(labels),scores=numpy.array(scores),class_names=class_names)
+
+  def _get_networks():
+    return obj_det_config.networks
+
+class Tools:
+  def verify_exists(fname: str):
+    if not Tools._exists(fname):
+      print(f"Error: file {fname} could not be located.")
+      return
+
+  def exists(fname: str) -> bool:
+    return Tools._exists(fname)
+
+  def get_mxnet_image(fname: str):
+    Tools.verify_exists(fname)
+    return mxnet.image.imread(fname)
+
+  def show_image(img: numpy.ndarray):
+    gluoncv.utils.viz.plot_image(img)
+
+  def filename_show_image(fname: str):
+    Tools.verify_exists(fname)
+    img = mxnet.image.imread(fname)
+    gluoncv.utils.viz.plot_image(img)
     
   def _exists(fname: str) -> bool:
     if os.path.exists(fname):
