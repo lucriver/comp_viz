@@ -48,6 +48,6 @@ def is_valid_object_classes(model, object_classes) -> bool:
   model_classes = model.get_classes()
   for object_class in object_classes:
     if object_class not in model_classes:
-      print(f"Object class {object_class} is not available for chosen model.")
+      print(f"Object class \"{object_class}\" is not available for chosen model.")
       return False
   return True
