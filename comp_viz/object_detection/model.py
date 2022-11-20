@@ -9,6 +9,7 @@ class Model:
   def __init__(self,network_name=None):
     self.net_name = network_name
     self.net = gluoncv.model_zoo.get_model(network_name, pretrained=True)
+    self.inference_resolution = utils.ObjectDetection.get_network_resolution(self.net_name)
     self.default_object_classes = gluoncv.model_zoo.get_model(network_name, pretrained=True).classes
 
   def show_image_prediction(self,fname,nms=.5):
@@ -47,11 +48,11 @@ class Model:
     return self.net.classes
 
   def predict(self,fname,nms) -> tuple:
-    img = mxnet.image.imread(fname)
-    x, _ = self.__prepare_image(img)
+    base_img = mxnet.image.imread(fname)
+    x, img = self.__prepare_image(base_img)
     pred = self.net(x)
     cids, scores, bboxes = self._extract_cids_scores_bboxes(pred)
-    bboxes = [utils.ObjectDetection.resize_bbox(bbox,_.shape,img.shape) for bbox in bboxes]
+    bboxes = [utils.ObjectDetection.resize_bbox(bbox,img.shape,base_img.shape) for bbox in bboxes]
     if nms == 0:
       return (cids,scores,bboxes)
     nms_cids, nms_scores, nms_bboxes = self._apply_nms(cids, scores, bboxes, nms)
@@ -115,8 +116,10 @@ class Model:
 
   def __prepare_image(self,image):
     if "yolo" in self.net_name:
-      return gluoncv.data.transforms.presets.yolo.transform_test(image,short=608)
+      return gluoncv.data.transforms.presets.yolo.transform_test(image,short=self.inference_resolution)
     elif "rcnn" in self.net_name:
-      return gluoncv.data.rcnn.presets.rcnn.transform_test(image,short=512)
+      return gluoncv.data.transforms.presets.rcnn.transform_test(image,short=self.inference_resolution)
     elif "ssd" in self.net_name:
-      return gluoncv.data.transforms.presets.ssd.transform_test(image,short=512)
+      return gluoncv.data.transforms.presets.ssd.transform_test(image,short=self.inference_resolution)
+    elif "center_net" in self.net_name:
+      return gluoncv.data.transforms.presets.center_net.transform_test(image,short=self.inference_resolution)

@@ -45,7 +45,7 @@ if __name__ == "__main__":
         object_classes = input("Ex: bicycle, cell phone, chair ... > ")
         object_classes = comp_viz.utils.ObjectDetection.format_object_classes(object_classes.split(","))
         if client_helper.is_valid_object_classes(model, object_classes):
-          model.set_object_classes(object_classes)
+          model.set_classes(object_classes)
           print(f"Object classes: {model.get_classes()} initialized.")
           break
 
