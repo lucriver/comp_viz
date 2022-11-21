@@ -4,6 +4,8 @@ import sys
 import comp_viz
 import client_helper
 
+#test
+
 if __name__ == "__main__":
   print("===========================================")
   print("Welcome to Lucas' computer vision detector!")
