@@ -6,16 +6,17 @@ import time
 from .. import utils
 
 class Model:
-  def __init__(self,network_name=None):
+  def __init__(self,network_name):
     self.net_name = network_name
     self.net = gluoncv.model_zoo.get_model(network_name, pretrained=True)
-    self.inference_resolution = utils.ObjectDetection.get_network_resolution(self.net_name)
+    self.inference_resolution = utils.ObjectDetection.get_network_resolution(network_name)
     self.default_object_classes = gluoncv.model_zoo.get_model(network_name, pretrained=True).classes
 
-  def show_image_prediction(self,fname,nms=.5):
-    image, prediction = self.get_image_prediction(fname)
-    utils.Tools.show_image(image)
-    print(prediction)
+  def list_classes(self):
+    print(self._get_classes())
+
+  def get_classes(self):
+    return (self._get_classes())
 
   def get_prediction(self,fname,nms=.5) -> dict:
     utils.Tools.verify_exists(fname)
@@ -41,11 +42,10 @@ class Model:
                                                            pred["confidence_scores"])
     return pred_img, pred
 
-  def list_classes(self):
-    print(self.net.classes)
-
-  def get_classes(self):
-    return self.net.classes
+  def show_image_prediction(self,fname,nms=.5):
+    image, prediction = self.get_image_prediction(fname)
+    utils.Tools.show_image(image)
+    print(prediction)
 
   def predict(self,fname,nms) -> tuple:
     base_img = mxnet.image.imread(fname)
@@ -71,6 +71,9 @@ class Model:
   def reset_classes(self):
     self.net.reset_class(self.default_object_classes,reuse_weights=self.default_object_classes)
     print("Object classes for detection restored to defaults.")
+
+  def _get_classes(self):
+    return self.net.classes
     
   def _extract_cids_scores_bboxes(self,pred):
     cids = self._get_class_ids(pred[0])
