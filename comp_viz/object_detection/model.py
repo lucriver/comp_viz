@@ -37,7 +37,7 @@ class Model:
     pred = self.get_prediction(fname)
     pred_img = utils.ObjectDetection.get_pred_bboxes_image(fname,
                                                            pred["bounding_boxes"],
-                                                           [key for key in pred["class_map"].keys()],
+                                                           pred["class_ids"],
                                                            [val for val in pred["class_map"].values()],
                                                            pred["confidence_scores"])
     return pred_img, pred
