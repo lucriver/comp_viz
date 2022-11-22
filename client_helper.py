@@ -1,4 +1,5 @@
 import comp_viz
+import os
 
 def get_model_choice(models: list) -> str:
   print("Please choose from the following models:")
@@ -51,3 +52,21 @@ def is_valid_object_classes(model, object_classes) -> bool:
       print(f"Object class \"{object_class}\" is not available for chosen model.")
       return False
   return True
+
+def get_dir_images(dir):
+  valid_extensions = ["jpg","png","jpeg"]
+  dir_contents = os.listdir(dir)
+  image_paths = []
+  i = 0
+  while i < len(dir_contents):
+    file_path = dir_contents[i]
+    if file_path.split(".")[-1] in valid_extensions:
+      image_paths.append(os.path.join(dir,file_path))
+    i += 1
+  return image_paths
+
+def get_image(path):
+  valid_extensions = ["jpg","png","jpeg"]
+  fname = os.path.basename(path)
+  if fname.split(".")[-1] in valid_extensions:
+    return path
