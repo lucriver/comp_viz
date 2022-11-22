@@ -1,10 +1,10 @@
 import os
 import sys
+import json
+import pathlib
 
 import comp_viz
 import client_helper
-
-#test
 
 if __name__ == "__main__":
   print("===========================================")
@@ -54,27 +54,47 @@ if __name__ == "__main__":
       # prepare output directory
       if not os.path.exists("inference"):
         os.mkdir("inference")
-      print("Please input directory name to save inference results to.")
+      print("Please input a unique name for this run.")
       dir_path = input("> ")
-      dir_path = f"inference/{dir_path}"
-      if not os.path.exists(dir_path):
-        os.mkdir(dir_path)
+      out_dir_path = f"inference/{dir_path}"
+      if not os.path.exists(out_dir_path):
+        os.mkdir(out_dir_path)
+      print(f"Results saved in directory: {out_dir_path}")
 
       # determine if boundbox images should be produced for each image inferred
       while 1:
         print("Create image with bounding box for each inference performed? (y/n).")
         print("(WARNING: Will SIGNIFICANTLY increase the time required to complete operation if y is chosen.")
-        input_char = input("> ")
-        if input_char.lower() == 'y' or input_char.lower() == 'n':
+        produce_images = input("> ")
+        produce_images = produce_images.lower()
+        if produce_images == 'y' or produce_images == 'n':
+          if produce_images == 'y':
+            out_dir_path_images = os.path.join(out_dir_path,"images")
+            if not os.path.exists(out_dir_path_images):
+              os.mkdir(out_dir_path_images)
+          else:
+            produce_images = False
           break
+        print(f"Invalid input: {produce_images}.")
       
       # get image path and perform inference
       print("Please enter the path to your image(s).")
-      image_path = input("> ")
-      prediction = model.get_prediction(image_path)
-      print(prediction)
-      input("Press any button to continue...")
-
+      in_path = input("> ")
+      if os.path.isdir(in_path):
+        images = client_helper.get_dir_images(in_path)
+      else:
+        images = [client_helper.get_image(in_path)]
+      print(f"Image count: {len(images)}.")
+      for img_fname in images:
+        if produce_images:
+          img, pred = model.get_image_prediction(img_fname)
+          comp_viz.utils.Tools.save_image(img,os.path.join(out_dir_path_images,os.path.basename(img_fname)))
+        else:
+          pred = model.get_prediction(img_fname)
+        with open(f"{os.path.join(out_dir_path,pathlib.Path(img_fname).stem)}.txt", "w") as f:
+          f.write(json.dumps(pred,indent=2))
+      print(f"Complete! Check directory: {out_dir_path}")
+        
     # user wants to end program
     elif input_char == termination_char:
       print("Goodbye!") 
