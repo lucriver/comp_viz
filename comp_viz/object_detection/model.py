@@ -6,7 +6,13 @@ import time
 from .. import utils
 
 class Model:
+  """A naive Bayesian spam filter"""
   def __init__(self,network_name):
+    """ inits Spamfilter with training data
+    
+    :param training_dir: path of training directory with subdirectories
+      '/ham' and '/spam'
+    """
     self.net_name = network_name
     self.net = gluoncv.model_zoo.get_model(network_name, pretrained=True)
     self.inference_resolution = utils.ObjectDetection.get_network_resolution(network_name)
