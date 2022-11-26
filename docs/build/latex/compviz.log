@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.11.23)  23 NOV 2022 11:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.11.23)  26 NOV 2022 12:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -813,9 +813,16 @@ File: t1txtt.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `T1/txtt/b/n' in size <10> not available
 (Font)              Font shape `T1/txtt/bx/n' tried instead on input line 114.
- [1
+LaTeX Font Info:    Font shape `T1/txtt/m/it' in size <10> not available
+(Font)              Font shape `T1/txtt/m/sl' tried instead on input line 124.
+LaTeX Font Info:    Trying to load font information for TS1+qtm on input line 1
+28.
 
-]
+(/usr/share/texmf/tex/latex/tex-gyre/ts1qtm.fd
+File: ts1qtm.fd 2009/09/25 v1.2 font definition file for TS1/qtm
+) [1
+
+] [2] [3] [4]
 LaTeX Font Info:    Trying to load font information for TS1+txtt on input line 
 1.
 
@@ -824,13 +831,12 @@ File: ts1txtt.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `TS1/txtt/b/n' in size <10> not available
 (Font)              Font shape `TS1/txtt/bx/n' tried instead on input line 1.
- [2] [3] [4
+ [5] [6] [7
+
+
 
 ]
-[5
-
-
-] (./compviz.ind [6
+(./compviz.ind [8
 
 
 ]
@@ -850,150 +856,151 @@ _detection.model.Model
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--39
+Underfull \hbox (badness 10000) in paragraph at lines 37--38
+[]\T1/txtt/m/n/10 get_cv2_image() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.util
+s.toolbox.Tools
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 38--40
 []\T1/txtt/m/n/10 get_image_prediction()
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--39
+Underfull \hbox (badness 10000) in paragraph at lines 38--40
 \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.object_detection.model.Model
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 39--41
+Underfull \hbox (badness 10000) in paragraph at lines 40--42
 []\T1/txtt/m/n/10 get_mxnet_image() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.ut
 ils.toolbox.Tools
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 41--43
+Underfull \hbox (badness 10000) in paragraph at lines 42--44
 []\T1/txtt/m/n/10 get_network_resolution()
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 41--43
+Underfull \hbox (badness 10000) in paragraph at lines 42--44
 \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.utils.toolbox.ObjectDetection
  []
 
 
-Overfull \hbox (5.96228pt too wide) in paragraph at lines 43--45
+Overfull \hbox (5.96228pt too wide) in paragraph at lines 44--46
 []\T1/txtt/m/n/10 get_networks() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.utils
 .toolbox.ObjectDetection
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 45--47
+Underfull \hbox (badness 10000) in paragraph at lines 46--48
 []\T1/txtt/m/n/10 get_pred_bboxes_image()
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 45--47
+Underfull \hbox (badness 10000) in paragraph at lines 46--48
 \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.utils.toolbox.ObjectDetection
  []
 
 
-Overfull \hbox (20.18228pt too wide) in paragraph at lines 47--49
+Overfull \hbox (20.18228pt too wide) in paragraph at lines 48--50
 []\T1/txtt/m/n/10 get_prediction() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.obj
 ect_detection.model.Model
  []
 
 
-Overfull \hbox (9.68231pt too wide) in paragraph at lines 53--55
+Overfull \hbox (9.68231pt too wide) in paragraph at lines 54--56
 []\T1/txtt/m/n/10 list_classes() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.objec
 t_detection.model.Model
  []
 
 
-Overfull \hbox (11.21227pt too wide) in paragraph at lines 55--57
+Overfull \hbox (11.21227pt too wide) in paragraph at lines 56--58
 []\T1/txtt/m/n/10 list_networks() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.util
 s.toolbox.ObjectDetection
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 83--85
-[]\T1/txtt/m/n/10 predict() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.object_det
-ection.model.Model
- []
-
-
-Overfull \hbox (14.9323pt too wide) in paragraph at lines 88--90
+Overfull \hbox (14.9323pt too wide) in paragraph at lines 84--86
 []\T1/txtt/m/n/10 reset_classes() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.obje
 ct_detection.model.Model
  []
 
 
-Overfull \hbox (0.7123pt too wide) in paragraph at lines 90--92
+Overfull \hbox (0.7123pt too wide) in paragraph at lines 86--88
 []\T1/txtt/m/n/10 resize_bbox() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.utils.
 toolbox.ObjectDetection
  []
 
 
-Overfull \hbox (4.43233pt too wide) in paragraph at lines 96--98
+Overfull \hbox (4.43233pt too wide) in paragraph at lines 92--94
 []\T1/txtt/m/n/10 set_classes() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.object
 _detection.model.Model
  []
 
-[7
+[9
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 99--101
+Underfull \hbox (badness 10000) in paragraph at lines 95--97
 []\T1/txtt/m/n/10 show_image_prediction()
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 99--101
+Underfull \hbox (badness 10000) in paragraph at lines 95--97
 \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.object_detection.model.Model
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 101--103
+Underfull \hbox (badness 10000) in paragraph at lines 97--99
 []\T1/txtt/m/n/10 show_pred_bboxes_image()
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 101--103
+Underfull \hbox (badness 10000) in paragraph at lines 97--99
 \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.utils.toolbox.ObjectDetection
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 111--112
+Underfull \hbox (badness 10000) in paragraph at lines 107--108
 []\T1/txtt/m/n/10 verify_exists() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.util
 s.toolbox.Tools
  []
 
-[8
+[10
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 483.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 483.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 848.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 848.
  (./compviz.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 483.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 483.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 848.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 848.
 Package rerunfilecheck Info: File `compviz.out' has not changed.
-(rerunfilecheck)             Checksum: 49756F0F981DA305BCF3D54DBF4A6610;2400.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 483.
+(rerunfilecheck)             Checksum: 134284E00BE200C2A5EB8F4D1D7CF74F;2400.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 848.
  ) 
 Here is how much of TeX's memory you used:
- 14500 strings out of 483183
- 216423 string characters out of 5966291
- 488329 words of memory out of 5000000
- 29086 multiletter control sequences out of 15000+600000
- 582842 words of font info for 63 fonts, out of 8000000 for 9000
+ 14528 strings out of 483183
+ 216791 string characters out of 5966291
+ 486320 words of memory out of 5000000
+ 29106 multiletter control sequences out of 15000+600000
+ 583600 words of font info for 65 fonts, out of 8000000 for 9000
  15 hyphenation exceptions out of 8191
- 38i,11n,51p,1761b,523s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/tex-gyre/q-ec.enc}</usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/p
-ublic/tex-gyre/qhvb.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qhvbi.pfb
-></usr/share/texmf/fonts/type1/public/tex-gyre/qhvr.pfb></usr/share/texmf/fonts
-/type1/public/tex-gyre/qtmb.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/q
-tmr.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qtmri.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/txfonts/t1xbtt.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/txfonts/tcxbtt.pfb>
-Output written on compviz.pdf (12 pages, 169941 bytes).
+ 38i,12n,51p,1761b,691s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/tex-gyre/q-ec.enc}{/usr/share/texmf/fonts/e
+nc/dvips/tex-gyre/q-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qhvb.pfb></
+usr/share/texmf/fonts/type1/public/tex-gyre/qhvbi.pfb></usr/share/texmf/fonts/t
+ype1/public/tex-gyre/qhvr.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qtm
+b.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qtmr.pfb></usr/share/texmf/
+fonts/type1/public/tex-gyre/qtmri.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/txfonts/t1xbtt.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/t
+xfonts/t1xtt.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/t1xt
+t.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/tcxbtt.pfb>
+Output written on compviz.pdf (14 pages, 185458 bytes).
 PDF statistics:
- 273 PDF objects out of 1000 (max. 8388607)
- 241 compressed objects within 3 object streams
- 62 named destinations out of 1000 (max. 500000)
+ 291 PDF objects out of 1000 (max. 8388607)
+ 256 compressed objects within 3 object streams
+ 64 named destinations out of 1000 (max. 500000)
  149 words of extra memory for PDF output out of 10000 (max. 10000000)
 

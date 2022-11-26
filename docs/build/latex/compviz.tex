@@ -62,7 +62,7 @@
 
 
 \title{Comp Viz}
-\date{Nov 23, 2022}
+\date{Nov 26, 2022}
 \release{1.0.0}
 \author{Lucas Hirt}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -117,7 +117,34 @@
 Bases: \sphinxcode{\sphinxupquote{object}}
 
 \sphinxAtStartPar
-A naive Bayesian spam filter
+Computer vision object detection model.
+\begin{quote}\begin{description}
+\sphinxlineitem{Parameters}
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{network\_name}} (\sphinxstyleliteralemphasis{\sphinxupquote{string}}) \textendash{} A string representing the computer vision network that will be used
+for detection.
+
+\sphinxlineitem{Variables}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{net\_name}} \textendash{} Holds the string literal for the chosen computer vision network.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{net}} \textendash{} Holds the crucial mxnet\sphinxhyphen{}gluoncv instantiated computer vision model for which
+our package aims to provides a layer of abstraction over.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{inference\_resolution}} \textendash{} Stores the resolution of images we are to perform inference on.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{default\_object\_classes}} \textendash{} Stores the default object classes that come with chosen network:
+
+\end{itemize}
+
+\end{description}\end{quote}
 \index{get\_classes() (comp\_viz.object\_detection.model.Model method)@\spxentry{get\_classes()}\spxextra{comp\_viz.object\_detection.model.Model method}}
 
 \begin{fulllineitems}
@@ -125,6 +152,15 @@ A naive Bayesian spam filter
 \pysigstartsignatures
 \pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{get\_classes}}}{}{}
 \pysigstopsignatures
+\sphinxAtStartPar
+Get list of the object classes that the computer vision model is detecting for in images.
+\begin{quote}\begin{description}
+\sphinxlineitem{Return type}
+\sphinxAtStartPar
+List
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 \index{get\_image\_prediction() (comp\_viz.object\_detection.model.Model method)@\spxentry{get\_image\_prediction()}\spxextra{comp\_viz.object\_detection.model.Model method}}
@@ -132,8 +168,34 @@ A naive Bayesian spam filter
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{comp_viz.object_detection:comp_viz.object_detection.model.Model.get_image_prediction}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{get\_image\_prediction}}}{\emph{\DUrole{n}{fname}}, \emph{\DUrole{n}{nms}\DUrole{o}{=}\DUrole{default_value}{0}}}{}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{get\_image\_prediction}}}{\emph{\DUrole{n}{fname}}, \emph{\DUrole{n}{nms}\DUrole{o}{=}\DUrole{default_value}{0.0}}}{}
 \pysigstopsignatures
+\sphinxAtStartPar
+Get image with the bounding box detections and the prediction made by the computer vision model.
+\begin{quote}\begin{description}
+\sphinxlineitem{Parameters}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{fname}} (\sphinxstyleliteralemphasis{\sphinxupquote{string}}) \textendash{} Path to an image file.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{nms}} (\sphinxstyleliteralemphasis{\sphinxupquote{float}}) \textendash{} Stands for non\sphinxhyphen{}maximal suppresion. If computer vision model detects and an 
+object in the image with a confidence value less than the nms value, it 
+will not include it in the returned results.
+
+\end{itemize}
+
+\sphinxlineitem{Returns}
+\sphinxAtStartPar
+A pair of values, an image in the form of a numpy array, and the prediction dict.
+
+\sphinxlineitem{Return type}
+\sphinxAtStartPar
+numpy.array, dict
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 \index{get\_prediction() (comp\_viz.object\_detection.model.Model method)@\spxentry{get\_prediction()}\spxextra{comp\_viz.object\_detection.model.Model method}}
@@ -141,8 +203,30 @@ A naive Bayesian spam filter
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{comp_viz.object_detection:comp_viz.object_detection.model.Model.get_prediction}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{get\_prediction}}}{\emph{\DUrole{n}{fname}}, \emph{\DUrole{n}{nms}\DUrole{o}{=}\DUrole{default_value}{0.5}}}{{ $\rightarrow$ dict}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{get\_prediction}}}{\emph{\DUrole{n}{fname}}, \emph{\DUrole{n}{nms}\DUrole{o}{=}\DUrole{default_value}{0.0}}}{{ $\rightarrow$ dict}}
 \pysigstopsignatures
+\sphinxAtStartPar
+Get prediction made for an image by computer vision model.
+\begin{quote}\begin{description}
+\sphinxlineitem{Parameters}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{fname}} (\sphinxstyleliteralemphasis{\sphinxupquote{string}}) \textendash{} Path to an image file.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{nms}} (\sphinxstyleliteralemphasis{\sphinxupquote{float}}) \textendash{} Stands for non\sphinxhyphen{}maximal suppresion. If computer vision model detects and an 
+object in the image with a confidence value less than the nms value, it 
+will not include it in the returned results.
+
+\end{itemize}
+
+\sphinxlineitem{Return type}
+\sphinxAtStartPar
+dict
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 \index{list\_classes() (comp\_viz.object\_detection.model.Model method)@\spxentry{list\_classes()}\spxextra{comp\_viz.object\_detection.model.Model method}}
@@ -152,15 +236,9 @@ A naive Bayesian spam filter
 \pysigstartsignatures
 \pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{list\_classes}}}{}{}
 \pysigstopsignatures
-\end{fulllineitems}
+\sphinxAtStartPar
+Print the object classes that the computer vision model is detecting for in images.
 
-\index{predict() (comp\_viz.object\_detection.model.Model method)@\spxentry{predict()}\spxextra{comp\_viz.object\_detection.model.Model method}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{comp_viz.object_detection:comp_viz.object_detection.model.Model.predict}}
-\pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{predict}}}{\emph{\DUrole{n}{fname}}, \emph{\DUrole{n}{nms}}}{{ $\rightarrow$ tuple}}
-\pysigstopsignatures
 \end{fulllineitems}
 
 \index{reset\_classes() (comp\_viz.object\_detection.model.Model method)@\spxentry{reset\_classes()}\spxextra{comp\_viz.object\_detection.model.Model method}}
@@ -170,6 +248,9 @@ A naive Bayesian spam filter
 \pysigstartsignatures
 \pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{reset\_classes}}}{}{}
 \pysigstopsignatures
+\sphinxAtStartPar
+Change the object classes that the computer vision model is detecting for in images back to defaults.
+
 \end{fulllineitems}
 
 \index{set\_classes() (comp\_viz.object\_detection.model.Model method)@\spxentry{set\_classes()}\spxextra{comp\_viz.object\_detection.model.Model method}}
@@ -179,6 +260,15 @@ A naive Bayesian spam filter
 \pysigstartsignatures
 \pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{set\_classes}}}{\emph{\DUrole{n}{object\_classes}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{list}}}{}
 \pysigstopsignatures
+\sphinxAtStartPar
+Change the object classes that the computer vision model is detecting for in images. Ensures validity by referencing the original list of available object classes when model was first instantiatied.
+\begin{quote}\begin{description}
+\sphinxlineitem{Parameters}
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{object\_classes}} (\sphinxstyleliteralemphasis{\sphinxupquote{List}}) \textendash{} List of new object classes to detect for. Ex. “person”, “bicycle”, “banana”.
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 \index{show\_image\_prediction() (comp\_viz.object\_detection.model.Model method)@\spxentry{show\_image\_prediction()}\spxextra{comp\_viz.object\_detection.model.Model method}}
@@ -186,8 +276,26 @@ A naive Bayesian spam filter
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{comp_viz.object_detection:comp_viz.object_detection.model.Model.show_image_prediction}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{show\_image\_prediction}}}{\emph{\DUrole{n}{fname}}, \emph{\DUrole{n}{nms}\DUrole{o}{=}\DUrole{default_value}{0.5}}}{}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{show\_image\_prediction}}}{\emph{\DUrole{n}{fname}}, \emph{\DUrole{n}{nms}\DUrole{o}{=}\DUrole{default_value}{0.0}}}{}
 \pysigstopsignatures
+\sphinxAtStartPar
+Print image with the bounding box detections and the prediction made by the computer vision model.
+\begin{quote}\begin{description}
+\sphinxlineitem{Parameters}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{fname}} (\sphinxstyleliteralemphasis{\sphinxupquote{string}}) \textendash{} Path to an image file.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{nms}} (\sphinxstyleliteralemphasis{\sphinxupquote{float}}) \textendash{} Stands for non\sphinxhyphen{}maximal suppresion. If computer vision model detects and an 
+object in the image with a confidence value less than the nms value, it 
+will not include it in the returned results.
+
+\end{itemize}
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -207,18 +315,7 @@ A naive Bayesian spam filter
 \label{\detokenize{comp_viz.utils:submodules}}
 
 \paragraph{comp\_viz.utils.toolbox module}
-\label{\detokenize{comp_viz.utils:module-comp_viz.utils.toolbox}}\label{\detokenize{comp_viz.utils:comp-viz-utils-toolbox-module}}\index{module@\spxentry{module}!comp\_viz.utils.toolbox@\spxentry{comp\_viz.utils.toolbox}}\index{comp\_viz.utils.toolbox@\spxentry{comp\_viz.utils.toolbox}!module@\spxentry{module}}
-\sphinxAtStartPar
-Binary tree traversal.
-Routines
-——\textendash{}
-inorder\_traverse(tree: \sphinxtitleref{SupportedTreeType}, recursive: \sphinxtitleref{bool})
-\begin{quote}
-
-\sphinxAtStartPar
-Perform in\sphinxhyphen{}order traversal.
-\end{quote}
-\index{Models (class in comp\_viz.utils.toolbox)@\spxentry{Models}\spxextra{class in comp\_viz.utils.toolbox}}
+\label{\detokenize{comp_viz.utils:module-comp_viz.utils.toolbox}}\label{\detokenize{comp_viz.utils:comp-viz-utils-toolbox-module}}\index{module@\spxentry{module}!comp\_viz.utils.toolbox@\spxentry{comp\_viz.utils.toolbox}}\index{comp\_viz.utils.toolbox@\spxentry{comp\_viz.utils.toolbox}!module@\spxentry{module}}\index{Models (class in comp\_viz.utils.toolbox)@\spxentry{Models}\spxextra{class in comp\_viz.utils.toolbox}}
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{comp_viz.utils:comp_viz.utils.toolbox.Models}}
@@ -227,6 +324,9 @@ Perform in\sphinxhyphen{}order traversal.
 \pysigstopsignatures
 \sphinxAtStartPar
 Bases: \sphinxcode{\sphinxupquote{object}}
+
+\sphinxAtStartPar
+Utility class centered around conveying available functionality for the comp\_viz package.
 \index{get\_tasks() (comp\_viz.utils.toolbox.Models method)@\spxentry{get\_tasks()}\spxextra{comp\_viz.utils.toolbox.Models method}}
 
 \begin{fulllineitems}
@@ -234,6 +334,15 @@ Bases: \sphinxcode{\sphinxupquote{object}}
 \pysigstartsignatures
 \pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{get\_tasks}}}{}{}
 \pysigstopsignatures
+\sphinxAtStartPar
+Get available tasks for the comp\_viz package.
+\begin{quote}\begin{description}
+\sphinxlineitem{Return type}
+\sphinxAtStartPar
+list
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 \index{list\_tasks() (comp\_viz.utils.toolbox.Models method)@\spxentry{list\_tasks()}\spxextra{comp\_viz.utils.toolbox.Models method}}
@@ -243,6 +352,9 @@ Bases: \sphinxcode{\sphinxupquote{object}}
 \pysigstartsignatures
 \pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{list\_tasks}}}{}{}
 \pysigstopsignatures
+\sphinxAtStartPar
+Show available tasks for the comp\_viz package.
+
 \end{fulllineitems}
 
 
@@ -257,6 +369,9 @@ Bases: \sphinxcode{\sphinxupquote{object}}
 \pysigstopsignatures
 \sphinxAtStartPar
 Bases: \sphinxcode{\sphinxupquote{object}}
+
+\sphinxAtStartPar
+Utility class centered around object detection tasks relevant but not limited to the comp\_viz object detection package.
 \index{format\_object\_classes() (comp\_viz.utils.toolbox.ObjectDetection method)@\spxentry{format\_object\_classes()}\spxextra{comp\_viz.utils.toolbox.ObjectDetection method}}
 
 \begin{fulllineitems}
@@ -264,6 +379,19 @@ Bases: \sphinxcode{\sphinxupquote{object}}
 \pysigstartsignatures
 \pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{format\_object\_classes}}}{}{{ $\rightarrow$ list}}
 \pysigstopsignatures
+\sphinxAtStartPar
+Given a list of object classes, format all the elements such that they are readable by the network.
+\begin{quote}\begin{description}
+\sphinxlineitem{Parameters}
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{object\_classes}} (\sphinxstyleliteralemphasis{\sphinxupquote{list}}) \textendash{} List of object classes.
+
+\sphinxlineitem{Return type}
+\sphinxAtStartPar
+list
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 \index{get\_network\_resolution() (comp\_viz.utils.toolbox.ObjectDetection method)@\spxentry{get\_network\_resolution()}\spxextra{comp\_viz.utils.toolbox.ObjectDetection method}}
@@ -273,6 +401,19 @@ Bases: \sphinxcode{\sphinxupquote{object}}
 \pysigstartsignatures
 \pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{get\_network\_resolution}}}{}{}
 \pysigstopsignatures
+\sphinxAtStartPar
+Get image inference resolution of the specified network.
+\begin{quote}\begin{description}
+\sphinxlineitem{Parameters}
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{net\_name}} (\sphinxstyleliteralemphasis{\sphinxupquote{string}}) \textendash{} A valid network name among the results in get\_networks() or list\_networks() method.
+
+\sphinxlineitem{Return type}
+\sphinxAtStartPar
+int
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 \index{get\_networks() (comp\_viz.utils.toolbox.ObjectDetection method)@\spxentry{get\_networks()}\spxextra{comp\_viz.utils.toolbox.ObjectDetection method}}
@@ -282,6 +423,15 @@ Bases: \sphinxcode{\sphinxupquote{object}}
 \pysigstartsignatures
 \pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{get\_networks}}}{}{}
 \pysigstopsignatures
+\sphinxAtStartPar
+Get list of the available networks that can be used with the comp\_viz object\_detection sub\sphinxhyphen{}package.
+\begin{quote}\begin{description}
+\sphinxlineitem{Return type}
+\sphinxAtStartPar
+List
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 \index{get\_pred\_bboxes\_image() (comp\_viz.utils.toolbox.ObjectDetection method)@\spxentry{get\_pred\_bboxes\_image()}\spxextra{comp\_viz.utils.toolbox.ObjectDetection method}}
@@ -291,6 +441,38 @@ Bases: \sphinxcode{\sphinxupquote{object}}
 \pysigstartsignatures
 \pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{get\_pred\_bboxes\_image}}}{\emph{\DUrole{n}{bboxes}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{list}}, \emph{\DUrole{n}{labels}\DUrole{o}{=}\DUrole{default_value}{{[}{]}}}, \emph{\DUrole{n}{class\_names}\DUrole{o}{=}\DUrole{default_value}{{[}{]}}}, \emph{\DUrole{n}{scores}\DUrole{o}{=}\DUrole{default_value}{{[}{]}}}}{}
 \pysigstopsignatures
+\sphinxAtStartPar
+Given an image and detection bounding box features, plot the bounding box to the image and return it.
+\begin{quote}\begin{description}
+\sphinxlineitem{Parameters}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{img\_fname}} (\sphinxstyleliteralemphasis{\sphinxupquote{string}}) \textendash{} Path to image to plot bounding box to.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{bboxes}} (\sphinxstyleliteralemphasis{\sphinxupquote{List}}\sphinxstyleliteralemphasis{\sphinxupquote{{[}}}\sphinxstyleliteralemphasis{\sphinxupquote{List}}\sphinxstyleliteralemphasis{\sphinxupquote{{]}}}) \textendash{} Bounding boxes of form {[}{[}x\_min,y\_min,x\_max,y\_max{]},…{]} to plot to the image/
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{labels}} (\sphinxstyleliteralemphasis{\sphinxupquote{List}}\sphinxstyleliteralemphasis{\sphinxupquote{{[}}}\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{{]}}}) \textendash{} Class id values to mape to each bounding box and class name.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{class\_names}} (\sphinxstyleliteralemphasis{\sphinxupquote{List}}\sphinxstyleliteralemphasis{\sphinxupquote{{[}}}\sphinxstyleliteralemphasis{\sphinxupquote{string}}\sphinxstyleliteralemphasis{\sphinxupquote{{]}}}) \textendash{} List of object classes:
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{scores}} (\sphinxstyleliteralemphasis{\sphinxupquote{List}}\sphinxstyleliteralemphasis{\sphinxupquote{{[}}}\sphinxstyleliteralemphasis{\sphinxupquote{float}}\sphinxstyleliteralemphasis{\sphinxupquote{{]}}}) \textendash{} List of confidence values for the bounding boxes.
+
+\end{itemize}
+
+\sphinxlineitem{Return type}
+\sphinxAtStartPar
+numpy.ndarray
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 \index{list\_networks() (comp\_viz.utils.toolbox.ObjectDetection method)@\spxentry{list\_networks()}\spxextra{comp\_viz.utils.toolbox.ObjectDetection method}}
@@ -300,6 +482,9 @@ Bases: \sphinxcode{\sphinxupquote{object}}
 \pysigstartsignatures
 \pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{list\_networks}}}{}{}
 \pysigstopsignatures
+\sphinxAtStartPar
+Show list of the available networks that can be used with the comp\_viz object\_detection sub\sphinxhyphen{}package.
+
 \end{fulllineitems}
 
 \index{resize\_bbox() (comp\_viz.utils.toolbox.ObjectDetection method)@\spxentry{resize\_bbox()}\spxextra{comp\_viz.utils.toolbox.ObjectDetection method}}
@@ -309,6 +494,30 @@ Bases: \sphinxcode{\sphinxupquote{object}}
 \pysigstartsignatures
 \pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{resize\_bbox}}}{\emph{\DUrole{n}{orig}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{tuple}}, \emph{\DUrole{n}{dest}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{tuple}}}{}
 \pysigstopsignatures
+\sphinxAtStartPar
+Given a bounding box of the format {[}x,min, y\_min, x\_max, y\_max{]} and the original image resolution, return a new bounding box resized to the desired image size.
+\begin{quote}\begin{description}
+\sphinxlineitem{Parameters}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{bbox}} (\sphinxstyleliteralemphasis{\sphinxupquote{list}}) \textendash{} Bounding box of the form {[}x\_min, y\_min, x\_max, y\_max{]}.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{orig}} (\sphinxstyleliteralemphasis{\sphinxupquote{Tuple}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{ndarray.shape}}) \textendash{} Original image resolution of form (height, width, shape). Ex. (500,800,3)
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{dest}} (\sphinxstyleliteralemphasis{\sphinxupquote{Tuple}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{ndarray.shape}}) \textendash{} Image to resize resolution of form (height, width, shape). Ex. (600,900,3)
+
+\end{itemize}
+
+\sphinxlineitem{Return type}
+\sphinxAtStartPar
+list
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 \index{show\_pred\_bboxes\_image() (comp\_viz.utils.toolbox.ObjectDetection method)@\spxentry{show\_pred\_bboxes\_image()}\spxextra{comp\_viz.utils.toolbox.ObjectDetection method}}
@@ -318,6 +527,38 @@ Bases: \sphinxcode{\sphinxupquote{object}}
 \pysigstartsignatures
 \pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{show\_pred\_bboxes\_image}}}{\emph{\DUrole{n}{bboxes}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{list}}, \emph{\DUrole{n}{labels}\DUrole{o}{=}\DUrole{default_value}{{[}{]}}}, \emph{\DUrole{n}{class\_names}\DUrole{o}{=}\DUrole{default_value}{{[}{]}}}, \emph{\DUrole{n}{scores}\DUrole{o}{=}\DUrole{default_value}{{[}{]}}}}{}
 \pysigstopsignatures
+\sphinxAtStartPar
+Given an image and detection bounding box features, plot the bounding box to the image and show it.
+\begin{quote}\begin{description}
+\sphinxlineitem{Parameters}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{img\_fname}} (\sphinxstyleliteralemphasis{\sphinxupquote{string}}) \textendash{} Path to image to plot bounding box to.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{bboxes}} (\sphinxstyleliteralemphasis{\sphinxupquote{List}}\sphinxstyleliteralemphasis{\sphinxupquote{{[}}}\sphinxstyleliteralemphasis{\sphinxupquote{List}}\sphinxstyleliteralemphasis{\sphinxupquote{{]}}}) \textendash{} Bounding boxes of form {[}{[}x\_min,y\_min,x\_max,y\_max{]},…{]} to plot to the image/
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{labels}} (\sphinxstyleliteralemphasis{\sphinxupquote{List}}\sphinxstyleliteralemphasis{\sphinxupquote{{[}}}\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{{]}}}) \textendash{} Class id values to mape to each bounding box and class name.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{class\_names}} (\sphinxstyleliteralemphasis{\sphinxupquote{List}}\sphinxstyleliteralemphasis{\sphinxupquote{{[}}}\sphinxstyleliteralemphasis{\sphinxupquote{string}}\sphinxstyleliteralemphasis{\sphinxupquote{{]}}}) \textendash{} List of object classes:
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{scores}} (\sphinxstyleliteralemphasis{\sphinxupquote{List}}\sphinxstyleliteralemphasis{\sphinxupquote{{[}}}\sphinxstyleliteralemphasis{\sphinxupquote{float}}\sphinxstyleliteralemphasis{\sphinxupquote{{]}}}) \textendash{} List of confidence values for the bounding boxes.
+
+\end{itemize}
+
+\sphinxlineitem{Return type}
+\sphinxAtStartPar
+void
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -332,6 +573,9 @@ Bases: \sphinxcode{\sphinxupquote{object}}
 \pysigstopsignatures
 \sphinxAtStartPar
 Bases: \sphinxcode{\sphinxupquote{object}}
+
+\sphinxAtStartPar
+Utility class centered around images and filesnames.
 \index{exists() (comp\_viz.utils.toolbox.Tools method)@\spxentry{exists()}\spxextra{comp\_viz.utils.toolbox.Tools method}}
 
 \begin{fulllineitems}
@@ -339,6 +583,19 @@ Bases: \sphinxcode{\sphinxupquote{object}}
 \pysigstartsignatures
 \pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{exists}}}{}{{ $\rightarrow$ bool}}
 \pysigstopsignatures
+\sphinxAtStartPar
+Boolean function to determine if path to filename exists.
+\begin{quote}\begin{description}
+\sphinxlineitem{Parameters}
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{fname}} (\sphinxstyleliteralemphasis{\sphinxupquote{string}}) \textendash{} Path to file.
+
+\sphinxlineitem{Return type}
+\sphinxAtStartPar
+boolean
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 \index{filename\_show\_image() (comp\_viz.utils.toolbox.Tools method)@\spxentry{filename\_show\_image()}\spxextra{comp\_viz.utils.toolbox.Tools method}}
@@ -348,6 +605,41 @@ Bases: \sphinxcode{\sphinxupquote{object}}
 \pysigstartsignatures
 \pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{filename\_show\_image}}}{}{}
 \pysigstopsignatures
+\sphinxAtStartPar
+Given path to an image file, show the said image file to the screen.
+\begin{quote}\begin{description}
+\sphinxlineitem{Parameters}
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{fname}} (\sphinxstyleliteralemphasis{\sphinxupquote{string}}) \textendash{} Path to image.
+
+\sphinxlineitem{Return type}
+\sphinxAtStartPar
+void
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+\index{get\_cv2\_image() (comp\_viz.utils.toolbox.Tools method)@\spxentry{get\_cv2\_image()}\spxextra{comp\_viz.utils.toolbox.Tools method}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{comp_viz.utils:comp_viz.utils.toolbox.Tools.get_cv2_image}}
+\pysigstartsignatures
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{get\_cv2\_image}}}{}{}
+\pysigstopsignatures
+\sphinxAtStartPar
+Given path to an image file, return the said image in the form of an numpy ndarray using openCV.
+\begin{quote}\begin{description}
+\sphinxlineitem{Parameters}
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{fname}} (\sphinxstyleliteralemphasis{\sphinxupquote{string}}) \textendash{} Path to file.
+
+\sphinxlineitem{Return type}
+\sphinxAtStartPar
+numpy.ndarray
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 \index{get\_mxnet\_image() (comp\_viz.utils.toolbox.Tools method)@\spxentry{get\_mxnet\_image()}\spxextra{comp\_viz.utils.toolbox.Tools method}}
@@ -357,6 +649,19 @@ Bases: \sphinxcode{\sphinxupquote{object}}
 \pysigstartsignatures
 \pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{get\_mxnet\_image}}}{}{}
 \pysigstopsignatures
+\sphinxAtStartPar
+Given path to an image file, return the said image in the form of an mxnet ndarray.
+\begin{quote}\begin{description}
+\sphinxlineitem{Parameters}
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{fname}} (\sphinxstyleliteralemphasis{\sphinxupquote{string}}) \textendash{} Path to file.
+
+\sphinxlineitem{Return type}
+\sphinxAtStartPar
+mxnet.ndarray.ndarray.NDArray
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 \index{save\_image() (comp\_viz.utils.toolbox.Tools method)@\spxentry{save\_image()}\spxextra{comp\_viz.utils.toolbox.Tools method}}
@@ -366,6 +671,26 @@ Bases: \sphinxcode{\sphinxupquote{object}}
 \pysigstartsignatures
 \pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{save\_image}}}{\emph{\DUrole{n}{path}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}}{}
 \pysigstopsignatures
+\sphinxAtStartPar
+Given an image in the form of an ndarray, save it to the path specified.
+\begin{quote}\begin{description}
+\sphinxlineitem{Parameters}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{img}} (\sphinxstyleliteralemphasis{\sphinxupquote{numpy.ndarray}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{mxnet.ndarray.ndarray.NDArray}}) \textendash{} Image in the form of an ndarray.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{path}} (\sphinxstyleliteralemphasis{\sphinxupquote{string}}) \textendash{} Path to save image to.
+
+\end{itemize}
+
+\sphinxlineitem{Return type}
+\sphinxAtStartPar
+void
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 \index{show\_image() (comp\_viz.utils.toolbox.Tools method)@\spxentry{show\_image()}\spxextra{comp\_viz.utils.toolbox.Tools method}}
@@ -375,6 +700,19 @@ Bases: \sphinxcode{\sphinxupquote{object}}
 \pysigstartsignatures
 \pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{show\_image}}}{}{}
 \pysigstopsignatures
+\sphinxAtStartPar
+Given an image in the form of an numpy ndarray, show the image to the screen.
+\begin{quote}\begin{description}
+\sphinxlineitem{Parameters}
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{img}} (\sphinxstyleliteralemphasis{\sphinxupquote{numpy.ndarray}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{mxnet.ndarray.ndarray.NDArray}}) \textendash{} Image in the form of an ndarray.
+
+\sphinxlineitem{Return type}
+\sphinxAtStartPar
+void
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 \index{verify\_exists() (comp\_viz.utils.toolbox.Tools method)@\spxentry{verify\_exists()}\spxextra{comp\_viz.utils.toolbox.Tools method}}
@@ -407,6 +745,15 @@ Bases: \sphinxcode{\sphinxupquote{object}}
 \pysigstopsignatures
 \sphinxAtStartPar
 Bases: \sphinxcode{\sphinxupquote{object}}
+
+\sphinxAtStartPar
+Most parental configuration class for the comp\_viz package.
+\begin{quote}\begin{description}
+\sphinxlineitem{Variables}
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{version}} \textendash{} Version number for the comp\_viz package.
+
+\end{description}\end{quote}
 \index{version (comp\_viz.config.CompViz attribute)@\spxentry{version}\spxextra{comp\_viz.config.CompViz attribute}}
 
 \begin{fulllineitems}
@@ -427,7 +774,16 @@ Bases: \sphinxcode{\sphinxupquote{object}}
 \pysigline{\sphinxbfcode{\sphinxupquote{class\DUrole{w}{  }}}\sphinxcode{\sphinxupquote{comp\_viz.config.}}\sphinxbfcode{\sphinxupquote{Models}}}
 \pysigstopsignatures
 \sphinxAtStartPar
-Bases: \sphinxcode{\sphinxupquote{object}}
+Bases: {\hyperref[\detokenize{comp_viz:comp_viz.config.CompViz}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{CompViz}}}}}
+
+\sphinxAtStartPar
+Configuration class for available functionality for the comp\_viz package.
+\begin{quote}\begin{description}
+\sphinxlineitem{Variables}
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{tasks}} \textendash{} List of supported tasks provided by comp\_viz package.
+
+\end{description}\end{quote}
 \index{tasks (comp\_viz.config.Models attribute)@\spxentry{tasks}\spxextra{comp\_viz.config.Models attribute}}
 
 \begin{fulllineitems}
@@ -448,7 +804,16 @@ Bases: \sphinxcode{\sphinxupquote{object}}
 \pysigline{\sphinxbfcode{\sphinxupquote{class\DUrole{w}{  }}}\sphinxcode{\sphinxupquote{comp\_viz.config.}}\sphinxbfcode{\sphinxupquote{ObjectDetection}}}
 \pysigstopsignatures
 \sphinxAtStartPar
-Bases: \sphinxcode{\sphinxupquote{object}}
+Bases: {\hyperref[\detokenize{comp_viz:comp_viz.config.CompViz}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{CompViz}}}}}
+
+\sphinxAtStartPar
+Configuration class for the object detection task for the comp\_viz package.
+\begin{quote}\begin{description}
+\sphinxlineitem{Variables}
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{networks}} \textendash{} Dictionary of supported networks for object detection for the comp viz package. Each network has an associated inference resolution.
+
+\end{description}\end{quote}
 \index{networks (comp\_viz.config.ObjectDetection attribute)@\spxentry{networks}\spxextra{comp\_viz.config.ObjectDetection attribute}}
 
 \begin{fulllineitems}
