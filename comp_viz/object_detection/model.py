@@ -6,12 +6,20 @@ import time
 from .. import utils
 
 class Model:
-  """A naive Bayesian spam filter"""
+  """Computer vision object detection model.
+
+  :param network_name: A string representing the computer vision network that will be used
+                       for detection.
+  :type network_name: string
+  :ivar net_name: Holds the string literal for the chosen computer vision network.
+  :ivar net: Holds the crucial mxnet-gluoncv instantiated computer vision model for which
+             our package aims to provides a layer of abstraction over.
+  :ivar inference_resolution: Stores the resolution of images we are to perform inference on.
+  :ivar default_object_classes: Stores the default object classes that come with chosen network:
+  """
+
   def __init__(self,network_name):
-    """ inits Spamfilter with training data
-    
-    :param training_dir: path of training directory with subdirectories
-      '/ham' and '/spam'
+    """Constructor method
     """
     self.net_name = network_name
     self.net = gluoncv.model_zoo.get_model(network_name, pretrained=True)
@@ -19,15 +27,30 @@ class Model:
     self.default_object_classes = gluoncv.model_zoo.get_model(network_name, pretrained=True).classes
 
   def list_classes(self):
+    """Print the object classes that the computer vision model is detecting for in images."""
     print(self._get_classes())
 
   def get_classes(self):
+    """Get list of the object classes that the computer vision model is detecting for in images.
+    
+    :rtype: List
+    """
     return (self._get_classes())
 
-  def get_prediction(self,fname,nms=.5) -> dict:
+  def get_prediction(self,fname,nms=0.) -> dict:
+    """Get prediction made for an image by computer vision model.
+    
+    :param fname: Path to an image file.
+    :type fname: string
+    :param nms: Stands for non-maximal suppresion. If computer vision model detects and an 
+                object in the image with a confidence value less than the nms value, it 
+                will not include it in the returned results. 
+    :type nms: float
+    :rtype: dict            
+    """
     utils.Tools.verify_exists(fname)
     start = time.time()
-    cids, scores, bboxes = self.predict(fname,nms)
+    cids, scores, bboxes = self._predict(fname,nms)
     end = time.time()
     prediction = {}
     prediction["image"] = str(fname)
@@ -39,7 +62,18 @@ class Model:
     prediction['time'] = round(float(end - start),4)
     return prediction
 
-  def get_image_prediction(self,fname,nms=0):
+  def get_image_prediction(self,fname,nms=0.):
+    """Get image with the bounding box detections and the prediction made by the computer vision model.
+    
+    :param fname: Path to an image file.
+    :type fname: string
+    :param nms: Stands for non-maximal suppresion. If computer vision model detects and an 
+                object in the image with a confidence value less than the nms value, it 
+                will not include it in the returned results.
+    :type nms: float
+    :return: A pair of values, an image in the form of a numpy array, and the prediction dict.
+    :rtype: numpy.array, dict
+    """
     pred = self.get_prediction(fname)
     pred_img = utils.ObjectDetection.get_pred_bboxes_image(fname,
                                                            pred["bounding_boxes"],
@@ -48,23 +82,26 @@ class Model:
                                                            pred["confidence_scores"])
     return pred_img, pred
 
-  def show_image_prediction(self,fname,nms=.5):
+  def show_image_prediction(self,fname,nms=0.):
+    """Print image with the bounding box detections and the prediction made by the computer vision model.
+    
+    :param fname: Path to an image file.
+    :type fname: string
+    :param nms: Stands for non-maximal suppresion. If computer vision model detects and an 
+                object in the image with a confidence value less than the nms value, it 
+                will not include it in the returned results.
+    :type nms: float
+    """
     image, prediction = self.get_image_prediction(fname)
     utils.Tools.show_image(image)
     print(prediction)
 
-  def predict(self,fname,nms) -> tuple:
-    base_img = mxnet.image.imread(fname)
-    x, img = self.__prepare_image(base_img)
-    pred = self.net(x)
-    cids, scores, bboxes = self._extract_cids_scores_bboxes(pred)
-    bboxes = [utils.ObjectDetection.resize_bbox(bbox,img.shape,base_img.shape) for bbox in bboxes]
-    if nms == 0:
-      return (cids,scores,bboxes)
-    nms_cids, nms_scores, nms_bboxes = self._apply_nms(cids, scores, bboxes, nms)
-    return (nms_cids,nms_scores,nms_bboxes)
-
   def set_classes(self,object_classes: list):
+    """Change the object classes that the computer vision model is detecting for in images. Ensures validity by referencing the original list of available object classes when model was first instantiatied.
+    
+    :param object_classes: List of new object classes to detect for. Ex. "person", "bicycle", "banana".
+    :type object_classes: List
+    """
     unsupported = []
     for obj_class in object_classes:
       if obj_class not in self.default_object_classes:
@@ -75,8 +112,21 @@ class Model:
     print(f"Complete. Model set to detect for object classes: {self.get_classes()}.")
 
   def reset_classes(self):
+    """Change the object classes that the computer vision model is detecting for in images back to defaults.
+    """
     self.net.reset_class(self.default_object_classes,reuse_weights=self.default_object_classes)
     print("Object classes for detection restored to defaults.")
+
+  def _predict(self,fname,nms) -> tuple:
+    base_img = mxnet.image.imread(fname)
+    x, img = self.__prepare_image(base_img)
+    pred = self.net(x)
+    cids, scores, bboxes = self._extract_cids_scores_bboxes(pred)
+    bboxes = [utils.ObjectDetection.resize_bbox(bbox,img.shape,base_img.shape) for bbox in bboxes]
+    if nms == 0:
+      return (cids,scores,bboxes)
+    nms_cids, nms_scores, nms_bboxes = self._apply_nms(cids, scores, bboxes, nms)
+    return (nms_cids,nms_scores,nms_bboxes)
 
   def _get_classes(self):
     return self.net.classes
