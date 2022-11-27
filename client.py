@@ -1,3 +1,7 @@
+# Author(s): Lucas Hirt
+# Date modified: 11/27/2022
+# This program 
+
 import os
 import sys
 import json
@@ -87,7 +91,7 @@ if __name__ == "__main__":
       print(f"Image count: {len(images)}.")
       for img_fname in images:
         if produce_images:
-          img, pred = model.get_image_prediction(img_fname)
+          img, pred = model.get_image_prediction(img_fname,.5)
           comp_viz.utils.Tools.save_image(img,os.path.join(out_dir_path_images,os.path.basename(img_fname)))
         else:
           pred = model.get_prediction(img_fname)
