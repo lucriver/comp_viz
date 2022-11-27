@@ -13,6 +13,8 @@ class Models:
 
   def list_tasks():
     """Show available tasks for the comp_viz package. 
+
+    :rtype: void
     """
     print(Models._get_tasks())
 
@@ -33,6 +35,8 @@ class ObjectDetection:
 
   def list_networks():
     """Show list of the available networks that can be used with the comp_viz object_detection sub-package.
+
+    :rtype: void
     """
     print(ObjectDetection._get_networks())
 
@@ -123,10 +127,12 @@ class ObjectDetection:
     img = Tools.get_mxnet_image(img_fname)
     return gluoncv.utils.viz.cv_plot_bbox(img,numpy.array(bboxes),labels=numpy.array(labels),scores=numpy.array(scores),class_names=class_names,thresh=0.)
 
+  # Get list of networks available for object detection from config.py
   def _get_networks():
     return [network for network in obj_det_config.networks.keys()]
 
-  def _get_resolution(net_name):
+  # Get resolution for a specified network from config.py
+  def _get_resolution(net_name: str):
     return obj_det_config.networks[net_name]["resolution"]
 
 class Tools:
