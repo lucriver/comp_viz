@@ -1,3 +1,6 @@
+# Author(s): Lucas Hirt
+# Date Modified: 11/27/2022
+
 import os
 import mxnet
 import gluoncv

@@ -1,3 +1,6 @@
+# Author(s): Lucas Hirt
+# Date Modified: 11/27/2022
+
 class CompViz:
   """Most parental configuration class for the comp_viz package.
   

@@ -36,7 +36,7 @@
   \item \spxentry{get\_image\_prediction()}\spxextra{comp\_viz.object\_detection.model.Model method}, 
 		\hyperpage{3}
   \item \spxentry{get\_mxnet\_image()}\spxextra{comp\_viz.utils.toolbox.Tools method}, 
-		\hyperpage{11}
+		\hyperpage{12}
   \item \spxentry{get\_network\_resolution()}\spxextra{comp\_viz.utils.toolbox.ObjectDetection method}, 
 		\hyperpage{10}
   \item \spxentry{get\_networks()}\spxextra{comp\_viz.utils.toolbox.ObjectDetection method}, 

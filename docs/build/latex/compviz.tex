@@ -112,6 +112,25 @@ Comp Viz is a package currently composed of two subpackages\sphinxhyphen{} objec
 allowing for object detection related tasks, and the utils sub package, which hosts a variety of helper
 functions to better interact with, but not limited to, other comp viz subpackages.
 
+
+\begin{savenotes}\sphinxattablestart
+\sphinxthistablewithglobalstyle
+\sphinxthistablewithborderlessstyle
+\centering
+\begin{tabulary}{\linewidth}[t]{TTT}
+\sphinxtoprule
+\sphinxtableatstartofbodyhook
+\noindent\sphinxincludegraphics{{4}.jpg}
+&
+\noindent\sphinxincludegraphics{{223}.jpg}
+&
+\noindent\sphinxincludegraphics{{0}.jpg}
+\\
+\sphinxbottomrule
+\end{tabulary}
+\sphinxtableafterendhook\par
+\sphinxattableend\end{savenotes}
+
 \sphinxstepscope
 
 
@@ -355,6 +374,9 @@ void
 \paragraph{model.py}
 \label{\detokenize{comp_viz.object_detection:model-py}}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Author(s): Lucas Hirt}
+\PYG{c+c1}{\PYGZsh{} Date Modified: 11/27/2022}
+
 \PYG{k+kn}{import} \PYG{n+nn}{mxnet}
 \PYG{k+kn}{import} \PYG{n+nn}{gluoncv}
 \PYG{k+kn}{import} \PYG{n+nn}{numpy}
@@ -434,7 +456,7 @@ void
 \PYG{l+s+sd}{    :return: A pair of values, an image in the form of a numpy array, and the prediction dict.}
 \PYG{l+s+sd}{    :rtype: (numpy.array, dict)}
 \PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
-    \PYG{n}{pred} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{get\PYGZus{}prediction}\PYG{p}{(}\PYG{n}{fname}\PYG{p}{)}
+    \PYG{n}{pred} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{get\PYGZus{}prediction}\PYG{p}{(}\PYG{n}{fname}\PYG{p}{,}\PYG{n}{nms}\PYG{p}{)}
     \PYG{n}{pred\PYGZus{}img} \PYG{o}{=} \PYG{n}{utils}\PYG{o}{.}\PYG{n}{ObjectDetection}\PYG{o}{.}\PYG{n}{get\PYGZus{}pred\PYGZus{}bboxes\PYGZus{}image}\PYG{p}{(}\PYG{n}{fname}\PYG{p}{,}
                                                            \PYG{n}{pred}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{bounding\PYGZus{}boxes}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{]}\PYG{p}{,}
                                                            \PYG{n}{pred}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{class\PYGZus{}ids}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{]}\PYG{p}{,}
@@ -1006,6 +1028,9 @@ void
 \paragraph{toolbox.py}
 \label{\detokenize{comp_viz.utils:toolbox-py}}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Author(s): Lucas Hirt}
+\PYG{c+c1}{\PYGZsh{} Date Modified: 11/27/2022}
+
 \PYG{k+kn}{import} \PYG{n+nn}{os}
 \PYG{k+kn}{import} \PYG{n+nn}{mxnet}
 \PYG{k+kn}{import} \PYG{n+nn}{gluoncv}
@@ -1326,6 +1351,9 @@ Configuration class for the object detection task for the comp\_viz package.
 \subsection{config.py source code}
 \label{\detokenize{comp_viz:config-py-source-code}}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Author(s): Lucas Hirt}
+\PYG{c+c1}{\PYGZsh{} Date Modified: 11/27/2022}
+
 \PYG{k}{class} \PYG{n+nc}{CompViz}\PYG{p}{:}
   \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Most parental configuration class for the comp\PYGZus{}viz package.}
 \PYG{l+s+sd}{  }

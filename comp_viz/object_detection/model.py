@@ -1,3 +1,6 @@
+# Author(s): Lucas Hirt
+# Date Modified: 11/27/2022
+
 import mxnet
 import gluoncv
 import numpy
@@ -77,7 +80,7 @@ class Model:
     :return: A pair of values, an image in the form of a numpy array, and the prediction dict.
     :rtype: (numpy.array, dict)
     """
-    pred = self.get_prediction(fname)
+    pred = self.get_prediction(fname,nms)
     pred_img = utils.ObjectDetection.get_pred_bboxes_image(fname,
                                                            pred["bounding_boxes"],
                                                            pred["class_ids"],
