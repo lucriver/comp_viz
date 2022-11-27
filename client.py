@@ -1,6 +1,14 @@
 # Author(s): Lucas Hirt
 # Date modified: 11/27/2022
-# This program 
+# This program utilizes the comp viz package and serves as not only an example of a use case of comp viz
+# but in itself serves as a useful tool to perform object detection tasks for images provided by the user.
+# From the outputs of this program, not only can object detection image results be observed, but data
+# can be extrapolated from the results to measure data like network performace, like precision and speed.
+# Functionality
+#   - User can bring their own images and have the object detector scan for objects in the image
+#   - User can bring multiple images (potentially thousands!)
+#   - User can save results and calculate performance metrics from the data.
+#   - User can change the network and objects they are detecting for in realtime!
 
 import os
 import sys
