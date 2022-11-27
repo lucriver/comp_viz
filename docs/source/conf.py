@@ -18,7 +18,8 @@ release = '1.0.0'
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ["sphinx.ext.autodoc"]
+extensions = ["sphinx.ext.autodoc",
+              "sphinx.ext.viewcode"]
 
 templates_path = ['_templates']
 exclude_patterns = []
@@ -30,3 +31,18 @@ exclude_patterns = []
 
 html_theme = 'alabaster'
 html_static_path = ['_static']
+
+
+# --- pdf / latex ---
+latex_elements = {
+    "papersize": "letterpaper",
+    "pointsize": "10pt",
+    "figure_align": "htbp",
+    "preamble": r"""
+        \usepackage{listings}
+        \lstset{ 
+            language=Python,                 % the language of the code
+            title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+        }
+    """,
+}

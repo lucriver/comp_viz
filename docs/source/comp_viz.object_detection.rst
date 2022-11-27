@@ -1,10 +1,7 @@
-comp\_viz.object\_detection package
+Object Detection package
 ===================================
 
-Submodules
-----------
-
-comp\_viz.object\_detection.model module
+object_detection.model module
 ----------------------------------------
 
 .. automodule:: comp_viz.object_detection.model
@@ -19,3 +16,17 @@ Module contents
    :members:
    :undoc-members:
    :show-inheritance:
+
+model.py
+---------------
+
+.. only:: latex
+
+  .. literalinclude:: ../../comp_viz/object_detection/model.py
+
+\__init\__.py
+---------------
+
+.. only:: latex
+
+  .. literalinclude:: ../../comp_viz/object_detection/__init__.py

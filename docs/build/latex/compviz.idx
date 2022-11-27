@@ -1,45 +1,43 @@
-\indexentry{module@\spxentry{module}!comp\_viz.object\_detection.model@\spxentry{comp\_viz.object\_detection.model}|hyperpage}{1}
-\indexentry{comp\_viz.object\_detection.model@\spxentry{comp\_viz.object\_detection.model}!module@\spxentry{module}|hyperpage}{1}
-\indexentry{Model (class in comp\_viz.object\_detection.model)@\spxentry{Model}\spxextra{class in comp\_viz.object\_detection.model}|hyperpage}{1}
-\indexentry{get\_classes() (comp\_viz.object\_detection.model.Model method)@\spxentry{get\_classes()}\spxextra{comp\_viz.object\_detection.model.Model method}|hyperpage}{1}
-\indexentry{get\_image\_prediction() (comp\_viz.object\_detection.model.Model method)@\spxentry{get\_image\_prediction()}\spxextra{comp\_viz.object\_detection.model.Model method}|hyperpage}{1}
-\indexentry{get\_prediction() (comp\_viz.object\_detection.model.Model method)@\spxentry{get\_prediction()}\spxextra{comp\_viz.object\_detection.model.Model method}|hyperpage}{2}
-\indexentry{list\_classes() (comp\_viz.object\_detection.model.Model method)@\spxentry{list\_classes()}\spxextra{comp\_viz.object\_detection.model.Model method}|hyperpage}{2}
-\indexentry{reset\_classes() (comp\_viz.object\_detection.model.Model method)@\spxentry{reset\_classes()}\spxextra{comp\_viz.object\_detection.model.Model method}|hyperpage}{2}
-\indexentry{set\_classes() (comp\_viz.object\_detection.model.Model method)@\spxentry{set\_classes()}\spxextra{comp\_viz.object\_detection.model.Model method}|hyperpage}{2}
-\indexentry{show\_image\_prediction() (comp\_viz.object\_detection.model.Model method)@\spxentry{show\_image\_prediction()}\spxextra{comp\_viz.object\_detection.model.Model method}|hyperpage}{2}
-\indexentry{module@\spxentry{module}!comp\_viz.object\_detection@\spxentry{comp\_viz.object\_detection}|hyperpage}{2}
-\indexentry{comp\_viz.object\_detection@\spxentry{comp\_viz.object\_detection}!module@\spxentry{module}|hyperpage}{2}
-\indexentry{module@\spxentry{module}!comp\_viz.utils.toolbox@\spxentry{comp\_viz.utils.toolbox}|hyperpage}{2}
-\indexentry{comp\_viz.utils.toolbox@\spxentry{comp\_viz.utils.toolbox}!module@\spxentry{module}|hyperpage}{2}
-\indexentry{Models (class in comp\_viz.utils.toolbox)@\spxentry{Models}\spxextra{class in comp\_viz.utils.toolbox}|hyperpage}{2}
-\indexentry{get\_tasks() (comp\_viz.utils.toolbox.Models method)@\spxentry{get\_tasks()}\spxextra{comp\_viz.utils.toolbox.Models method}|hyperpage}{3}
-\indexentry{list\_tasks() (comp\_viz.utils.toolbox.Models method)@\spxentry{list\_tasks()}\spxextra{comp\_viz.utils.toolbox.Models method}|hyperpage}{3}
-\indexentry{ObjectDetection (class in comp\_viz.utils.toolbox)@\spxentry{ObjectDetection}\spxextra{class in comp\_viz.utils.toolbox}|hyperpage}{3}
-\indexentry{format\_object\_classes() (comp\_viz.utils.toolbox.ObjectDetection method)@\spxentry{format\_object\_classes()}\spxextra{comp\_viz.utils.toolbox.ObjectDetection method}|hyperpage}{3}
-\indexentry{get\_network\_resolution() (comp\_viz.utils.toolbox.ObjectDetection method)@\spxentry{get\_network\_resolution()}\spxextra{comp\_viz.utils.toolbox.ObjectDetection method}|hyperpage}{3}
-\indexentry{get\_networks() (comp\_viz.utils.toolbox.ObjectDetection method)@\spxentry{get\_networks()}\spxextra{comp\_viz.utils.toolbox.ObjectDetection method}|hyperpage}{3}
-\indexentry{get\_pred\_bboxes\_image() (comp\_viz.utils.toolbox.ObjectDetection method)@\spxentry{get\_pred\_bboxes\_image()}\spxextra{comp\_viz.utils.toolbox.ObjectDetection method}|hyperpage}{3}
-\indexentry{list\_networks() (comp\_viz.utils.toolbox.ObjectDetection method)@\spxentry{list\_networks()}\spxextra{comp\_viz.utils.toolbox.ObjectDetection method}|hyperpage}{3}
-\indexentry{resize\_bbox() (comp\_viz.utils.toolbox.ObjectDetection method)@\spxentry{resize\_bbox()}\spxextra{comp\_viz.utils.toolbox.ObjectDetection method}|hyperpage}{4}
-\indexentry{show\_pred\_bboxes\_image() (comp\_viz.utils.toolbox.ObjectDetection method)@\spxentry{show\_pred\_bboxes\_image()}\spxextra{comp\_viz.utils.toolbox.ObjectDetection method}|hyperpage}{4}
-\indexentry{Tools (class in comp\_viz.utils.toolbox)@\spxentry{Tools}\spxextra{class in comp\_viz.utils.toolbox}|hyperpage}{4}
-\indexentry{exists() (comp\_viz.utils.toolbox.Tools method)@\spxentry{exists()}\spxextra{comp\_viz.utils.toolbox.Tools method}|hyperpage}{4}
-\indexentry{filename\_show\_image() (comp\_viz.utils.toolbox.Tools method)@\spxentry{filename\_show\_image()}\spxextra{comp\_viz.utils.toolbox.Tools method}|hyperpage}{4}
-\indexentry{get\_cv2\_image() (comp\_viz.utils.toolbox.Tools method)@\spxentry{get\_cv2\_image()}\spxextra{comp\_viz.utils.toolbox.Tools method}|hyperpage}{4}
-\indexentry{get\_mxnet\_image() (comp\_viz.utils.toolbox.Tools method)@\spxentry{get\_mxnet\_image()}\spxextra{comp\_viz.utils.toolbox.Tools method}|hyperpage}{5}
-\indexentry{save\_image() (comp\_viz.utils.toolbox.Tools method)@\spxentry{save\_image()}\spxextra{comp\_viz.utils.toolbox.Tools method}|hyperpage}{5}
-\indexentry{show\_image() (comp\_viz.utils.toolbox.Tools method)@\spxentry{show\_image()}\spxextra{comp\_viz.utils.toolbox.Tools method}|hyperpage}{5}
-\indexentry{verify\_exists() (comp\_viz.utils.toolbox.Tools method)@\spxentry{verify\_exists()}\spxextra{comp\_viz.utils.toolbox.Tools method}|hyperpage}{5}
-\indexentry{module@\spxentry{module}!comp\_viz.utils@\spxentry{comp\_viz.utils}|hyperpage}{5}
-\indexentry{comp\_viz.utils@\spxentry{comp\_viz.utils}!module@\spxentry{module}|hyperpage}{5}
-\indexentry{module@\spxentry{module}!comp\_viz.config@\spxentry{comp\_viz.config}|hyperpage}{5}
-\indexentry{comp\_viz.config@\spxentry{comp\_viz.config}!module@\spxentry{module}|hyperpage}{5}
-\indexentry{CompViz (class in comp\_viz.config)@\spxentry{CompViz}\spxextra{class in comp\_viz.config}|hyperpage}{5}
-\indexentry{version (comp\_viz.config.CompViz attribute)@\spxentry{version}\spxextra{comp\_viz.config.CompViz attribute}|hyperpage}{5}
-\indexentry{Models (class in comp\_viz.config)@\spxentry{Models}\spxextra{class in comp\_viz.config}|hyperpage}{5}
-\indexentry{tasks (comp\_viz.config.Models attribute)@\spxentry{tasks}\spxextra{comp\_viz.config.Models attribute}|hyperpage}{6}
-\indexentry{ObjectDetection (class in comp\_viz.config)@\spxentry{ObjectDetection}\spxextra{class in comp\_viz.config}|hyperpage}{6}
-\indexentry{networks (comp\_viz.config.ObjectDetection attribute)@\spxentry{networks}\spxextra{comp\_viz.config.ObjectDetection attribute}|hyperpage}{6}
-\indexentry{module@\spxentry{module}!comp\_viz@\spxentry{comp\_viz}|hyperpage}{6}
-\indexentry{comp\_viz@\spxentry{comp\_viz}!module@\spxentry{module}|hyperpage}{6}
+\indexentry{module@\spxentry{module}!comp\_viz.object\_detection.model@\spxentry{comp\_viz.object\_detection.model}|hyperpage}{3}
+\indexentry{comp\_viz.object\_detection.model@\spxentry{comp\_viz.object\_detection.model}!module@\spxentry{module}|hyperpage}{3}
+\indexentry{Model (class in comp\_viz.object\_detection.model)@\spxentry{Model}\spxextra{class in comp\_viz.object\_detection.model}|hyperpage}{3}
+\indexentry{get\_classes() (comp\_viz.object\_detection.model.Model method)@\spxentry{get\_classes()}\spxextra{comp\_viz.object\_detection.model.Model method}|hyperpage}{3}
+\indexentry{get\_image\_prediction() (comp\_viz.object\_detection.model.Model method)@\spxentry{get\_image\_prediction()}\spxextra{comp\_viz.object\_detection.model.Model method}|hyperpage}{3}
+\indexentry{get\_prediction() (comp\_viz.object\_detection.model.Model method)@\spxentry{get\_prediction()}\spxextra{comp\_viz.object\_detection.model.Model method}|hyperpage}{4}
+\indexentry{list\_classes() (comp\_viz.object\_detection.model.Model method)@\spxentry{list\_classes()}\spxextra{comp\_viz.object\_detection.model.Model method}|hyperpage}{4}
+\indexentry{reset\_classes() (comp\_viz.object\_detection.model.Model method)@\spxentry{reset\_classes()}\spxextra{comp\_viz.object\_detection.model.Model method}|hyperpage}{4}
+\indexentry{set\_classes() (comp\_viz.object\_detection.model.Model method)@\spxentry{set\_classes()}\spxextra{comp\_viz.object\_detection.model.Model method}|hyperpage}{4}
+\indexentry{show\_image\_prediction() (comp\_viz.object\_detection.model.Model method)@\spxentry{show\_image\_prediction()}\spxextra{comp\_viz.object\_detection.model.Model method}|hyperpage}{4}
+\indexentry{module@\spxentry{module}!comp\_viz.object\_detection@\spxentry{comp\_viz.object\_detection}|hyperpage}{5}
+\indexentry{comp\_viz.object\_detection@\spxentry{comp\_viz.object\_detection}!module@\spxentry{module}|hyperpage}{5}
+\indexentry{module@\spxentry{module}!comp\_viz.utils.toolbox@\spxentry{comp\_viz.utils.toolbox}|hyperpage}{9}
+\indexentry{comp\_viz.utils.toolbox@\spxentry{comp\_viz.utils.toolbox}!module@\spxentry{module}|hyperpage}{9}
+\indexentry{Models (class in comp\_viz.utils.toolbox)@\spxentry{Models}\spxextra{class in comp\_viz.utils.toolbox}|hyperpage}{9}
+\indexentry{get\_tasks() (comp\_viz.utils.toolbox.Models method)@\spxentry{get\_tasks()}\spxextra{comp\_viz.utils.toolbox.Models method}|hyperpage}{9}
+\indexentry{list\_tasks() (comp\_viz.utils.toolbox.Models method)@\spxentry{list\_tasks()}\spxextra{comp\_viz.utils.toolbox.Models method}|hyperpage}{9}
+\indexentry{ObjectDetection (class in comp\_viz.utils.toolbox)@\spxentry{ObjectDetection}\spxextra{class in comp\_viz.utils.toolbox}|hyperpage}{10}
+\indexentry{format\_object\_classes() (comp\_viz.utils.toolbox.ObjectDetection method)@\spxentry{format\_object\_classes()}\spxextra{comp\_viz.utils.toolbox.ObjectDetection method}|hyperpage}{10}
+\indexentry{get\_network\_resolution() (comp\_viz.utils.toolbox.ObjectDetection method)@\spxentry{get\_network\_resolution()}\spxextra{comp\_viz.utils.toolbox.ObjectDetection method}|hyperpage}{10}
+\indexentry{get\_networks() (comp\_viz.utils.toolbox.ObjectDetection method)@\spxentry{get\_networks()}\spxextra{comp\_viz.utils.toolbox.ObjectDetection method}|hyperpage}{10}
+\indexentry{get\_pred\_bboxes\_image() (comp\_viz.utils.toolbox.ObjectDetection method)@\spxentry{get\_pred\_bboxes\_image()}\spxextra{comp\_viz.utils.toolbox.ObjectDetection method}|hyperpage}{10}
+\indexentry{list\_networks() (comp\_viz.utils.toolbox.ObjectDetection method)@\spxentry{list\_networks()}\spxextra{comp\_viz.utils.toolbox.ObjectDetection method}|hyperpage}{10}
+\indexentry{resize\_bbox() (comp\_viz.utils.toolbox.ObjectDetection method)@\spxentry{resize\_bbox()}\spxextra{comp\_viz.utils.toolbox.ObjectDetection method}|hyperpage}{10}
+\indexentry{show\_pred\_bboxes\_image() (comp\_viz.utils.toolbox.ObjectDetection method)@\spxentry{show\_pred\_bboxes\_image()}\spxextra{comp\_viz.utils.toolbox.ObjectDetection method}|hyperpage}{11}
+\indexentry{Tools (class in comp\_viz.utils.toolbox)@\spxentry{Tools}\spxextra{class in comp\_viz.utils.toolbox}|hyperpage}{11}
+\indexentry{exists() (comp\_viz.utils.toolbox.Tools method)@\spxentry{exists()}\spxextra{comp\_viz.utils.toolbox.Tools method}|hyperpage}{11}
+\indexentry{filename\_show\_image() (comp\_viz.utils.toolbox.Tools method)@\spxentry{filename\_show\_image()}\spxextra{comp\_viz.utils.toolbox.Tools method}|hyperpage}{11}
+\indexentry{get\_cv2\_image() (comp\_viz.utils.toolbox.Tools method)@\spxentry{get\_cv2\_image()}\spxextra{comp\_viz.utils.toolbox.Tools method}|hyperpage}{11}
+\indexentry{get\_mxnet\_image() (comp\_viz.utils.toolbox.Tools method)@\spxentry{get\_mxnet\_image()}\spxextra{comp\_viz.utils.toolbox.Tools method}|hyperpage}{11}
+\indexentry{save\_image() (comp\_viz.utils.toolbox.Tools method)@\spxentry{save\_image()}\spxextra{comp\_viz.utils.toolbox.Tools method}|hyperpage}{12}
+\indexentry{show\_image() (comp\_viz.utils.toolbox.Tools method)@\spxentry{show\_image()}\spxextra{comp\_viz.utils.toolbox.Tools method}|hyperpage}{12}
+\indexentry{verify\_exists() (comp\_viz.utils.toolbox.Tools method)@\spxentry{verify\_exists()}\spxextra{comp\_viz.utils.toolbox.Tools method}|hyperpage}{12}
+\indexentry{module@\spxentry{module}!comp\_viz.utils@\spxentry{comp\_viz.utils}|hyperpage}{12}
+\indexentry{comp\_viz.utils@\spxentry{comp\_viz.utils}!module@\spxentry{module}|hyperpage}{12}
+\indexentry{module@\spxentry{module}!comp\_viz.config@\spxentry{comp\_viz.config}|hyperpage}{17}
+\indexentry{comp\_viz.config@\spxentry{comp\_viz.config}!module@\spxentry{module}|hyperpage}{17}
+\indexentry{CompViz (class in comp\_viz.config)@\spxentry{CompViz}\spxextra{class in comp\_viz.config}|hyperpage}{17}
+\indexentry{version (comp\_viz.config.CompViz attribute)@\spxentry{version}\spxextra{comp\_viz.config.CompViz attribute}|hyperpage}{17}
+\indexentry{Models (class in comp\_viz.config)@\spxentry{Models}\spxextra{class in comp\_viz.config}|hyperpage}{17}
+\indexentry{tasks (comp\_viz.config.Models attribute)@\spxentry{tasks}\spxextra{comp\_viz.config.Models attribute}|hyperpage}{17}
+\indexentry{ObjectDetection (class in comp\_viz.config)@\spxentry{ObjectDetection}\spxextra{class in comp\_viz.config}|hyperpage}{17}
+\indexentry{networks (comp\_viz.config.ObjectDetection attribute)@\spxentry{networks}\spxextra{comp\_viz.config.ObjectDetection attribute}|hyperpage}{17}

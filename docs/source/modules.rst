@@ -1,4 +1,4 @@
-comp_viz
+Comp Viz
 ========
 
 .. toctree::

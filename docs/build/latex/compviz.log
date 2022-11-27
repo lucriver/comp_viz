@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.11.23)  26 NOV 2022 12:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.11.23)  27 NOV 2022 10:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -659,6 +659,34 @@ Package: hypcap 2016/05/16 v1.12 Adjusting the anchors of captions (HO)
 (./sphinxmessages.sty
 Package: sphinxmessages 2019/01/04 v2.0 Localized LaTeX macros (Sphinx team)
 )
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count297
+\lst@gtempboxa=\box113
+\lst@token=\toks32
+\lst@length=\count298
+\lst@currlwidth=\dimen268
+\lst@column=\count299
+\lst@pos=\count300
+\lst@lostspace=\dimen269
+\lst@width=\dimen270
+\lst@newlines=\count301
+\lst@lineno=\count302
+\lst@maxwidth=\dimen271
+
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2019/09/10 1.8c (Carsten Heinz)
+\c@lstnumber=\count303
+\lst@skipnumbers=\count304
+\lst@framebox=\box114
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2019/09/10 1.8c listings configuration
+))
+Package: listings 2019/09/10 1.8c (Carsten Heinz)
+
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2019/09/10 1.8c listings language file
+)
 \@indexfile=\write4
 \openout4 = `compviz.idx'.
 
@@ -666,48 +694,48 @@ Package: sphinxmessages 2019/01/04 v2.0 Localized LaTeX macros (Sphinx team)
 Writing index file compviz.idx
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count297
-\l__pdf_internal_box=\box113
+\l__kernel_color_stack_int=\count305
+\l__pdf_internal_box=\box115
 )
 (./compviz.aux)
 \openout1 = `compviz.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Trying to load font information for T1+qtm on input line 71
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 77.
+LaTeX Font Info:    ... okay on input line 77.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 77.
+LaTeX Font Info:    ... okay on input line 77.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 77.
+LaTeX Font Info:    ... okay on input line 77.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 77.
+LaTeX Font Info:    ... okay on input line 77.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 77.
+LaTeX Font Info:    ... okay on input line 77.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 77.
+LaTeX Font Info:    ... okay on input line 77.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 77.
+LaTeX Font Info:    ... okay on input line 77.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 77.
+LaTeX Font Info:    ... okay on input line 77.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 77.
+LaTeX Font Info:    ... okay on input line 77.
+LaTeX Font Info:    Trying to load font information for T1+qtm on input line 77
 .
  (/usr/share/texmf/tex/latex/tex-gyre/t1qtm.fd
 File: t1qtm.fd 2009/09/25 v1.2 font definition file for T1/qtm
 )
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count298
-\scratchdimen=\dimen268
-\scratchbox=\box114
-\nofMPsegments=\count299
-\nofMParguments=\count300
-\everyMPshowfont=\toks32
-\MPscratchCnt=\count301
-\MPscratchDim=\dimen269
-\MPnumerator=\count302
-\makeMPintoPDFobject=\count303
-\everyMPtoPDFconversion=\toks33
+\scratchcounter=\count306
+\scratchdimen=\dimen272
+\scratchbox=\box116
+\nofMPsegments=\count307
+\nofMParguments=\count308
+\everyMPshowfont=\toks33
+\MPscratchCnt=\count309
+\MPscratchDim=\dimen273
+\MPnumerator=\count310
+\makeMPintoPDFobject=\count311
+\everyMPtoPDFconversion=\toks34
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -717,7 +745,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\c@literalblock=\count304
+\c@literalblock=\count312
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -753,8 +781,8 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\AtBeginShipoutBox=\box115
-Package hyperref Info: Link coloring ON on input line 71.
+\AtBeginShipoutBox=\box117
+Package hyperref Info: Link coloring ON on input line 77.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 
@@ -764,29 +792,30 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count305
+\c@section@level=\count313
 )
-LaTeX Info: Redefining \ref on input line 71.
-LaTeX Info: Redefining \pageref on input line 71.
-LaTeX Info: Redefining \nameref on input line 71.
+LaTeX Info: Redefining \ref on input line 77.
+LaTeX Info: Redefining \pageref on input line 77.
+LaTeX Info: Redefining \nameref on input line 77.
 
 (./compviz.out) (./compviz.out)
 \@outlinefile=\write5
 \openout5 = `compviz.out'.
 
-Package hyperref Info: Option `pageanchor' set `false' on input line 79.
-LaTeX Font Info:    Trying to load font information for T1+qhv on input line 79
+\c@lstlisting=\count314
+Package hyperref Info: Option `pageanchor' set `false' on input line 85.
+LaTeX Font Info:    Trying to load font information for T1+qhv on input line 85
 .
  (/usr/share/texmf/tex/latex/tex-gyre/t1qhv.fd
 File: t1qhv.fd 2009/09/25 v1.2 font definition file for T1/qhv
 )<<ot1.cmap>><<oml.cmap>><<oms.cmap>><<omx.cmap>>
-LaTeX Font Info:    Trying to load font information for U+msa on input line 79.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 85.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 79.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 85.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -806,201 +835,280 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ]
 Chapter 1.
+[1
+
+] [2
+
+]
+Chapter 2.
 LaTeX Font Info:    Trying to load font information for T1+txtt on input line 1
-14.
+40.
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/t1txtt.fd
 File: t1txtt.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `T1/txtt/b/n' in size <10> not available
-(Font)              Font shape `T1/txtt/bx/n' tried instead on input line 114.
+(Font)              Font shape `T1/txtt/bx/n' tried instead on input line 140.
 LaTeX Font Info:    Font shape `T1/txtt/m/it' in size <10> not available
-(Font)              Font shape `T1/txtt/m/sl' tried instead on input line 124.
+(Font)              Font shape `T1/txtt/m/sl' tried instead on input line 150.
 LaTeX Font Info:    Trying to load font information for TS1+qtm on input line 1
-28.
+54.
 
 (/usr/share/texmf/tex/latex/tex-gyre/ts1qtm.fd
 File: ts1qtm.fd 2009/09/25 v1.2 font definition file for TS1/qtm
-) [1
-
-] [2] [3] [4]
+) [3] [4]
 LaTeX Font Info:    Trying to load font information for TS1+txtt on input line 
-1.
+417.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/ts1txtt.fd
 File: ts1txtt.fd 2000/12/15 v3.1
 )
+Underfull \vbox (badness 1314) detected at line 561
+ []
+
+[5]
+Underfull \vbox (badness 10000) detected at line 561
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 561
+ []
+
+[6]
+Underfull \vbox (badness 10000) detected at line 561
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 561
+ []
+
+[7]
+Underfull \vbox (badness 10000) detected at line 561
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 561
+ []
+
+[8] [9] [10] [11] [12]
+Underfull \vbox (badness 10000) detected at line 1220
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 1220
+ []
+
+[13]
+Underfull \vbox (badness 10000) detected at line 1220
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 1220
+ []
+
+[14]
+Underfull \vbox (badness 10000) detected at line 1220
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 1220
+ []
+
+[15]
+Underfull \vbox (badness 10000) detected at line 1220
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 1220
+ []
+
+[16]
 LaTeX Font Info:    Font shape `TS1/txtt/b/n' in size <10> not available
 (Font)              Font shape `TS1/txtt/bx/n' tried instead on input line 1.
- [5] [6] [7
+ [17] [18] [19
 
+
+
+] (./compviz.ind [20
 
 
 ]
-(./compviz.ind [8
-
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 30--32
+Underfull \hbox (badness 10000) in paragraph at lines 28--30
 []\T1/txtt/m/n/10 format_object_classes()
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 30--32
+Underfull \hbox (badness 10000) in paragraph at lines 28--30
 \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.utils.toolbox.ObjectDetection
  []
 
 
-Overfull \hbox (4.43233pt too wide) in paragraph at lines 35--37
+Overfull \hbox (4.43233pt too wide) in paragraph at lines 33--35
 []\T1/txtt/m/n/10 get_classes() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.object
 _detection.model.Model
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--38
+Underfull \hbox (badness 10000) in paragraph at lines 35--36
 []\T1/txtt/m/n/10 get_cv2_image() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.util
 s.toolbox.Tools
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 38--40
+Underfull \hbox (badness 10000) in paragraph at lines 36--38
 []\T1/txtt/m/n/10 get_image_prediction()
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 38--40
+Underfull \hbox (badness 10000) in paragraph at lines 36--38
 \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.object_detection.model.Model
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 40--42
+Underfull \hbox (badness 10000) in paragraph at lines 38--40
 []\T1/txtt/m/n/10 get_mxnet_image() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.ut
 ils.toolbox.Tools
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 42--44
+Underfull \hbox (badness 10000) in paragraph at lines 40--42
 []\T1/txtt/m/n/10 get_network_resolution()
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 42--44
+Underfull \hbox (badness 10000) in paragraph at lines 40--42
 \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.utils.toolbox.ObjectDetection
  []
 
 
-Overfull \hbox (5.96228pt too wide) in paragraph at lines 44--46
+Overfull \hbox (5.96228pt too wide) in paragraph at lines 42--44
 []\T1/txtt/m/n/10 get_networks() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.utils
 .toolbox.ObjectDetection
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 46--48
+Underfull \hbox (badness 10000) in paragraph at lines 44--46
 []\T1/txtt/m/n/10 get_pred_bboxes_image()
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 46--48
+Underfull \hbox (badness 10000) in paragraph at lines 44--46
 \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.utils.toolbox.ObjectDetection
  []
 
 
-Overfull \hbox (20.18228pt too wide) in paragraph at lines 48--50
+Overfull \hbox (20.18228pt too wide) in paragraph at lines 46--48
 []\T1/txtt/m/n/10 get_prediction() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.obj
 ect_detection.model.Model
  []
 
 
-Overfull \hbox (9.68231pt too wide) in paragraph at lines 54--56
+Overfull \hbox (9.68231pt too wide) in paragraph at lines 52--54
 []\T1/txtt/m/n/10 list_classes() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.objec
 t_detection.model.Model
  []
 
 
-Overfull \hbox (11.21227pt too wide) in paragraph at lines 56--58
+Overfull \hbox (11.21227pt too wide) in paragraph at lines 54--56
 []\T1/txtt/m/n/10 list_networks() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.util
 s.toolbox.ObjectDetection
  []
 
 
-Overfull \hbox (14.9323pt too wide) in paragraph at lines 84--86
+Overfull \hbox (14.9323pt too wide) in paragraph at lines 81--83
 []\T1/txtt/m/n/10 reset_classes() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.obje
 ct_detection.model.Model
  []
 
 
-Overfull \hbox (0.7123pt too wide) in paragraph at lines 86--88
+Overfull \hbox (0.7123pt too wide) in paragraph at lines 83--85
 []\T1/txtt/m/n/10 resize_bbox() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.utils.
 toolbox.ObjectDetection
  []
 
 
-Overfull \hbox (4.43233pt too wide) in paragraph at lines 92--94
+Underfull \hbox (badness 5460) in paragraph at lines 88--89
+[]\T1/txtt/m/n/10 save_image() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.utils.t
+oolbox.Tools method\T1/qtm/m/n/10 ),
+ []
+
+
+Overfull \hbox (4.43233pt too wide) in paragraph at lines 89--91
 []\T1/txtt/m/n/10 set_classes() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.object
 _detection.model.Model
  []
 
-[9
+
+Underfull \hbox (badness 5460) in paragraph at lines 91--92
+[]\T1/txtt/m/n/10 show_image() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.utils.t
+oolbox.Tools method\T1/qtm/m/n/10 ),
+ []
+
+[21
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 95--97
+Underfull \hbox (badness 10000) in paragraph at lines 92--94
 []\T1/txtt/m/n/10 show_image_prediction()
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 95--97
+Underfull \hbox (badness 10000) in paragraph at lines 92--94
 \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.object_detection.model.Model
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 97--99
+Underfull \hbox (badness 10000) in paragraph at lines 94--96
 []\T1/txtt/m/n/10 show_pred_bboxes_image()
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 97--99
+Underfull \hbox (badness 10000) in paragraph at lines 94--96
 \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.utils.toolbox.ObjectDetection
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 107--108
+Underfull \hbox (badness 10000) in paragraph at lines 104--105
 []\T1/txtt/m/n/10 verify_exists() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.util
 s.toolbox.Tools
  []
 
-[10
+[22
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 848.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 848.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1380.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1380.
  (./compviz.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 848.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 848.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1380.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1380.
+
 Package rerunfilecheck Info: File `compviz.out' has not changed.
-(rerunfilecheck)             Checksum: 134284E00BE200C2A5EB8F4D1D7CF74F;2400.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 848.
+(rerunfilecheck)             Checksum: 18AF8BA39733EBA99151EF9CBE9DC52D;2919.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1380.
  ) 
 Here is how much of TeX's memory you used:
- 14528 strings out of 483183
- 216791 string characters out of 5966291
- 486320 words of memory out of 5000000
- 29106 multiletter control sequences out of 15000+600000
- 583600 words of font info for 65 fonts, out of 8000000 for 9000
+ 15902 strings out of 483183
+ 236374 string characters out of 5966291
+ 881615 words of memory out of 5000000
+ 30445 multiletter control sequences out of 15000+600000
+ 587073 words of font info for 68 fonts, out of 8000000 for 9000
  15 hyphenation exceptions out of 8191
- 38i,12n,51p,1761b,691s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,12n,51p,1761b,687s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/tex-gyre/q-ec.enc}{/usr/share/texmf/fonts/e
 nc/dvips/tex-gyre/q-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qhvb.pfb></
-usr/share/texmf/fonts/type1/public/tex-gyre/qhvbi.pfb></usr/share/texmf/fonts/t
-ype1/public/tex-gyre/qhvr.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qtm
-b.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qtmr.pfb></usr/share/texmf/
-fonts/type1/public/tex-gyre/qtmri.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/txfonts/t1xbtt.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/t
-xfonts/t1xtt.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/t1xt
-t.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/tcxbtt.pfb>
-Output written on compviz.pdf (14 pages, 185458 bytes).
+msfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+sy5.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qhvb.pfb></usr/share/texm
+f/fonts/type1/public/tex-gyre/qhvbi.pfb></usr/share/texmf/fonts/type1/public/te
+x-gyre/qhvr.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qtmb.pfb></usr/sh
+are/texmf/fonts/type1/public/tex-gyre/qtmr.pfb></usr/share/texmf/fonts/type1/pu
+blic/tex-gyre/qtmri.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfon
+ts/t1xbtt.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/t1xtt.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/txfonts/tcxbtt.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/txfonts/tcxtt.pfb>
+Output written on compviz.pdf (26 pages, 229242 bytes).
 PDF statistics:
- 291 PDF objects out of 1000 (max. 8388607)
- 256 compressed objects within 3 object streams
- 64 named destinations out of 1000 (max. 500000)
- 149 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 372 PDF objects out of 1000 (max. 8388607)
+ 321 compressed objects within 4 object streams
+ 80 named destinations out of 1000 (max. 500000)
+ 181 words of extra memory for PDF output out of 10000 (max. 10000000)
 

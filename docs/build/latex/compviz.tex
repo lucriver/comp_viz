@@ -60,9 +60,15 @@
 \setcounter{tocdepth}{1}
 
 
+        \usepackage{listings}
+        \lstset{ 
+            language=Python,                 % the language of the code
+            title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+        }
+    
 
 \title{Comp Viz}
-\date{Nov 26, 2022}
+\date{Nov 27, 2022}
 \release{1.0.0}
 \author{Lucas Hirt}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -86,7 +92,30 @@
 \sphinxstepscope
 
 
-\chapter{comp\_viz}
+\chapter{Comp Viz Summary}
+\label{\detokenize{summary:comp-viz-summary}}\label{\detokenize{summary::doc}}
+\sphinxAtStartPar
+Comp Viz is a computer vision oriented package that aims to allow those unfamiliar with the subject to
+explore and experiment with various computer vision related tasks like object detection, image segmentation,
+classification, and more.
+
+\sphinxAtStartPar
+Comp Viz is built using MXNet’s gluoncv API. Comp Viz aims to provide a simple and intuitive abstraction
+layer over gluoncv to allow even the most novice users to experiment with computer vision.
+
+\sphinxAtStartPar
+Comp Viz currently only supports object detection tasks, but in the near future aims to add support for
+classification and image segmentation.
+
+\sphinxAtStartPar
+Comp Viz is a package currently composed of two subpackages\sphinxhyphen{} object\_detection, which contains the model module,
+allowing for object detection related tasks, and the utils sub package, which hosts a variety of helper
+functions to better interact with, but not limited to, other comp viz subpackages.
+
+\sphinxstepscope
+
+
+\chapter{Comp Viz}
 \label{\detokenize{modules:comp-viz}}\label{\detokenize{modules::doc}}
 \sphinxstepscope
 
@@ -99,14 +128,11 @@
 \sphinxstepscope
 
 
-\subsubsection{comp\_viz.object\_detection package}
-\label{\detokenize{comp_viz.object_detection:comp-viz-object-detection-package}}\label{\detokenize{comp_viz.object_detection::doc}}
+\subsubsection{Object Detection package}
+\label{\detokenize{comp_viz.object_detection:object-detection-package}}\label{\detokenize{comp_viz.object_detection::doc}}
 
-\paragraph{Submodules}
-\label{\detokenize{comp_viz.object_detection:submodules}}
-
-\paragraph{comp\_viz.object\_detection.model module}
-\label{\detokenize{comp_viz.object_detection:module-comp_viz.object_detection.model}}\label{\detokenize{comp_viz.object_detection:comp-viz-object-detection-model-module}}\index{module@\spxentry{module}!comp\_viz.object\_detection.model@\spxentry{comp\_viz.object\_detection.model}}\index{comp\_viz.object\_detection.model@\spxentry{comp\_viz.object\_detection.model}!module@\spxentry{module}}\index{Model (class in comp\_viz.object\_detection.model)@\spxentry{Model}\spxextra{class in comp\_viz.object\_detection.model}}
+\paragraph{object\_detection.model module}
+\label{\detokenize{comp_viz.object_detection:module-comp_viz.object_detection.model}}\label{\detokenize{comp_viz.object_detection:object-detection-model-module}}\index{module@\spxentry{module}!comp\_viz.object\_detection.model@\spxentry{comp\_viz.object\_detection.model}}\index{comp\_viz.object\_detection.model@\spxentry{comp\_viz.object\_detection.model}!module@\spxentry{module}}\index{Model (class in comp\_viz.object\_detection.model)@\spxentry{Model}\spxextra{class in comp\_viz.object\_detection.model}}
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{comp_viz.object_detection:comp_viz.object_detection.model.Model}}
@@ -192,7 +218,7 @@ A pair of values, an image in the form of a numpy array, and the prediction dict
 
 \sphinxlineitem{Return type}
 \sphinxAtStartPar
-numpy.array, dict
+(numpy.array, dict)
 
 \end{description}\end{quote}
 
@@ -238,6 +264,12 @@ dict
 \pysigstopsignatures
 \sphinxAtStartPar
 Print the object classes that the computer vision model is detecting for in images.
+\begin{quote}\begin{description}
+\sphinxlineitem{Return type}
+\sphinxAtStartPar
+void
+
+\end{description}\end{quote}
 
 \end{fulllineitems}
 
@@ -250,6 +282,12 @@ Print the object classes that the computer vision model is detecting for in imag
 \pysigstopsignatures
 \sphinxAtStartPar
 Change the object classes that the computer vision model is detecting for in images back to defaults.
+\begin{quote}\begin{description}
+\sphinxlineitem{Return type}
+\sphinxAtStartPar
+void
+
+\end{description}\end{quote}
 
 \end{fulllineitems}
 
@@ -266,6 +304,10 @@ Change the object classes that the computer vision model is detecting for in ima
 \sphinxlineitem{Parameters}
 \sphinxAtStartPar
 \sphinxstyleliteralstrong{\sphinxupquote{object\_classes}} (\sphinxstyleliteralemphasis{\sphinxupquote{List}}) \textendash{} List of new object classes to detect for. Ex. “person”, “bicycle”, “banana”.
+
+\sphinxlineitem{Return type}
+\sphinxAtStartPar
+void
 
 \end{description}\end{quote}
 
@@ -294,6 +336,10 @@ will not include it in the returned results.
 
 \end{itemize}
 
+\sphinxlineitem{Return type}
+\sphinxAtStartPar
+void
+
 \end{description}\end{quote}
 
 \end{fulllineitems}
@@ -305,17 +351,230 @@ will not include it in the returned results.
 
 \paragraph{Module contents}
 \label{\detokenize{comp_viz.object_detection:module-comp_viz.object_detection}}\label{\detokenize{comp_viz.object_detection:module-contents}}\index{module@\spxentry{module}!comp\_viz.object\_detection@\spxentry{comp\_viz.object\_detection}}\index{comp\_viz.object\_detection@\spxentry{comp\_viz.object\_detection}!module@\spxentry{module}}
+
+\paragraph{model.py}
+\label{\detokenize{comp_viz.object_detection:model-py}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{mxnet}
+\PYG{k+kn}{import} \PYG{n+nn}{gluoncv}
+\PYG{k+kn}{import} \PYG{n+nn}{numpy}
+\PYG{k+kn}{import} \PYG{n+nn}{time}
+
+\PYG{k+kn}{from} \PYG{n+nn}{.}\PYG{n+nn}{.} \PYG{k+kn}{import} \PYG{n}{utils}
+
+\PYG{k}{class} \PYG{n+nc}{Model}\PYG{p}{:}
+  \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Computer vision object detection model.}
+
+\PYG{l+s+sd}{  :param network\PYGZus{}name: A string representing the computer vision network that will be used}
+\PYG{l+s+sd}{                       for detection.}
+\PYG{l+s+sd}{  :type network\PYGZus{}name: string}
+\PYG{l+s+sd}{  :ivar net\PYGZus{}name: Holds the string literal for the chosen computer vision network.}
+\PYG{l+s+sd}{  :ivar net: Holds the crucial mxnet\PYGZhy{}gluoncv instantiated computer vision model for which}
+\PYG{l+s+sd}{             our package aims to provides a layer of abstraction over.}
+\PYG{l+s+sd}{  :ivar inference\PYGZus{}resolution: Stores the resolution of images we are to perform inference on.}
+\PYG{l+s+sd}{  :ivar default\PYGZus{}object\PYGZus{}classes: Stores the default object classes that come with chosen network:}
+\PYG{l+s+sd}{  \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+
+  \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,}\PYG{n}{network\PYGZus{}name}\PYG{p}{)}\PYG{p}{:}
+    \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Constructor method}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{net\PYGZus{}name} \PYG{o}{=} \PYG{n}{network\PYGZus{}name}
+    \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{net} \PYG{o}{=} \PYG{n}{gluoncv}\PYG{o}{.}\PYG{n}{model\PYGZus{}zoo}\PYG{o}{.}\PYG{n}{get\PYGZus{}model}\PYG{p}{(}\PYG{n}{network\PYGZus{}name}\PYG{p}{,} \PYG{n}{pretrained}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}
+    \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{inference\PYGZus{}resolution} \PYG{o}{=} \PYG{n}{utils}\PYG{o}{.}\PYG{n}{ObjectDetection}\PYG{o}{.}\PYG{n}{get\PYGZus{}network\PYGZus{}resolution}\PYG{p}{(}\PYG{n}{network\PYGZus{}name}\PYG{p}{)}
+    \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{default\PYGZus{}object\PYGZus{}classes} \PYG{o}{=} \PYG{n}{gluoncv}\PYG{o}{.}\PYG{n}{model\PYGZus{}zoo}\PYG{o}{.}\PYG{n}{get\PYGZus{}model}\PYG{p}{(}\PYG{n}{network\PYGZus{}name}\PYG{p}{,} \PYG{n}{pretrained}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}\PYG{o}{.}\PYG{n}{classes}
+
+  \PYG{k}{def} \PYG{n+nf}{list\PYGZus{}classes}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{:}
+    \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Print the object classes that the computer vision model is detecting for in images.}
+\PYG{l+s+sd}{    }
+\PYG{l+s+sd}{    :rtype: void}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{\PYGZus{}get\PYGZus{}classes}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
+
+  \PYG{k}{def} \PYG{n+nf}{get\PYGZus{}classes}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{:}
+    \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Get list of the object classes that the computer vision model is detecting for in images.}
+\PYG{l+s+sd}{    }
+\PYG{l+s+sd}{    :rtype: List}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{k}{return} \PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{\PYGZus{}get\PYGZus{}classes}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
+
+  \PYG{k}{def} \PYG{n+nf}{get\PYGZus{}prediction}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,}\PYG{n}{fname}\PYG{p}{,}\PYG{n}{nms}\PYG{o}{=}\PYG{l+m+mf}{0.}\PYG{p}{)} \PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}} \PYG{n+nb}{dict}\PYG{p}{:}
+    \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Get prediction made for an image by computer vision model.}
+\PYG{l+s+sd}{    }
+\PYG{l+s+sd}{    :param fname: Path to an image file.}
+\PYG{l+s+sd}{    :type fname: string}
+\PYG{l+s+sd}{    :param nms: Stands for non\PYGZhy{}maximal suppresion. If computer vision model detects and an }
+\PYG{l+s+sd}{                object in the image with a confidence value less than the nms value, it }
+\PYG{l+s+sd}{                will not include it in the returned results. }
+\PYG{l+s+sd}{    :type nms: float}
+\PYG{l+s+sd}{    :rtype: dict            }
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{n}{utils}\PYG{o}{.}\PYG{n}{Tools}\PYG{o}{.}\PYG{n}{verify\PYGZus{}exists}\PYG{p}{(}\PYG{n}{fname}\PYG{p}{)}
+    \PYG{n}{start} \PYG{o}{=} \PYG{n}{time}\PYG{o}{.}\PYG{n}{time}\PYG{p}{(}\PYG{p}{)}
+    \PYG{n}{cids}\PYG{p}{,} \PYG{n}{scores}\PYG{p}{,} \PYG{n}{bboxes} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{\PYGZus{}predict}\PYG{p}{(}\PYG{n}{fname}\PYG{p}{,}\PYG{n}{nms}\PYG{p}{)}
+    \PYG{n}{end} \PYG{o}{=} \PYG{n}{time}\PYG{o}{.}\PYG{n}{time}\PYG{p}{(}\PYG{p}{)}
+    \PYG{n}{prediction} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{p}{\PYGZcb{}}
+    \PYG{n}{prediction}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{image}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{]} \PYG{o}{=} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{fname}\PYG{p}{)}
+    \PYG{n}{prediction}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{class\PYGZus{}ids}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]} \PYG{o}{=} \PYG{n}{cids}
+    \PYG{n}{prediction}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{confidence\PYGZus{}scores}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]} \PYG{o}{=} \PYG{n}{scores}
+    \PYG{n}{prediction}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{bounding\PYGZus{}boxes}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]} \PYG{o}{=} \PYG{n}{bboxes}
+    \PYG{n}{prediction}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{nms\PYGZus{}thresh}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]} \PYG{o}{=} \PYG{n}{nms}
+    \PYG{n}{prediction}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{class\PYGZus{}map}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{n}{cid}\PYG{p}{:} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{get\PYGZus{}classes}\PYG{p}{(}\PYG{p}{)}\PYG{p}{[}\PYG{n}{cid}\PYG{p}{]} \PYG{k}{for} \PYG{n}{cid} \PYG{o+ow}{in} \PYG{n+nb}{set}\PYG{p}{(}\PYG{n}{cids}\PYG{p}{)}\PYG{p}{\PYGZcb{}}
+    \PYG{n}{prediction}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{time}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]} \PYG{o}{=} \PYG{n+nb}{round}\PYG{p}{(}\PYG{n+nb}{float}\PYG{p}{(}\PYG{n}{end} \PYG{o}{\PYGZhy{}} \PYG{n}{start}\PYG{p}{)}\PYG{p}{,}\PYG{l+m+mi}{4}\PYG{p}{)}
+    \PYG{k}{return} \PYG{n}{prediction}
+
+  \PYG{k}{def} \PYG{n+nf}{get\PYGZus{}image\PYGZus{}prediction}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,}\PYG{n}{fname}\PYG{p}{,}\PYG{n}{nms}\PYG{o}{=}\PYG{l+m+mf}{0.}\PYG{p}{)}\PYG{p}{:}
+    \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Get image with the bounding box detections and the prediction made by the computer vision model.}
+\PYG{l+s+sd}{    }
+\PYG{l+s+sd}{    :param fname: Path to an image file.}
+\PYG{l+s+sd}{    :type fname: string}
+\PYG{l+s+sd}{    :param nms: Stands for non\PYGZhy{}maximal suppresion. If computer vision model detects and an }
+\PYG{l+s+sd}{                object in the image with a confidence value less than the nms value, it }
+\PYG{l+s+sd}{                will not include it in the returned results.}
+\PYG{l+s+sd}{    :type nms: float}
+\PYG{l+s+sd}{    :return: A pair of values, an image in the form of a numpy array, and the prediction dict.}
+\PYG{l+s+sd}{    :rtype: (numpy.array, dict)}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{n}{pred} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{get\PYGZus{}prediction}\PYG{p}{(}\PYG{n}{fname}\PYG{p}{)}
+    \PYG{n}{pred\PYGZus{}img} \PYG{o}{=} \PYG{n}{utils}\PYG{o}{.}\PYG{n}{ObjectDetection}\PYG{o}{.}\PYG{n}{get\PYGZus{}pred\PYGZus{}bboxes\PYGZus{}image}\PYG{p}{(}\PYG{n}{fname}\PYG{p}{,}
+                                                           \PYG{n}{pred}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{bounding\PYGZus{}boxes}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{]}\PYG{p}{,}
+                                                           \PYG{n}{pred}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{class\PYGZus{}ids}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{]}\PYG{p}{,}
+                                                           \PYG{p}{[}\PYG{n}{val} \PYG{k}{for} \PYG{n}{val} \PYG{o+ow}{in} \PYG{n}{pred}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{class\PYGZus{}map}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{]}\PYG{o}{.}\PYG{n}{values}\PYG{p}{(}\PYG{p}{)}\PYG{p}{]}\PYG{p}{,}
+                                                           \PYG{n}{pred}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{confidence\PYGZus{}scores}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{]}\PYG{p}{)}
+    \PYG{k}{return} \PYG{n}{pred\PYGZus{}img}\PYG{p}{,} \PYG{n}{pred}
+
+  \PYG{k}{def} \PYG{n+nf}{show\PYGZus{}image\PYGZus{}prediction}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,}\PYG{n}{fname}\PYG{p}{,}\PYG{n}{nms}\PYG{o}{=}\PYG{l+m+mf}{0.}\PYG{p}{)}\PYG{p}{:}
+    \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Print image with the bounding box detections and the prediction made by the computer vision model.}
+\PYG{l+s+sd}{    }
+\PYG{l+s+sd}{    :param fname: Path to an image file.}
+\PYG{l+s+sd}{    :type fname: string}
+\PYG{l+s+sd}{    :param nms: Stands for non\PYGZhy{}maximal suppresion. If computer vision model detects and an }
+\PYG{l+s+sd}{                object in the image with a confidence value less than the nms value, it }
+\PYG{l+s+sd}{                will not include it in the returned results.}
+\PYG{l+s+sd}{    :type nms: float}
+\PYG{l+s+sd}{    :rtype: void}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{n}{image}\PYG{p}{,} \PYG{n}{prediction} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{get\PYGZus{}image\PYGZus{}prediction}\PYG{p}{(}\PYG{n}{fname}\PYG{p}{)}
+    \PYG{n}{utils}\PYG{o}{.}\PYG{n}{Tools}\PYG{o}{.}\PYG{n}{show\PYGZus{}image}\PYG{p}{(}\PYG{n}{image}\PYG{p}{)}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{prediction}\PYG{p}{)}
+
+  \PYG{k}{def} \PYG{n+nf}{set\PYGZus{}classes}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,}\PYG{n}{object\PYGZus{}classes}\PYG{p}{:} \PYG{n+nb}{list}\PYG{p}{)}\PYG{p}{:}
+    \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Change the object classes that the computer vision model is detecting for in images. Ensures validity by referencing the original list of available object classes when model was first instantiatied.}
+\PYG{l+s+sd}{    }
+\PYG{l+s+sd}{    :param object\PYGZus{}classes: List of new object classes to detect for. Ex. \PYGZdq{}person\PYGZdq{}, \PYGZdq{}bicycle\PYGZdq{}, \PYGZdq{}banana\PYGZdq{}.}
+\PYG{l+s+sd}{    :type object\PYGZus{}classes: List}
+\PYG{l+s+sd}{    :rtype: void}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{n}{unsupported} \PYG{o}{=} \PYG{p}{[}\PYG{p}{]}
+    \PYG{k}{for} \PYG{n}{obj\PYGZus{}class} \PYG{o+ow}{in} \PYG{n}{object\PYGZus{}classes}\PYG{p}{:}
+      \PYG{k}{if} \PYG{n}{obj\PYGZus{}class} \PYG{o+ow}{not} \PYG{o+ow}{in} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{default\PYGZus{}object\PYGZus{}classes}\PYG{p}{:}
+        \PYG{n}{unsupported}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{obj\PYGZus{}class}\PYG{p}{)}
+    \PYG{k}{if} \PYG{n}{unsupported}\PYG{p}{:}    
+      \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{WARNING: object classes }\PYG{l+s+se}{\PYGZbs{}\PYGZdq{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{unsupported}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+se}{\PYGZbs{}\PYGZdq{}}\PYG{l+s+s2}{ are not supported by default for object detection. Expect no capability for detection.}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+    \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{net}\PYG{o}{.}\PYG{n}{reset\PYGZus{}class}\PYG{p}{(}\PYG{n}{object\PYGZus{}classes}\PYG{p}{,} \PYG{n}{reuse\PYGZus{}weights}\PYG{o}{=}\PYG{n}{object\PYGZus{}classes}\PYG{p}{)}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Complete. Model set to detect for object classes: }\PYG{l+s+si}{\PYGZob{}}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{get\PYGZus{}classes}\PYG{p}{(}\PYG{p}{)}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{.}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+
+  \PYG{k}{def} \PYG{n+nf}{reset\PYGZus{}classes}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{:}
+    \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Change the object classes that the computer vision model is detecting for in images back to defaults.}
+
+\PYG{l+s+sd}{    :rtype: void}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{net}\PYG{o}{.}\PYG{n}{reset\PYGZus{}class}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{default\PYGZus{}object\PYGZus{}classes}\PYG{p}{,}\PYG{n}{reuse\PYGZus{}weights}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{default\PYGZus{}object\PYGZus{}classes}\PYG{p}{)}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Object classes for detection restored to defaults.}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+
+  \PYG{c+c1}{\PYGZsh{} Get tuple containing class ids, confidence scores and bounding boxes for an image prediction,}
+  \PYG{c+c1}{\PYGZsh{} apply NMS if specified and return the tuple.}
+  \PYG{k}{def} \PYG{n+nf}{\PYGZus{}predict}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,}\PYG{n}{fname}\PYG{p}{,}\PYG{n}{nms}\PYG{p}{)} \PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}} \PYG{n+nb}{tuple}\PYG{p}{:}
+    \PYG{n}{base\PYGZus{}img} \PYG{o}{=} \PYG{n}{mxnet}\PYG{o}{.}\PYG{n}{image}\PYG{o}{.}\PYG{n}{imread}\PYG{p}{(}\PYG{n}{fname}\PYG{p}{)}
+    \PYG{n}{x}\PYG{p}{,} \PYG{n}{img} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{\PYGZus{}\PYGZus{}prepare\PYGZus{}image}\PYG{p}{(}\PYG{n}{base\PYGZus{}img}\PYG{p}{)}
+    \PYG{n}{pred} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{net}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}
+    \PYG{n}{cids}\PYG{p}{,} \PYG{n}{scores}\PYG{p}{,} \PYG{n}{bboxes} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{\PYGZus{}extract\PYGZus{}cids\PYGZus{}scores\PYGZus{}bboxes}\PYG{p}{(}\PYG{n}{pred}\PYG{p}{)}
+    \PYG{c+c1}{\PYGZsh{} resize bounding box from network inference resolution to original image resolution}
+    \PYG{n}{bboxes} \PYG{o}{=} \PYG{p}{[}\PYG{n}{utils}\PYG{o}{.}\PYG{n}{ObjectDetection}\PYG{o}{.}\PYG{n}{resize\PYGZus{}bbox}\PYG{p}{(}\PYG{n}{bbox}\PYG{p}{,}\PYG{n}{img}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{,}\PYG{n}{base\PYGZus{}img}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{)} \PYG{k}{for} \PYG{n}{bbox} \PYG{o+ow}{in} \PYG{n}{bboxes}\PYG{p}{]}
+    \PYG{k}{if} \PYG{n}{nms} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{:}
+      \PYG{k}{return} \PYG{p}{(}\PYG{n}{cids}\PYG{p}{,}\PYG{n}{scores}\PYG{p}{,}\PYG{n}{bboxes}\PYG{p}{)}
+    \PYG{n}{nms\PYGZus{}cids}\PYG{p}{,} \PYG{n}{nms\PYGZus{}scores}\PYG{p}{,} \PYG{n}{nms\PYGZus{}bboxes} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{\PYGZus{}apply\PYGZus{}nms}\PYG{p}{(}\PYG{n}{cids}\PYG{p}{,} \PYG{n}{scores}\PYG{p}{,} \PYG{n}{bboxes}\PYG{p}{,} \PYG{n}{nms}\PYG{p}{)}
+    \PYG{k}{return} \PYG{p}{(}\PYG{n}{nms\PYGZus{}cids}\PYG{p}{,}\PYG{n}{nms\PYGZus{}scores}\PYG{p}{,}\PYG{n}{nms\PYGZus{}bboxes}\PYG{p}{)}
+
+  \PYG{k}{def} \PYG{n+nf}{\PYGZus{}get\PYGZus{}classes}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{return} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{net}\PYG{o}{.}\PYG{n}{classes}
+    
+  \PYG{c+c1}{\PYGZsh{} Return tuple containing only the class ids, confidence scores, and bounding boxes of an MXNet}
+  \PYG{c+c1}{\PYGZsh{} inference result.}
+  \PYG{k}{def} \PYG{n+nf}{\PYGZus{}extract\PYGZus{}cids\PYGZus{}scores\PYGZus{}bboxes}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,}\PYG{n}{pred}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{cids} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{\PYGZus{}get\PYGZus{}class\PYGZus{}ids}\PYG{p}{(}\PYG{n}{pred}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{)}
+    \PYG{n}{scores} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{\PYGZus{}get\PYGZus{}scores}\PYG{p}{(}\PYG{n}{pred}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{)}
+    \PYG{n}{bboxes} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{\PYGZus{}get\PYGZus{}bboxes}\PYG{p}{(}\PYG{n}{pred}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]}\PYG{p}{)}
+    \PYG{k}{return} \PYG{p}{(}\PYG{n}{cids}\PYG{p}{,} \PYG{n}{scores}\PYG{p}{,} \PYG{n}{bboxes}\PYG{p}{)}
+
+  \PYG{c+c1}{\PYGZsh{} Given an tuple containing class ids, confidence scoers and bounding boxes for an MXNet prediction}
+  \PYG{c+c1}{\PYGZsh{} filter the results and return them based off the confidence scores of the predictions and the}
+  \PYG{c+c1}{\PYGZsh{} specified nms value. (If confidence score \PYGZlt{} NMS, prune that prediction from results to be returned.)}
+  \PYG{k}{def} \PYG{n+nf}{\PYGZus{}apply\PYGZus{}nms}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,}\PYG{n}{cids}\PYG{p}{:} \PYG{n+nb}{list}\PYG{p}{,} \PYG{n}{scores}\PYG{p}{:} \PYG{n+nb}{list}\PYG{p}{,} \PYG{n}{bboxes}\PYG{p}{:} \PYG{n+nb}{list}\PYG{p}{,} \PYG{n}{nms}\PYG{p}{:} \PYG{n+nb}{float}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{prune\PYGZus{}indexes} \PYG{o}{=} \PYG{p}{[}\PYG{p}{]}
+    \PYG{k}{for} \PYG{n}{i}\PYG{p}{,} \PYG{n}{score} \PYG{o+ow}{in} \PYG{n+nb}{enumerate}\PYG{p}{(}\PYG{n}{scores}\PYG{p}{)}\PYG{p}{:}
+      \PYG{k}{if} \PYG{n}{score} \PYG{o}{\PYGZlt{}} \PYG{n}{nms}\PYG{p}{:}
+        \PYG{n}{prune\PYGZus{}indexes}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)}
+    \PYG{k}{for} \PYG{n}{index} \PYG{o+ow}{in} \PYG{n}{prune\PYGZus{}indexes}\PYG{p}{[}\PYG{p}{:}\PYG{p}{:}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{:}
+      \PYG{n}{cids}\PYG{o}{.}\PYG{n}{pop}\PYG{p}{(}\PYG{n}{index}\PYG{p}{)}
+      \PYG{n}{scores}\PYG{o}{.}\PYG{n}{pop}\PYG{p}{(}\PYG{n}{index}\PYG{p}{)}
+      \PYG{n}{bboxes}\PYG{o}{.}\PYG{n}{pop}\PYG{p}{(}\PYG{n}{index}\PYG{p}{)}
+    \PYG{k}{return} \PYG{p}{(}\PYG{n}{cids}\PYG{p}{,} \PYG{n}{scores}\PYG{p}{,} \PYG{n}{bboxes}\PYG{p}{)}
+
+  \PYG{c+c1}{\PYGZsh{} Extract the class ids from an MXNet prediction ndarray to a list.}
+  \PYG{k}{def} \PYG{n+nf}{\PYGZus{}get\PYGZus{}class\PYGZus{}ids}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,}\PYG{n}{cids}\PYG{p}{:} \PYG{n}{numpy}\PYG{o}{.}\PYG{n}{ndarray}\PYG{p}{)} \PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}} \PYG{n+nb}{list}\PYG{p}{:}
+    \PYG{n}{class\PYGZus{}ids} \PYG{o}{=} \PYG{p}{[}\PYG{p}{]}
+    \PYG{k}{for} \PYG{n}{ndarray} \PYG{o+ow}{in} \PYG{n}{cids}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{:}
+      \PYG{n}{nparray} \PYG{o}{=} \PYG{n}{ndarray}\PYG{o}{.}\PYG{n}{asnumpy}\PYG{p}{(}\PYG{p}{)}
+      \PYG{k}{if} \PYG{n}{nparray}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{!=} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{:}
+        \PYG{n}{class\PYGZus{}ids}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{nparray}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{)}\PYG{p}{)}
+    \PYG{k}{return} \PYG{n}{class\PYGZus{}ids}
+
+  \PYG{c+c1}{\PYGZsh{} Extract the confidence score float values from an MXNet prediction ndarray to a list}
+  \PYG{k}{def} \PYG{n+nf}{\PYGZus{}get\PYGZus{}scores}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,}\PYG{n}{scores}\PYG{p}{:} \PYG{n+nb}{list}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{confidence\PYGZus{}scores} \PYG{o}{=} \PYG{p}{[}\PYG{p}{]}
+    \PYG{k}{for} \PYG{n}{ndarray} \PYG{o+ow}{in} \PYG{n}{scores}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{:}
+      \PYG{n}{nparray} \PYG{o}{=} \PYG{n}{ndarray}\PYG{o}{.}\PYG{n}{asnumpy}\PYG{p}{(}\PYG{p}{)}
+      \PYG{k}{if} \PYG{n}{nparray}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{!=} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{:}
+        \PYG{n}{confidence\PYGZus{}scores}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n+nb}{round}\PYG{p}{(}\PYG{n+nb}{float}\PYG{p}{(}\PYG{n}{nparray}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{)}\PYG{p}{,}\PYG{l+m+mi}{3}\PYG{p}{)}\PYG{p}{)}
+    \PYG{k}{return} \PYG{n}{confidence\PYGZus{}scores}
+
+  \PYG{c+c1}{\PYGZsh{} Extract the bounding boxes from an MXNet prediction ndarray to a nested list }
+  \PYG{k}{def} \PYG{n+nf}{\PYGZus{}get\PYGZus{}bboxes}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,}\PYG{n}{bboxes}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{bounding\PYGZus{}boxes} \PYG{o}{=} \PYG{p}{[}\PYG{p}{]}
+    \PYG{k}{for} \PYG{n}{ndarray} \PYG{o+ow}{in} \PYG{n}{bboxes}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{:}
+      \PYG{n}{nparray} \PYG{o}{=} \PYG{n}{ndarray}\PYG{o}{.}\PYG{n}{asnumpy}\PYG{p}{(}\PYG{p}{)}
+      \PYG{k}{if} \PYG{n}{nparray}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{!=} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{:}
+        \PYG{n}{bb} \PYG{o}{=} \PYG{p}{[}\PYG{n+nb}{float}\PYG{p}{(}\PYG{n}{corner}\PYG{p}{)} \PYG{k}{for} \PYG{n}{corner} \PYG{o+ow}{in} \PYG{n}{nparray}\PYG{o}{.}\PYG{n}{tolist}\PYG{p}{(}\PYG{p}{)}\PYG{p}{]}
+        \PYG{n}{bounding\PYGZus{}boxes}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{bb}\PYG{p}{)}
+    \PYG{k}{return} \PYG{n}{bounding\PYGZus{}boxes}
+
+  \PYG{c+c1}{\PYGZsh{} Process image such that inference can be performed by the mxnet network.}
+  \PYG{k}{def} \PYG{n+nf}{\PYGZus{}\PYGZus{}prepare\PYGZus{}image}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,}\PYG{n}{image}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{if} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{yolo}\PYG{l+s+s2}{\PYGZdq{}} \PYG{o+ow}{in} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{net\PYGZus{}name}\PYG{p}{:}
+      \PYG{k}{return} \PYG{n}{gluoncv}\PYG{o}{.}\PYG{n}{data}\PYG{o}{.}\PYG{n}{transforms}\PYG{o}{.}\PYG{n}{presets}\PYG{o}{.}\PYG{n}{yolo}\PYG{o}{.}\PYG{n}{transform\PYGZus{}test}\PYG{p}{(}\PYG{n}{image}\PYG{p}{,}\PYG{n}{short}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{inference\PYGZus{}resolution}\PYG{p}{)}
+    \PYG{k}{elif} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{rcnn}\PYG{l+s+s2}{\PYGZdq{}} \PYG{o+ow}{in} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{net\PYGZus{}name}\PYG{p}{:}
+      \PYG{k}{return} \PYG{n}{gluoncv}\PYG{o}{.}\PYG{n}{data}\PYG{o}{.}\PYG{n}{transforms}\PYG{o}{.}\PYG{n}{presets}\PYG{o}{.}\PYG{n}{rcnn}\PYG{o}{.}\PYG{n}{transform\PYGZus{}test}\PYG{p}{(}\PYG{n}{image}\PYG{p}{,}\PYG{n}{short}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{inference\PYGZus{}resolution}\PYG{p}{)}
+    \PYG{k}{elif} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{ssd}\PYG{l+s+s2}{\PYGZdq{}} \PYG{o+ow}{in} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{net\PYGZus{}name}\PYG{p}{:}
+      \PYG{k}{return} \PYG{n}{gluoncv}\PYG{o}{.}\PYG{n}{data}\PYG{o}{.}\PYG{n}{transforms}\PYG{o}{.}\PYG{n}{presets}\PYG{o}{.}\PYG{n}{ssd}\PYG{o}{.}\PYG{n}{transform\PYGZus{}test}\PYG{p}{(}\PYG{n}{image}\PYG{p}{,}\PYG{n}{short}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{inference\PYGZus{}resolution}\PYG{p}{)}
+    \PYG{k}{elif} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{center\PYGZus{}net}\PYG{l+s+s2}{\PYGZdq{}} \PYG{o+ow}{in} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{net\PYGZus{}name}\PYG{p}{:}
+      \PYG{k}{return} \PYG{n}{gluoncv}\PYG{o}{.}\PYG{n}{data}\PYG{o}{.}\PYG{n}{transforms}\PYG{o}{.}\PYG{n}{presets}\PYG{o}{.}\PYG{n}{center\PYGZus{}net}\PYG{o}{.}\PYG{n}{transform\PYGZus{}test}\PYG{p}{(}\PYG{n}{image}\PYG{p}{,}\PYG{n}{short}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{inference\PYGZus{}resolution}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+
+\paragraph{\_\_init\_\_.py}
+\label{\detokenize{comp_viz.object_detection:init-py}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{.}\PYG{n+nn}{model} \PYG{k+kn}{import} \PYG{o}{*}
+\end{sphinxVerbatim}
+
 \sphinxstepscope
 
 
-\subsubsection{comp\_viz.utils package}
-\label{\detokenize{comp_viz.utils:comp-viz-utils-package}}\label{\detokenize{comp_viz.utils::doc}}
+\subsubsection{Utils package}
+\label{\detokenize{comp_viz.utils:utils-package}}\label{\detokenize{comp_viz.utils::doc}}
 
-\paragraph{Submodules}
-\label{\detokenize{comp_viz.utils:submodules}}
-
-\paragraph{comp\_viz.utils.toolbox module}
-\label{\detokenize{comp_viz.utils:module-comp_viz.utils.toolbox}}\label{\detokenize{comp_viz.utils:comp-viz-utils-toolbox-module}}\index{module@\spxentry{module}!comp\_viz.utils.toolbox@\spxentry{comp\_viz.utils.toolbox}}\index{comp\_viz.utils.toolbox@\spxentry{comp\_viz.utils.toolbox}!module@\spxentry{module}}\index{Models (class in comp\_viz.utils.toolbox)@\spxentry{Models}\spxextra{class in comp\_viz.utils.toolbox}}
+\paragraph{utils.toolbox module}
+\label{\detokenize{comp_viz.utils:module-comp_viz.utils.toolbox}}\label{\detokenize{comp_viz.utils:utils-toolbox-module}}\index{module@\spxentry{module}!comp\_viz.utils.toolbox@\spxentry{comp\_viz.utils.toolbox}}\index{comp\_viz.utils.toolbox@\spxentry{comp\_viz.utils.toolbox}!module@\spxentry{module}}\index{Models (class in comp\_viz.utils.toolbox)@\spxentry{Models}\spxextra{class in comp\_viz.utils.toolbox}}
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{comp_viz.utils:comp_viz.utils.toolbox.Models}}
@@ -354,6 +613,12 @@ list
 \pysigstopsignatures
 \sphinxAtStartPar
 Show available tasks for the comp\_viz package.
+\begin{quote}\begin{description}
+\sphinxlineitem{Return type}
+\sphinxAtStartPar
+void
+
+\end{description}\end{quote}
 
 \end{fulllineitems}
 
@@ -484,6 +749,12 @@ numpy.ndarray
 \pysigstopsignatures
 \sphinxAtStartPar
 Show list of the available networks that can be used with the comp\_viz object\_detection sub\sphinxhyphen{}package.
+\begin{quote}\begin{description}
+\sphinxlineitem{Return type}
+\sphinxAtStartPar
+void
+
+\end{description}\end{quote}
 
 \end{fulllineitems}
 
@@ -732,11 +1003,235 @@ void
 \paragraph{Module contents}
 \label{\detokenize{comp_viz.utils:module-comp_viz.utils}}\label{\detokenize{comp_viz.utils:module-contents}}\index{module@\spxentry{module}!comp\_viz.utils@\spxentry{comp\_viz.utils}}\index{comp\_viz.utils@\spxentry{comp\_viz.utils}!module@\spxentry{module}}
 
-\subsection{Submodules}
-\label{\detokenize{comp_viz:submodules}}
+\paragraph{toolbox.py}
+\label{\detokenize{comp_viz.utils:toolbox-py}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{os}
+\PYG{k+kn}{import} \PYG{n+nn}{mxnet}
+\PYG{k+kn}{import} \PYG{n+nn}{gluoncv}
+\PYG{k+kn}{import} \PYG{n+nn}{numpy}
+\PYG{k+kn}{import} \PYG{n+nn}{cv2}
 
-\subsection{comp\_viz.config module}
-\label{\detokenize{comp_viz:module-comp_viz.config}}\label{\detokenize{comp_viz:comp-viz-config-module}}\index{module@\spxentry{module}!comp\_viz.config@\spxentry{comp\_viz.config}}\index{comp\_viz.config@\spxentry{comp\_viz.config}!module@\spxentry{module}}\index{CompViz (class in comp\_viz.config)@\spxentry{CompViz}\spxextra{class in comp\_viz.config}}
+\PYG{k+kn}{from} \PYG{n+nn}{.}\PYG{n+nn}{.}\PYG{n+nn}{config} \PYG{k+kn}{import} \PYG{n}{Models} \PYG{k}{as} \PYG{n}{models\PYGZus{}config}
+\PYG{k+kn}{from} \PYG{n+nn}{.}\PYG{n+nn}{.}\PYG{n+nn}{config} \PYG{k+kn}{import} \PYG{n}{ObjectDetection} \PYG{k}{as} \PYG{n}{obj\PYGZus{}det\PYGZus{}config}
+
+\PYG{k}{class} \PYG{n+nc}{Models}\PYG{p}{:}
+  \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Utility class centered around conveying available functionality for the comp\PYGZus{}viz package. }
+\PYG{l+s+sd}{  \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+
+  \PYG{k}{def} \PYG{n+nf}{list\PYGZus{}tasks}\PYG{p}{(}\PYG{p}{)}\PYG{p}{:}
+    \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Show available tasks for the comp\PYGZus{}viz package. }
+
+\PYG{l+s+sd}{    :rtype: void}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{Models}\PYG{o}{.}\PYG{n}{\PYGZus{}get\PYGZus{}tasks}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
+
+  \PYG{k}{def} \PYG{n+nf}{get\PYGZus{}tasks}\PYG{p}{(}\PYG{p}{)}\PYG{p}{:}
+    \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Get available tasks for the comp\PYGZus{}viz package. }
+\PYG{l+s+sd}{    }
+\PYG{l+s+sd}{    :rtype: list}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{k}{return} \PYG{n}{Models}\PYG{o}{.}\PYG{n}{\PYGZus{}get\PYGZus{}tasks}\PYG{p}{(}\PYG{p}{)}
+
+  \PYG{k}{def} \PYG{n+nf}{\PYGZus{}get\PYGZus{}tasks}\PYG{p}{(}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{return} \PYG{n}{models\PYGZus{}config}\PYG{o}{.}\PYG{n}{tasks}
+
+
+\PYG{k}{class} \PYG{n+nc}{ObjectDetection}\PYG{p}{:}
+  \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Utility class centered around object detection tasks relevant but not limited to the comp\PYGZus{}viz object detection package.}
+\PYG{l+s+sd}{  \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+
+  \PYG{k}{def} \PYG{n+nf}{list\PYGZus{}networks}\PYG{p}{(}\PYG{p}{)}\PYG{p}{:}
+    \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Show list of the available networks that can be used with the comp\PYGZus{}viz object\PYGZus{}detection sub\PYGZhy{}package.}
+
+\PYG{l+s+sd}{    :rtype: void}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{ObjectDetection}\PYG{o}{.}\PYG{n}{\PYGZus{}get\PYGZus{}networks}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
+
+  \PYG{k}{def} \PYG{n+nf}{get\PYGZus{}networks}\PYG{p}{(}\PYG{p}{)}\PYG{p}{:}
+    \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Get list of the available networks that can be used with the comp\PYGZus{}viz object\PYGZus{}detection sub\PYGZhy{}package.}
+
+\PYG{l+s+sd}{    :rtype: List}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{k}{return} \PYG{n}{ObjectDetection}\PYG{o}{.}\PYG{n}{\PYGZus{}get\PYGZus{}networks}\PYG{p}{(}\PYG{p}{)}
+
+  \PYG{k}{def} \PYG{n+nf}{get\PYGZus{}network\PYGZus{}resolution}\PYG{p}{(}\PYG{n}{net\PYGZus{}name}\PYG{p}{)}\PYG{p}{:}
+    \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Get image inference resolution of the specified network.}
+
+\PYG{l+s+sd}{    :param net\PYGZus{}name: A valid network name among the results in get\PYGZus{}networks() or list\PYGZus{}networks() method.}
+\PYG{l+s+sd}{    :type net\PYGZus{}name: string}
+\PYG{l+s+sd}{    :rtype: int}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{k}{return} \PYG{n}{ObjectDetection}\PYG{o}{.}\PYG{n}{\PYGZus{}get\PYGZus{}resolution}\PYG{p}{(}\PYG{n}{net\PYGZus{}name}\PYG{p}{)}
+
+  \PYG{k}{def} \PYG{n+nf}{format\PYGZus{}object\PYGZus{}classes}\PYG{p}{(}\PYG{n}{object\PYGZus{}classes}\PYG{p}{:} \PYG{n+nb}{list}\PYG{p}{)} \PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}} \PYG{n+nb}{list}\PYG{p}{:}
+    \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Given a list of object classes, format all the elements such that they are readable by the network.}
+
+\PYG{l+s+sd}{    :param object\PYGZus{}classes: List of object classes.}
+\PYG{l+s+sd}{    :type object\PYGZus{}classes: list}
+\PYG{l+s+sd}{    :rtype: list}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}
+    \PYG{k}{while} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{object\PYGZus{}classes}\PYG{p}{)}\PYG{p}{:}
+      \PYG{k}{if} \PYG{n}{object\PYGZus{}classes}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{==} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{:}
+        \PYG{n}{object\PYGZus{}classes}\PYG{o}{.}\PYG{n}{pop}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)}
+        \PYG{k}{continue}
+      \PYG{n}{object\PYGZus{}classes}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{n}{object\PYGZus{}classes}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{.}\PYG{n}{lower}\PYG{p}{(}\PYG{p}{)}\PYG{o}{.}\PYG{n}{strip}\PYG{p}{(}\PYG{p}{)}
+      \PYG{n}{i} \PYG{o}{+}\PYG{o}{=} \PYG{l+m+mi}{1}
+    \PYG{k}{return} \PYG{n}{object\PYGZus{}classes}
+
+  \PYG{k}{def} \PYG{n+nf}{resize\PYGZus{}bbox}\PYG{p}{(}\PYG{n}{bbox}\PYG{p}{:} \PYG{n+nb}{list}\PYG{p}{,} \PYG{n}{orig}\PYG{p}{:} \PYG{n+nb}{tuple}\PYG{p}{,} \PYG{n}{dest}\PYG{p}{:} \PYG{n+nb}{tuple}\PYG{p}{)}\PYG{p}{:}
+    \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Given a bounding box of the format [x,min, y\PYGZus{}min, x\PYGZus{}max, y\PYGZus{}max] and the original image resolution, return a new bounding box resized to the desired image size.}
+
+\PYG{l+s+sd}{    :param bbox: Bounding box of the form [x\PYGZus{}min, y\PYGZus{}min, x\PYGZus{}max, y\PYGZus{}max].}
+\PYG{l+s+sd}{    :type bbox: list}
+\PYG{l+s+sd}{    :param orig: Original image resolution of form (height, width, shape). Ex. (500,800,3)}
+\PYG{l+s+sd}{    :type orig: Tuple or ndarray.shape}
+\PYG{l+s+sd}{    :param dest: Image to resize resolution of form (height, width, shape). Ex. (600,900,3)}
+\PYG{l+s+sd}{    :type dest: Tuple or ndarray.shape}
+\PYG{l+s+sd}{    :rtype: list}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{n}{x\PYGZus{}min}\PYG{p}{,} \PYG{n}{y\PYGZus{}min}\PYG{p}{,} \PYG{n}{x\PYGZus{}max}\PYG{p}{,} \PYG{n}{y\PYGZus{}max} \PYG{o}{=} \PYG{n}{bbox}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{,} \PYG{n}{bbox}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{,} \PYG{n}{bbox}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]}\PYG{p}{,} \PYG{n}{bbox}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{]}
+    \PYG{n}{x\PYGZus{}scale} \PYG{o}{=} \PYG{n}{dest}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{/} \PYG{n}{orig}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}
+    \PYG{n}{y\PYGZus{}scale} \PYG{o}{=} \PYG{n}{dest}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{/} \PYG{n}{orig}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}
+    \PYG{k}{return} \PYG{p}{[}\PYG{n+nb}{float}\PYG{p}{(}\PYG{n}{numpy}\PYG{o}{.}\PYG{n}{round}\PYG{p}{(}\PYG{n}{x\PYGZus{}min}\PYG{o}{*}\PYG{n}{x\PYGZus{}scale}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,} 
+            \PYG{n+nb}{float}\PYG{p}{(}\PYG{n}{numpy}\PYG{o}{.}\PYG{n}{round}\PYG{p}{(}\PYG{n}{y\PYGZus{}min}\PYG{o}{*}\PYG{n}{y\PYGZus{}scale}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,}
+            \PYG{n+nb}{float}\PYG{p}{(}\PYG{n}{numpy}\PYG{o}{.}\PYG{n}{round}\PYG{p}{(}\PYG{n}{x\PYGZus{}max}\PYG{o}{*}\PYG{n}{x\PYGZus{}scale}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,}
+            \PYG{n+nb}{float}\PYG{p}{(}\PYG{n}{numpy}\PYG{o}{.}\PYG{n}{round}\PYG{p}{(}\PYG{n}{y\PYGZus{}max}\PYG{o}{*}\PYG{n}{y\PYGZus{}scale}\PYG{p}{)}\PYG{p}{)}\PYG{p}{]}
+
+  \PYG{k}{def} \PYG{n+nf}{show\PYGZus{}pred\PYGZus{}bboxes\PYGZus{}image}\PYG{p}{(}\PYG{n}{img\PYGZus{}fname}\PYG{p}{:} \PYG{n+nb}{str}\PYG{p}{,} \PYG{n}{bboxes}\PYG{p}{:} \PYG{n+nb}{list}\PYG{p}{,} \PYG{n}{labels} \PYG{o}{=} \PYG{p}{[}\PYG{p}{]}\PYG{p}{,} \PYG{n}{class\PYGZus{}names} \PYG{o}{=} \PYG{p}{[}\PYG{p}{]}\PYG{p}{,} \PYG{n}{scores} \PYG{o}{=} \PYG{p}{[}\PYG{p}{]}\PYG{p}{)}\PYG{p}{:}
+    \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Given an image and detection bounding box features, plot the bounding box to the image and show it.}
+
+\PYG{l+s+sd}{    :param img\PYGZus{}fname: Path to image to plot bounding box to.}
+\PYG{l+s+sd}{    :type img\PYGZus{}fname: string}
+\PYG{l+s+sd}{    :param bboxes: Bounding boxes of form [[x\PYGZus{}min,y\PYGZus{}min,x\PYGZus{}max,y\PYGZus{}max],...] to plot to the image/}
+\PYG{l+s+sd}{    :type bboxes: List[List]}
+\PYG{l+s+sd}{    :param labels: Class id values to mape to each bounding box and class name.}
+\PYG{l+s+sd}{    :type labels: List[int]}
+\PYG{l+s+sd}{    :param class\PYGZus{}names: List of object classes:}
+\PYG{l+s+sd}{    :type class\PYGZus{}names: List[string]}
+\PYG{l+s+sd}{    :param scores: List of confidence values for the bounding boxes.}
+\PYG{l+s+sd}{    :type scores: List[float]}
+\PYG{l+s+sd}{    :rtype: void}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{n}{img} \PYG{o}{=} \PYG{n}{ObjectDetection}\PYG{o}{.}\PYG{n}{get\PYGZus{}pred\PYGZus{}bboxes\PYGZus{}image}\PYG{p}{(}\PYG{n}{img\PYGZus{}fname}\PYG{p}{,}\PYG{n}{bboxes}\PYG{p}{,}\PYG{n}{labels}\PYG{p}{,}\PYG{n}{class\PYGZus{}names}\PYG{p}{,}\PYG{n}{scores}\PYG{p}{)}
+    \PYG{n}{Tools}\PYG{o}{.}\PYG{n}{show\PYGZus{}image}\PYG{p}{(}\PYG{n}{img}\PYG{p}{)}
+
+  \PYG{k}{def} \PYG{n+nf}{get\PYGZus{}pred\PYGZus{}bboxes\PYGZus{}image}\PYG{p}{(}\PYG{n}{img\PYGZus{}fname}\PYG{p}{:} \PYG{n+nb}{str}\PYG{p}{,} \PYG{n}{bboxes}\PYG{p}{:} \PYG{n+nb}{list}\PYG{p}{,} \PYG{n}{labels} \PYG{o}{=} \PYG{p}{[}\PYG{p}{]}\PYG{p}{,} \PYG{n}{class\PYGZus{}names} \PYG{o}{=} \PYG{p}{[}\PYG{p}{]}\PYG{p}{,} \PYG{n}{scores} \PYG{o}{=} \PYG{p}{[}\PYG{p}{]}\PYG{p}{)}\PYG{p}{:}
+    \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Given an image and detection bounding box features, plot the bounding box to the image and return it.}
+
+\PYG{l+s+sd}{    :param img\PYGZus{}fname: Path to image to plot bounding box to.}
+\PYG{l+s+sd}{    :type img\PYGZus{}fname: string}
+\PYG{l+s+sd}{    :param bboxes: Bounding boxes of form [[x\PYGZus{}min,y\PYGZus{}min,x\PYGZus{}max,y\PYGZus{}max],...] to plot to the image/}
+\PYG{l+s+sd}{    :type bboxes: List[List]}
+\PYG{l+s+sd}{    :param labels: Class id values to mape to each bounding box and class name.}
+\PYG{l+s+sd}{    :type labels: List[int]}
+\PYG{l+s+sd}{    :param class\PYGZus{}names: List of object classes:}
+\PYG{l+s+sd}{    :type class\PYGZus{}names: List[string]}
+\PYG{l+s+sd}{    :param scores: List of confidence values for the bounding boxes.}
+\PYG{l+s+sd}{    :type scores: List[float]}
+\PYG{l+s+sd}{    :rtype: numpy.ndarray}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{n}{img} \PYG{o}{=} \PYG{n}{Tools}\PYG{o}{.}\PYG{n}{get\PYGZus{}mxnet\PYGZus{}image}\PYG{p}{(}\PYG{n}{img\PYGZus{}fname}\PYG{p}{)}
+    \PYG{k}{return} \PYG{n}{gluoncv}\PYG{o}{.}\PYG{n}{utils}\PYG{o}{.}\PYG{n}{viz}\PYG{o}{.}\PYG{n}{cv\PYGZus{}plot\PYGZus{}bbox}\PYG{p}{(}\PYG{n}{img}\PYG{p}{,}\PYG{n}{numpy}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{n}{bboxes}\PYG{p}{)}\PYG{p}{,}\PYG{n}{labels}\PYG{o}{=}\PYG{n}{numpy}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{n}{labels}\PYG{p}{)}\PYG{p}{,}\PYG{n}{scores}\PYG{o}{=}\PYG{n}{numpy}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{n}{scores}\PYG{p}{)}\PYG{p}{,}\PYG{n}{class\PYGZus{}names}\PYG{o}{=}\PYG{n}{class\PYGZus{}names}\PYG{p}{,}\PYG{n}{thresh}\PYG{o}{=}\PYG{l+m+mf}{0.}\PYG{p}{)}
+
+  \PYG{c+c1}{\PYGZsh{} Get list of networks available for object detection from config.py}
+  \PYG{k}{def} \PYG{n+nf}{\PYGZus{}get\PYGZus{}networks}\PYG{p}{(}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{return} \PYG{p}{[}\PYG{n}{network} \PYG{k}{for} \PYG{n}{network} \PYG{o+ow}{in} \PYG{n}{obj\PYGZus{}det\PYGZus{}config}\PYG{o}{.}\PYG{n}{networks}\PYG{o}{.}\PYG{n}{keys}\PYG{p}{(}\PYG{p}{)}\PYG{p}{]}
+
+  \PYG{c+c1}{\PYGZsh{} Get resolution for a specified network from config.py}
+  \PYG{k}{def} \PYG{n+nf}{\PYGZus{}get\PYGZus{}resolution}\PYG{p}{(}\PYG{n}{net\PYGZus{}name}\PYG{p}{:} \PYG{n+nb}{str}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{return} \PYG{n}{obj\PYGZus{}det\PYGZus{}config}\PYG{o}{.}\PYG{n}{networks}\PYG{p}{[}\PYG{n}{net\PYGZus{}name}\PYG{p}{]}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{resolution}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{]}
+
+\PYG{k}{class} \PYG{n+nc}{Tools}\PYG{p}{:}
+  \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Utility class centered around images and filesnames.}
+\PYG{l+s+sd}{  \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+  \PYG{k}{def} \PYG{n+nf}{verify\PYGZus{}exists}\PYG{p}{(}\PYG{n}{fname}\PYG{p}{:} \PYG{n+nb}{str}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{if} \PYG{o+ow}{not} \PYG{n}{Tools}\PYG{o}{.}\PYG{n}{\PYGZus{}exists}\PYG{p}{(}\PYG{n}{fname}\PYG{p}{)}\PYG{p}{:}
+      \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Error: file }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{fname}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ could not be located.}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+      \PYG{k}{return}
+
+  \PYG{k}{def} \PYG{n+nf}{exists}\PYG{p}{(}\PYG{n}{fname}\PYG{p}{:} \PYG{n+nb}{str}\PYG{p}{)} \PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}} \PYG{n+nb}{bool}\PYG{p}{:}
+    \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Boolean function to determine if path to filename exists.}
+
+\PYG{l+s+sd}{    :param fname: Path to file.}
+\PYG{l+s+sd}{    :type fname: string}
+\PYG{l+s+sd}{    :rtype: boolean}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{k}{return} \PYG{n}{Tools}\PYG{o}{.}\PYG{n}{\PYGZus{}exists}\PYG{p}{(}\PYG{n}{fname}\PYG{p}{)}
+
+  \PYG{k}{def} \PYG{n+nf}{get\PYGZus{}mxnet\PYGZus{}image}\PYG{p}{(}\PYG{n}{fname}\PYG{p}{:} \PYG{n+nb}{str}\PYG{p}{)}\PYG{p}{:}
+    \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Given path to an image file, return the said image in the form of an mxnet ndarray.}
+
+\PYG{l+s+sd}{    :param fname: Path to file.}
+\PYG{l+s+sd}{    :type fname: string}
+\PYG{l+s+sd}{    :rtype: mxnet.ndarray.ndarray.NDArray}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{n}{Tools}\PYG{o}{.}\PYG{n}{verify\PYGZus{}exists}\PYG{p}{(}\PYG{n}{fname}\PYG{p}{)}
+    \PYG{k}{return} \PYG{n}{mxnet}\PYG{o}{.}\PYG{n}{image}\PYG{o}{.}\PYG{n}{imread}\PYG{p}{(}\PYG{n}{fname}\PYG{p}{)}
+
+  \PYG{k}{def} \PYG{n+nf}{get\PYGZus{}cv2\PYGZus{}image}\PYG{p}{(}\PYG{n}{fname}\PYG{p}{:} \PYG{n+nb}{str}\PYG{p}{)}\PYG{p}{:}
+    \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Given path to an image file, return the said image in the form of an numpy ndarray using openCV.}
+
+\PYG{l+s+sd}{    :param fname: Path to file.}
+\PYG{l+s+sd}{    :type fname: string}
+\PYG{l+s+sd}{    :rtype: numpy.ndarray}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{n}{Tools}\PYG{o}{.}\PYG{n}{verify\PYGZus{}exists}\PYG{p}{(}\PYG{n}{fname}\PYG{p}{)}
+    \PYG{k}{return} \PYG{n}{cv2}\PYG{o}{.}\PYG{n}{cvtColor}\PYG{p}{(}\PYG{n}{cv2}\PYG{o}{.}\PYG{n}{imread}\PYG{p}{(}\PYG{n}{fname}\PYG{p}{)}\PYG{p}{,} \PYG{n}{cv2}\PYG{o}{.}\PYG{n}{COLOR\PYGZus{}BGR2RGB}\PYG{p}{)}
+
+  \PYG{k}{def} \PYG{n+nf}{show\PYGZus{}image}\PYG{p}{(}\PYG{n}{img}\PYG{p}{:} \PYG{n}{numpy}\PYG{o}{.}\PYG{n}{ndarray}\PYG{p}{)}\PYG{p}{:}
+    \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Given an image in the form of an numpy ndarray, show the image to the screen.}
+
+\PYG{l+s+sd}{    :param img: Image in the form of an ndarray.}
+\PYG{l+s+sd}{    :type img: numpy.ndarray or mxnet.ndarray.ndarray.NDArray}
+\PYG{l+s+sd}{    :rtype: void}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{n}{gluoncv}\PYG{o}{.}\PYG{n}{utils}\PYG{o}{.}\PYG{n}{viz}\PYG{o}{.}\PYG{n}{plot\PYGZus{}image}\PYG{p}{(}\PYG{n}{img}\PYG{p}{)}
+
+  \PYG{k}{def} \PYG{n+nf}{filename\PYGZus{}show\PYGZus{}image}\PYG{p}{(}\PYG{n}{fname}\PYG{p}{:} \PYG{n+nb}{str}\PYG{p}{)}\PYG{p}{:}
+    \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Given path to an image file, show the said image file to the screen.}
+
+\PYG{l+s+sd}{    :param fname: Path to image.}
+\PYG{l+s+sd}{    :type fname: string}
+\PYG{l+s+sd}{    :rtype: void}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{n}{Tools}\PYG{o}{.}\PYG{n}{verify\PYGZus{}exists}\PYG{p}{(}\PYG{n}{fname}\PYG{p}{)}
+    \PYG{n}{img} \PYG{o}{=} \PYG{n}{mxnet}\PYG{o}{.}\PYG{n}{image}\PYG{o}{.}\PYG{n}{imread}\PYG{p}{(}\PYG{n}{fname}\PYG{p}{)}
+    \PYG{n}{gluoncv}\PYG{o}{.}\PYG{n}{utils}\PYG{o}{.}\PYG{n}{viz}\PYG{o}{.}\PYG{n}{plot\PYGZus{}image}\PYG{p}{(}\PYG{n}{img}\PYG{p}{)}
+
+  \PYG{k}{def} \PYG{n+nf}{save\PYGZus{}image}\PYG{p}{(}\PYG{n}{img}\PYG{p}{:} \PYG{n}{numpy}\PYG{o}{.}\PYG{n}{ndarray}\PYG{p}{,} \PYG{n}{path}\PYG{p}{:} \PYG{n+nb}{str}\PYG{p}{)}\PYG{p}{:}
+    \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Given an image in the form of an ndarray, save it to the path specified.}
+
+\PYG{l+s+sd}{    :param img: Image in the form of an ndarray.}
+\PYG{l+s+sd}{    :type img: numpy.ndarray or mxnet.ndarray.ndarray.NDArray}
+\PYG{l+s+sd}{    :param path: Path to save image to.}
+\PYG{l+s+sd}{    :type path: string}
+\PYG{l+s+sd}{    :rtype: void}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{n}{img} \PYG{o}{=} \PYG{n}{cv2}\PYG{o}{.}\PYG{n}{cvtColor}\PYG{p}{(}\PYG{n}{img}\PYG{p}{,} \PYG{n}{cv2}\PYG{o}{.}\PYG{n}{COLOR\PYGZus{}BGR2RGB}\PYG{p}{)}
+    \PYG{n}{cv2}\PYG{o}{.}\PYG{n}{imwrite}\PYG{p}{(}\PYG{n}{path}\PYG{p}{,} \PYG{n}{img}\PYG{p}{)}
+    
+  \PYG{k}{def} \PYG{n+nf}{\PYGZus{}exists}\PYG{p}{(}\PYG{n}{fname}\PYG{p}{:} \PYG{n+nb}{str}\PYG{p}{)} \PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}} \PYG{n+nb}{bool}\PYG{p}{:}
+    \PYG{k}{if} \PYG{n}{os}\PYG{o}{.}\PYG{n}{path}\PYG{o}{.}\PYG{n}{exists}\PYG{p}{(}\PYG{n}{fname}\PYG{p}{)}\PYG{p}{:}
+      \PYG{k}{return} \PYG{k+kc}{True}
+    \PYG{k}{return} \PYG{k+kc}{False}
+
+\end{sphinxVerbatim}
+
+
+\paragraph{\_\_init\_\_.py}
+\label{\detokenize{comp_viz.utils:init-py}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{.}\PYG{n+nn}{toolbox} \PYG{k+kn}{import} \PYG{o}{*}
+\end{sphinxVerbatim}
+
+
+\subsection{Comp Viz package configuration file}
+\label{\detokenize{comp_viz:comp-viz-package-configuration-file}}
+
+\subsection{comp\_viz.config}
+\label{\detokenize{comp_viz:module-comp_viz.config}}\label{\detokenize{comp_viz:comp-viz-config}}\index{module@\spxentry{module}!comp\_viz.config@\spxentry{comp\_viz.config}}\index{comp\_viz.config@\spxentry{comp\_viz.config}!module@\spxentry{module}}\index{CompViz (class in comp\_viz.config)@\spxentry{CompViz}\spxextra{class in comp\_viz.config}}
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{comp_viz:comp_viz.config.CompViz}}
@@ -828,14 +1323,51 @@ Configuration class for the object detection task for the comp\_viz package.
 
 
 
-\subsection{Module contents}
-\label{\detokenize{comp_viz:module-comp_viz}}\label{\detokenize{comp_viz:module-contents}}\index{module@\spxentry{module}!comp\_viz@\spxentry{comp\_viz}}\index{comp\_viz@\spxentry{comp\_viz}!module@\spxentry{module}}
+\subsection{config.py source code}
+\label{\detokenize{comp_viz:config-py-source-code}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{class} \PYG{n+nc}{CompViz}\PYG{p}{:}
+  \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Most parental configuration class for the comp\PYGZus{}viz package.}
+\PYG{l+s+sd}{  }
+\PYG{l+s+sd}{  :ivar version: Version number for the comp\PYGZus{}viz package.}
+\PYG{l+s+sd}{  \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+  \PYG{n}{version} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{1.0.0}\PYG{l+s+s2}{\PYGZdq{}}
+
+\PYG{k}{class} \PYG{n+nc}{Models}\PYG{p}{(}\PYG{n}{CompViz}\PYG{p}{)}\PYG{p}{:}
+  \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Configuration class for available functionality for the comp\PYGZus{}viz package. }
+
+\PYG{l+s+sd}{  :ivar tasks: List of supported tasks provided by comp\PYGZus{}viz package.}
+\PYG{l+s+sd}{  \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+  \PYG{n}{tasks} \PYG{o}{=} \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Object Detection}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{]}
+
+\PYG{k}{class} \PYG{n+nc}{ObjectDetection}\PYG{p}{(}\PYG{n}{CompViz}\PYG{p}{)}\PYG{p}{:}
+  \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Configuration class for the object detection task for the comp\PYGZus{}viz package.}
+
+\PYG{l+s+sd}{  :ivar networks: Dictionary of supported networks for object detection for the comp viz package. Each network has an associated inference resolution.}
+\PYG{l+s+sd}{  \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+  \PYG{n}{networks} \PYG{o}{=} \PYG{p}{\PYGZob{}}
+      \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{yolo3\PYGZus{}mobilenet1.0\PYGZus{}coco}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{:} \PYG{p}{\PYGZob{}} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{resolution}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mi}{416} \PYG{p}{\PYGZcb{}}\PYG{p}{,}
+      \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{yolo3\PYGZus{}darknet53\PYGZus{}coco}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{:} \PYG{p}{\PYGZob{}} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{resolution}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mi}{416} \PYG{p}{\PYGZcb{}}\PYG{p}{,}
+      \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{ssd\PYGZus{}512\PYGZus{}resnet50\PYGZus{}v1\PYGZus{}coco}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{:} \PYG{p}{\PYGZob{}} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{resolution}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mi}{416} \PYG{p}{\PYGZcb{}}\PYG{p}{,}
+      \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{center\PYGZus{}net\PYGZus{}resnet101\PYGZus{}v1b\PYGZus{}dcnv2\PYGZus{}coco}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{:} \PYG{p}{\PYGZob{}} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{resolution}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mi}{416} \PYG{p}{\PYGZcb{}}\PYG{p}{,}
+      \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{faster\PYGZus{}rcnn\PYGZus{}fpn\PYGZus{}resnet50\PYGZus{}v1b\PYGZus{}coco}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{:} \PYG{p}{\PYGZob{}} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{resolution}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mi}{416} \PYG{p}{\PYGZcb{}}\PYG{p}{,}
+      \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{faster\PYGZus{}rcnn\PYGZus{}fpn\PYGZus{}syncbn\PYGZus{}resnest269\PYGZus{}coco}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{:} \PYG{p}{\PYGZob{}} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{resolution}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mi}{416} \PYG{p}{\PYGZcb{}}
+  \PYG{p}{\PYGZcb{}}
+\end{sphinxVerbatim}
+
+
+\subsection{\_\_init\_\_.py source code}
+\label{\detokenize{comp_viz:init-py-source-code}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{.} \PYG{k+kn}{import} \PYG{n}{utils}
+\PYG{k+kn}{from} \PYG{n+nn}{.} \PYG{k+kn}{import} \PYG{n}{object\PYGZus{}detection}
+\end{sphinxVerbatim}
+
 
 \renewcommand{\indexname}{Python Module Index}
 \begin{sphinxtheindex}
 \let\bigletter\sphinxstyleindexlettergroup
 \bigletter{c}
-\item\relax\sphinxstyleindexentry{comp\_viz}\sphinxstyleindexpageref{comp_viz:\detokenize{module-comp_viz}}
 \item\relax\sphinxstyleindexentry{comp\_viz.config}\sphinxstyleindexpageref{comp_viz:\detokenize{module-comp_viz.config}}
 \item\relax\sphinxstyleindexentry{comp\_viz.object\_detection}\sphinxstyleindexpageref{comp_viz.object_detection:\detokenize{module-comp_viz.object_detection}}
 \item\relax\sphinxstyleindexentry{comp\_viz.object\_detection.model}\sphinxstyleindexpageref{comp_viz.object_detection:\detokenize{module-comp_viz.object_detection.model}}

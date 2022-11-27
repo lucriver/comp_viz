@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>comp_viz.object_detection.model &#8212; Comp Viz 1.0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/alabaster.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for comp_viz.object_detection.model</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">mxnet</span>
+<span class="kn">import</span> <span class="nn">gluoncv</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="n">utils</span>
+
+<div class="viewcode-block" id="Model"><a class="viewcode-back" href="../../../comp_viz.object_detection.html#comp_viz.object_detection.model.Model">[docs]</a><span class="k">class</span> <span class="nc">Model</span><span class="p">:</span>
+  <span class="sd">&quot;&quot;&quot;Computer vision object detection model.</span>
+
+<span class="sd">  :param network_name: A string representing the computer vision network that will be used</span>
+<span class="sd">                       for detection.</span>
+<span class="sd">  :type network_name: string</span>
+<span class="sd">  :ivar net_name: Holds the string literal for the chosen computer vision network.</span>
+<span class="sd">  :ivar net: Holds the crucial mxnet-gluoncv instantiated computer vision model for which</span>
+<span class="sd">             our package aims to provides a layer of abstraction over.</span>
+<span class="sd">  :ivar inference_resolution: Stores the resolution of images we are to perform inference on.</span>
+<span class="sd">  :ivar default_object_classes: Stores the default object classes that come with chosen network:</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">network_name</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Constructor method</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">net_name</span> <span class="o">=</span> <span class="n">network_name</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">net</span> <span class="o">=</span> <span class="n">gluoncv</span><span class="o">.</span><span class="n">model_zoo</span><span class="o">.</span><span class="n">get_model</span><span class="p">(</span><span class="n">network_name</span><span class="p">,</span> <span class="n">pretrained</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">inference_resolution</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">ObjectDetection</span><span class="o">.</span><span class="n">get_network_resolution</span><span class="p">(</span><span class="n">network_name</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">default_object_classes</span> <span class="o">=</span> <span class="n">gluoncv</span><span class="o">.</span><span class="n">model_zoo</span><span class="o">.</span><span class="n">get_model</span><span class="p">(</span><span class="n">network_name</span><span class="p">,</span> <span class="n">pretrained</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">classes</span>
+
+<div class="viewcode-block" id="Model.list_classes"><a class="viewcode-back" href="../../../comp_viz.object_detection.html#comp_viz.object_detection.model.Model.list_classes">[docs]</a>  <span class="k">def</span> <span class="nf">list_classes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Print the object classes that the computer vision model is detecting for in images.</span>
+<span class="sd">    </span>
+<span class="sd">    :rtype: void</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_classes</span><span class="p">())</span></div>
+
+<div class="viewcode-block" id="Model.get_classes"><a class="viewcode-back" href="../../../comp_viz.object_detection.html#comp_viz.object_detection.model.Model.get_classes">[docs]</a>  <span class="k">def</span> <span class="nf">get_classes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get list of the object classes that the computer vision model is detecting for in images.</span>
+<span class="sd">    </span>
+<span class="sd">    :rtype: List</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_classes</span><span class="p">())</span></div>
+
+<div class="viewcode-block" id="Model.get_prediction"><a class="viewcode-back" href="../../../comp_viz.object_detection.html#comp_viz.object_detection.model.Model.get_prediction">[docs]</a>  <span class="k">def</span> <span class="nf">get_prediction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">fname</span><span class="p">,</span><span class="n">nms</span><span class="o">=</span><span class="mf">0.</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Get prediction made for an image by computer vision model.</span>
+<span class="sd">    </span>
+<span class="sd">    :param fname: Path to an image file.</span>
+<span class="sd">    :type fname: string</span>
+<span class="sd">    :param nms: Stands for non-maximal suppresion. If computer vision model detects and an </span>
+<span class="sd">                object in the image with a confidence value less than the nms value, it </span>
+<span class="sd">                will not include it in the returned results. </span>
+<span class="sd">    :type nms: float</span>
+<span class="sd">    :rtype: dict            </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">utils</span><span class="o">.</span><span class="n">Tools</span><span class="o">.</span><span class="n">verify_exists</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">cids</span><span class="p">,</span> <span class="n">scores</span><span class="p">,</span> <span class="n">bboxes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_predict</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="n">nms</span><span class="p">)</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">prediction</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">prediction</span><span class="p">[</span><span class="s2">&quot;image&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+    <span class="n">prediction</span><span class="p">[</span><span class="s1">&#39;class_ids&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cids</span>
+    <span class="n">prediction</span><span class="p">[</span><span class="s1">&#39;confidence_scores&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">scores</span>
+    <span class="n">prediction</span><span class="p">[</span><span class="s1">&#39;bounding_boxes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bboxes</span>
+    <span class="n">prediction</span><span class="p">[</span><span class="s1">&#39;nms_thresh&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nms</span>
+    <span class="n">prediction</span><span class="p">[</span><span class="s1">&#39;class_map&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">cid</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_classes</span><span class="p">()[</span><span class="n">cid</span><span class="p">]</span> <span class="k">for</span> <span class="n">cid</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">cids</span><span class="p">)}</span>
+    <span class="n">prediction</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">),</span><span class="mi">4</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">prediction</span></div>
+
+<div class="viewcode-block" id="Model.get_image_prediction"><a class="viewcode-back" href="../../../comp_viz.object_detection.html#comp_viz.object_detection.model.Model.get_image_prediction">[docs]</a>  <span class="k">def</span> <span class="nf">get_image_prediction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">fname</span><span class="p">,</span><span class="n">nms</span><span class="o">=</span><span class="mf">0.</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get image with the bounding box detections and the prediction made by the computer vision model.</span>
+<span class="sd">    </span>
+<span class="sd">    :param fname: Path to an image file.</span>
+<span class="sd">    :type fname: string</span>
+<span class="sd">    :param nms: Stands for non-maximal suppresion. If computer vision model detects and an </span>
+<span class="sd">                object in the image with a confidence value less than the nms value, it </span>
+<span class="sd">                will not include it in the returned results.</span>
+<span class="sd">    :type nms: float</span>
+<span class="sd">    :return: A pair of values, an image in the form of a numpy array, and the prediction dict.</span>
+<span class="sd">    :rtype: (numpy.array, dict)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">pred</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_prediction</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+    <span class="n">pred_img</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">ObjectDetection</span><span class="o">.</span><span class="n">get_pred_bboxes_image</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span>
+                                                           <span class="n">pred</span><span class="p">[</span><span class="s2">&quot;bounding_boxes&quot;</span><span class="p">],</span>
+                                                           <span class="n">pred</span><span class="p">[</span><span class="s2">&quot;class_ids&quot;</span><span class="p">],</span>
+                                                           <span class="p">[</span><span class="n">val</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">pred</span><span class="p">[</span><span class="s2">&quot;class_map&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">()],</span>
+                                                           <span class="n">pred</span><span class="p">[</span><span class="s2">&quot;confidence_scores&quot;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">pred_img</span><span class="p">,</span> <span class="n">pred</span></div>
+
+<div class="viewcode-block" id="Model.show_image_prediction"><a class="viewcode-back" href="../../../comp_viz.object_detection.html#comp_viz.object_detection.model.Model.show_image_prediction">[docs]</a>  <span class="k">def</span> <span class="nf">show_image_prediction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">fname</span><span class="p">,</span><span class="n">nms</span><span class="o">=</span><span class="mf">0.</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Print image with the bounding box detections and the prediction made by the computer vision model.</span>
+<span class="sd">    </span>
+<span class="sd">    :param fname: Path to an image file.</span>
+<span class="sd">    :type fname: string</span>
+<span class="sd">    :param nms: Stands for non-maximal suppresion. If computer vision model detects and an </span>
+<span class="sd">                object in the image with a confidence value less than the nms value, it </span>
+<span class="sd">                will not include it in the returned results.</span>
+<span class="sd">    :type nms: float</span>
+<span class="sd">    :rtype: void</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">image</span><span class="p">,</span> <span class="n">prediction</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_image_prediction</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+    <span class="n">utils</span><span class="o">.</span><span class="n">Tools</span><span class="o">.</span><span class="n">show_image</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">prediction</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Model.set_classes"><a class="viewcode-back" href="../../../comp_viz.object_detection.html#comp_viz.object_detection.model.Model.set_classes">[docs]</a>  <span class="k">def</span> <span class="nf">set_classes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">object_classes</span><span class="p">:</span> <span class="nb">list</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Change the object classes that the computer vision model is detecting for in images. Ensures validity by referencing the original list of available object classes when model was first instantiatied.</span>
+<span class="sd">    </span>
+<span class="sd">    :param object_classes: List of new object classes to detect for. Ex. &quot;person&quot;, &quot;bicycle&quot;, &quot;banana&quot;.</span>
+<span class="sd">    :type object_classes: List</span>
+<span class="sd">    :rtype: void</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">unsupported</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">obj_class</span> <span class="ow">in</span> <span class="n">object_classes</span><span class="p">:</span>
+      <span class="k">if</span> <span class="n">obj_class</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_object_classes</span><span class="p">:</span>
+        <span class="n">unsupported</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">obj_class</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">unsupported</span><span class="p">:</span>    
+      <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;WARNING: object classes </span><span class="se">\&quot;</span><span class="si">{</span><span class="n">unsupported</span><span class="si">}</span><span class="se">\&quot;</span><span class="s2"> are not supported by default for object detection. Expect no capability for detection.&quot;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">net</span><span class="o">.</span><span class="n">reset_class</span><span class="p">(</span><span class="n">object_classes</span><span class="p">,</span> <span class="n">reuse_weights</span><span class="o">=</span><span class="n">object_classes</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Complete. Model set to detect for object classes: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">get_classes</span><span class="p">()</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Model.reset_classes"><a class="viewcode-back" href="../../../comp_viz.object_detection.html#comp_viz.object_detection.model.Model.reset_classes">[docs]</a>  <span class="k">def</span> <span class="nf">reset_classes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Change the object classes that the computer vision model is detecting for in images back to defaults.</span>
+
+<span class="sd">    :rtype: void</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">net</span><span class="o">.</span><span class="n">reset_class</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">default_object_classes</span><span class="p">,</span><span class="n">reuse_weights</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">default_object_classes</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Object classes for detection restored to defaults.&quot;</span><span class="p">)</span></div>
+
+  <span class="c1"># Get tuple containing class ids, confidence scores and bounding boxes for an image prediction,</span>
+  <span class="c1"># apply NMS if specified and return the tuple.</span>
+  <span class="k">def</span> <span class="nf">_predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">fname</span><span class="p">,</span><span class="n">nms</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
+    <span class="n">base_img</span> <span class="o">=</span> <span class="n">mxnet</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">img</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__prepare_image</span><span class="p">(</span><span class="n">base_img</span><span class="p">)</span>
+    <span class="n">pred</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">net</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">cids</span><span class="p">,</span> <span class="n">scores</span><span class="p">,</span> <span class="n">bboxes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extract_cids_scores_bboxes</span><span class="p">(</span><span class="n">pred</span><span class="p">)</span>
+    <span class="c1"># resize bounding box from network inference resolution to original image resolution</span>
+    <span class="n">bboxes</span> <span class="o">=</span> <span class="p">[</span><span class="n">utils</span><span class="o">.</span><span class="n">ObjectDetection</span><span class="o">.</span><span class="n">resize_bbox</span><span class="p">(</span><span class="n">bbox</span><span class="p">,</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span><span class="n">base_img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="k">for</span> <span class="n">bbox</span> <span class="ow">in</span> <span class="n">bboxes</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">nms</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+      <span class="k">return</span> <span class="p">(</span><span class="n">cids</span><span class="p">,</span><span class="n">scores</span><span class="p">,</span><span class="n">bboxes</span><span class="p">)</span>
+    <span class="n">nms_cids</span><span class="p">,</span> <span class="n">nms_scores</span><span class="p">,</span> <span class="n">nms_bboxes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_apply_nms</span><span class="p">(</span><span class="n">cids</span><span class="p">,</span> <span class="n">scores</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">nms</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">nms_cids</span><span class="p">,</span><span class="n">nms_scores</span><span class="p">,</span><span class="n">nms_bboxes</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">_get_classes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">net</span><span class="o">.</span><span class="n">classes</span>
+    
+  <span class="c1"># Return tuple containing only the class ids, confidence scores, and bounding boxes of an MXNet</span>
+  <span class="c1"># inference result.</span>
+  <span class="k">def</span> <span class="nf">_extract_cids_scores_bboxes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">pred</span><span class="p">):</span>
+    <span class="n">cids</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_class_ids</span><span class="p">(</span><span class="n">pred</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">scores</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_scores</span><span class="p">(</span><span class="n">pred</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">bboxes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_bboxes</span><span class="p">(</span><span class="n">pred</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">cids</span><span class="p">,</span> <span class="n">scores</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">)</span>
+
+  <span class="c1"># Given an tuple containing class ids, confidence scoers and bounding boxes for an MXNet prediction</span>
+  <span class="c1"># filter the results and return them based off the confidence scores of the predictions and the</span>
+  <span class="c1"># specified nms value. (If confidence score &lt; NMS, prune that prediction from results to be returned.)</span>
+  <span class="k">def</span> <span class="nf">_apply_nms</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">cids</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">scores</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">nms</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+    <span class="n">prune_indexes</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">score</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">scores</span><span class="p">):</span>
+      <span class="k">if</span> <span class="n">score</span> <span class="o">&lt;</span> <span class="n">nms</span><span class="p">:</span>
+        <span class="n">prune_indexes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">prune_indexes</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+      <span class="n">cids</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+      <span class="n">scores</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+      <span class="n">bboxes</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">cids</span><span class="p">,</span> <span class="n">scores</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">)</span>
+
+  <span class="c1"># Extract the class ids from an MXNet prediction ndarray to a list.</span>
+  <span class="k">def</span> <span class="nf">_get_class_ids</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">cids</span><span class="p">:</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+    <span class="n">class_ids</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">ndarray</span> <span class="ow">in</span> <span class="n">cids</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+      <span class="n">nparray</span> <span class="o">=</span> <span class="n">ndarray</span><span class="o">.</span><span class="n">asnumpy</span><span class="p">()</span>
+      <span class="k">if</span> <span class="n">nparray</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">class_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">nparray</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="k">return</span> <span class="n">class_ids</span>
+
+  <span class="c1"># Extract the confidence score float values from an MXNet prediction ndarray to a list</span>
+  <span class="k">def</span> <span class="nf">_get_scores</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">scores</span><span class="p">:</span> <span class="nb">list</span><span class="p">):</span>
+    <span class="n">confidence_scores</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">ndarray</span> <span class="ow">in</span> <span class="n">scores</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+      <span class="n">nparray</span> <span class="o">=</span> <span class="n">ndarray</span><span class="o">.</span><span class="n">asnumpy</span><span class="p">()</span>
+      <span class="k">if</span> <span class="n">nparray</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">confidence_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">nparray</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span><span class="mi">3</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">confidence_scores</span>
+
+  <span class="c1"># Extract the bounding boxes from an MXNet prediction ndarray to a nested list </span>
+  <span class="k">def</span> <span class="nf">_get_bboxes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">bboxes</span><span class="p">):</span>
+    <span class="n">bounding_boxes</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">ndarray</span> <span class="ow">in</span> <span class="n">bboxes</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+      <span class="n">nparray</span> <span class="o">=</span> <span class="n">ndarray</span><span class="o">.</span><span class="n">asnumpy</span><span class="p">()</span>
+      <span class="k">if</span> <span class="n">nparray</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">bb</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">corner</span><span class="p">)</span> <span class="k">for</span> <span class="n">corner</span> <span class="ow">in</span> <span class="n">nparray</span><span class="o">.</span><span class="n">tolist</span><span class="p">()]</span>
+        <span class="n">bounding_boxes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bb</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">bounding_boxes</span>
+
+  <span class="c1"># Process image such that inference can be performed by the mxnet network.</span>
+  <span class="k">def</span> <span class="nf">__prepare_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">image</span><span class="p">):</span>
+    <span class="k">if</span> <span class="s2">&quot;yolo&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">net_name</span><span class="p">:</span>
+      <span class="k">return</span> <span class="n">gluoncv</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">presets</span><span class="o">.</span><span class="n">yolo</span><span class="o">.</span><span class="n">transform_test</span><span class="p">(</span><span class="n">image</span><span class="p">,</span><span class="n">short</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">inference_resolution</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="s2">&quot;rcnn&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">net_name</span><span class="p">:</span>
+      <span class="k">return</span> <span class="n">gluoncv</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">presets</span><span class="o">.</span><span class="n">rcnn</span><span class="o">.</span><span class="n">transform_test</span><span class="p">(</span><span class="n">image</span><span class="p">,</span><span class="n">short</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">inference_resolution</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="s2">&quot;ssd&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">net_name</span><span class="p">:</span>
+      <span class="k">return</span> <span class="n">gluoncv</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">presets</span><span class="o">.</span><span class="n">ssd</span><span class="o">.</span><span class="n">transform_test</span><span class="p">(</span><span class="n">image</span><span class="p">,</span><span class="n">short</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">inference_resolution</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="s2">&quot;center_net&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">net_name</span><span class="p">:</span>
+      <span class="k">return</span> <span class="n">gluoncv</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">presets</span><span class="o">.</span><span class="n">center_net</span><span class="o">.</span><span class="n">transform_test</span><span class="p">(</span><span class="n">image</span><span class="p">,</span><span class="n">short</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">inference_resolution</span><span class="p">)</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Comp Viz</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">comp_viz</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Lucas Hirt.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

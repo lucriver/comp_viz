@@ -10,10 +10,10 @@ Subpackages
    comp_viz.object_detection
    comp_viz.utils
 
-Submodules
+Comp Viz package configuration file
 ----------
 
-comp\_viz.config module
+comp\_viz.config
 -----------------------
 
 .. automodule:: comp_viz.config
@@ -21,10 +21,16 @@ comp\_viz.config module
    :undoc-members:
    :show-inheritance:
 
-Module contents
+config.py source code
 ---------------
 
-.. automodule:: comp_viz
-   :members:
-   :undoc-members:
-   :show-inheritance:
+.. only:: latex
+
+  .. literalinclude:: ../../comp_viz/config.py
+
+\__init\__.py source code
+---------------
+
+.. only:: latex
+
+  .. literalinclude:: ../../comp_viz/__init__.py

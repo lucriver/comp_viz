@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>comp_viz.config &#8212; Comp Viz 1.0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for comp_viz.config</h1><div class="highlight"><pre>
+<div class="viewcode-block" id="CompViz"><a class="viewcode-back" href="../../comp_viz.html#comp_viz.config.CompViz">[docs]</a><span></span><span class="k">class</span> <span class="nc">CompViz</span><span class="p">:</span>
+  <span class="sd">&quot;&quot;&quot;Most parental configuration class for the comp_viz package.</span>
+<span class="sd">  </span>
+<span class="sd">  :ivar version: Version number for the comp_viz package.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">version</span> <span class="o">=</span> <span class="s2">&quot;1.0.0&quot;</span></div>
+
+<div class="viewcode-block" id="Models"><a class="viewcode-back" href="../../comp_viz.html#comp_viz.config.Models">[docs]</a><span class="k">class</span> <span class="nc">Models</span><span class="p">(</span><span class="n">CompViz</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;Configuration class for available functionality for the comp_viz package. </span>
+
+<span class="sd">  :ivar tasks: List of supported tasks provided by comp_viz package.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">tasks</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Object Detection&quot;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="ObjectDetection"><a class="viewcode-back" href="../../comp_viz.html#comp_viz.config.ObjectDetection">[docs]</a><span class="k">class</span> <span class="nc">ObjectDetection</span><span class="p">(</span><span class="n">CompViz</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;Configuration class for the object detection task for the comp_viz package.</span>
+
+<span class="sd">  :ivar networks: Dictionary of supported networks for object detection for the comp viz package. Each network has an associated inference resolution.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">networks</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="s2">&quot;yolo3_mobilenet1.0_coco&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;resolution&quot;</span><span class="p">:</span> <span class="mi">416</span> <span class="p">},</span>
+      <span class="s2">&quot;yolo3_darknet53_coco&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;resolution&quot;</span><span class="p">:</span> <span class="mi">416</span> <span class="p">},</span>
+      <span class="s2">&quot;ssd_512_resnet50_v1_coco&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;resolution&quot;</span><span class="p">:</span> <span class="mi">416</span> <span class="p">},</span>
+      <span class="s2">&quot;center_net_resnet101_v1b_dcnv2_coco&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;resolution&quot;</span><span class="p">:</span> <span class="mi">416</span> <span class="p">},</span>
+      <span class="s2">&quot;faster_rcnn_fpn_resnet50_v1b_coco&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;resolution&quot;</span><span class="p">:</span> <span class="mi">416</span> <span class="p">},</span>
+      <span class="s2">&quot;faster_rcnn_fpn_syncbn_resnest269_coco&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;resolution&quot;</span><span class="p">:</span> <span class="mi">416</span> <span class="p">}</span>
+  <span class="p">}</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Comp Viz</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">comp_viz</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Lucas Hirt.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

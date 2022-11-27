@@ -1,17 +1,21 @@
 \babel@toc {english}{}
-\contentsline {chapter}{\numberline {1}comp\_viz}{1}{chapter.1}%
-\contentsline {section}{\numberline {1.1}comp\_viz package}{1}{section.1.1}%
-\contentsline {subsection}{\numberline {1.1.1}Subpackages}{1}{subsection.1.1.1}%
-\contentsline {subsubsection}{comp\_viz.object\_detection package}{1}{subsubsection*.3}%
-\contentsline {paragraph}{Submodules}{1}{paragraph*.4}%
-\contentsline {paragraph}{comp\_viz.object\_detection.model module}{1}{paragraph*.5}%
-\contentsline {paragraph}{Module contents}{2}{paragraph*.14}%
-\contentsline {subsubsection}{comp\_viz.utils package}{2}{subsubsection*.15}%
-\contentsline {paragraph}{Submodules}{2}{paragraph*.16}%
-\contentsline {paragraph}{comp\_viz.utils.toolbox module}{2}{paragraph*.17}%
-\contentsline {paragraph}{Module contents}{5}{paragraph*.37}%
-\contentsline {subsection}{\numberline {1.1.2}Submodules}{5}{subsection.1.1.2}%
-\contentsline {subsection}{\numberline {1.1.3}comp\_viz.config module}{5}{subsection.1.1.3}%
-\contentsline {subsection}{\numberline {1.1.4}Module contents}{6}{subsection.1.1.4}%
-\contentsline {chapter}{Python Module Index}{7}{section*.44}%
-\contentsline {chapter}{Index}{9}{section*.45}%
+\contentsline {chapter}{\numberline {1}Comp Viz Summary}{1}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Comp Viz}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}comp\_viz package}{3}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Subpackages}{3}{subsection.2.1.1}%
+\contentsline {subsubsection}{Object Detection package}{3}{subsubsection*.3}%
+\contentsline {paragraph}{object\_detection.model module}{3}{paragraph*.4}%
+\contentsline {paragraph}{Module contents}{5}{paragraph*.13}%
+\contentsline {paragraph}{model.py}{5}{paragraph*.14}%
+\contentsline {paragraph}{\_\_init\_\_.py}{9}{paragraph*.15}%
+\contentsline {subsubsection}{Utils package}{9}{subsubsection*.16}%
+\contentsline {paragraph}{utils.toolbox module}{9}{paragraph*.17}%
+\contentsline {paragraph}{Module contents}{12}{paragraph*.37}%
+\contentsline {paragraph}{toolbox.py}{12}{paragraph*.38}%
+\contentsline {paragraph}{\_\_init\_\_.py}{17}{paragraph*.39}%
+\contentsline {subsection}{\numberline {2.1.2}Comp Viz package configuration file}{17}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}comp\_viz.config}{17}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.4}config.py source code}{18}{subsection.2.1.4}%
+\contentsline {subsection}{\numberline {2.1.5}\_\_init\_\_.py source code}{18}{subsection.2.1.5}%
+\contentsline {chapter}{Python Module Index}{19}{section*.46}%
+\contentsline {chapter}{Index}{21}{section*.47}%

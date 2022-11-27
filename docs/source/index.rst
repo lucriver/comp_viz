@@ -9,6 +9,6 @@ Welcome to Comp Viz's documentation!
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
-
+   
+   summary
    modules
-
