@@ -1,3 +1,13 @@
+# Author(s): Lucas Hirt
+# Date modified: 11/27/2022
+# This program serves as a collection of helper functions for the primary user interface (client.py).
+# Key functionality this program provides to the primary interface are:
+#   - Handling model choice made by user
+#   - Ensuring validity of inputs made by user- throwing appropriate messages if input is erroneous.
+#   - Output functions to make client program more readable
+#   - Help flag functions to enable user to get more information
+#   - Getter and setter functions for image retrieval.
+
 import comp_viz
 import os
 
