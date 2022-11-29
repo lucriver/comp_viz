@@ -66,6 +66,8 @@ class Model:
     prediction['nms_thresh'] = nms
     prediction['class_map'] = {cid: self.get_classes()[cid] for cid in set(cids)}
     prediction['time'] = round(float(end - start),4)
+    prediction['network'] = self.net_name
+    prediction['resolution'] = self.inference_resolution
     return prediction
 
   def get_image_prediction(self,fname,nms=0.):
