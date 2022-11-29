@@ -14,14 +14,14 @@
 \indexentry{comp\_viz.utils.toolbox@\spxentry{comp\_viz.utils.toolbox}!module@\spxentry{module}|hyperpage}{9}
 \indexentry{Models (class in comp\_viz.utils.toolbox)@\spxentry{Models}\spxextra{class in comp\_viz.utils.toolbox}|hyperpage}{9}
 \indexentry{get\_tasks() (comp\_viz.utils.toolbox.Models method)@\spxentry{get\_tasks()}\spxextra{comp\_viz.utils.toolbox.Models method}|hyperpage}{9}
-\indexentry{list\_tasks() (comp\_viz.utils.toolbox.Models method)@\spxentry{list\_tasks()}\spxextra{comp\_viz.utils.toolbox.Models method}|hyperpage}{9}
+\indexentry{list\_tasks() (comp\_viz.utils.toolbox.Models method)@\spxentry{list\_tasks()}\spxextra{comp\_viz.utils.toolbox.Models method}|hyperpage}{10}
 \indexentry{ObjectDetection (class in comp\_viz.utils.toolbox)@\spxentry{ObjectDetection}\spxextra{class in comp\_viz.utils.toolbox}|hyperpage}{10}
 \indexentry{format\_object\_classes() (comp\_viz.utils.toolbox.ObjectDetection method)@\spxentry{format\_object\_classes()}\spxextra{comp\_viz.utils.toolbox.ObjectDetection method}|hyperpage}{10}
 \indexentry{get\_network\_resolution() (comp\_viz.utils.toolbox.ObjectDetection method)@\spxentry{get\_network\_resolution()}\spxextra{comp\_viz.utils.toolbox.ObjectDetection method}|hyperpage}{10}
 \indexentry{get\_networks() (comp\_viz.utils.toolbox.ObjectDetection method)@\spxentry{get\_networks()}\spxextra{comp\_viz.utils.toolbox.ObjectDetection method}|hyperpage}{10}
 \indexentry{get\_pred\_bboxes\_image() (comp\_viz.utils.toolbox.ObjectDetection method)@\spxentry{get\_pred\_bboxes\_image()}\spxextra{comp\_viz.utils.toolbox.ObjectDetection method}|hyperpage}{10}
 \indexentry{list\_networks() (comp\_viz.utils.toolbox.ObjectDetection method)@\spxentry{list\_networks()}\spxextra{comp\_viz.utils.toolbox.ObjectDetection method}|hyperpage}{10}
-\indexentry{resize\_bbox() (comp\_viz.utils.toolbox.ObjectDetection method)@\spxentry{resize\_bbox()}\spxextra{comp\_viz.utils.toolbox.ObjectDetection method}|hyperpage}{10}
+\indexentry{resize\_bbox() (comp\_viz.utils.toolbox.ObjectDetection method)@\spxentry{resize\_bbox()}\spxextra{comp\_viz.utils.toolbox.ObjectDetection method}|hyperpage}{11}
 \indexentry{show\_pred\_bboxes\_image() (comp\_viz.utils.toolbox.ObjectDetection method)@\spxentry{show\_pred\_bboxes\_image()}\spxextra{comp\_viz.utils.toolbox.ObjectDetection method}|hyperpage}{11}
 \indexentry{Tools (class in comp\_viz.utils.toolbox)@\spxentry{Tools}\spxextra{class in comp\_viz.utils.toolbox}|hyperpage}{11}
 \indexentry{exists() (comp\_viz.utils.toolbox.Tools method)@\spxentry{exists()}\spxextra{comp\_viz.utils.toolbox.Tools method}|hyperpage}{11}

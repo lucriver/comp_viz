@@ -53,7 +53,7 @@
 		\hyperpage{4}
   \item \spxentry{list\_networks()}\spxextra{comp\_viz.utils.toolbox.ObjectDetection method}, 
 		\hyperpage{10}
-  \item \spxentry{list\_tasks()}\spxextra{comp\_viz.utils.toolbox.Models method}, \hyperpage{9}
+  \item \spxentry{list\_tasks()}\spxextra{comp\_viz.utils.toolbox.Models method}, \hyperpage{10}
 
   \indexspace
   \bigletter M
@@ -81,7 +81,7 @@
   \item \spxentry{reset\_classes()}\spxextra{comp\_viz.object\_detection.model.Model method}, 
 		\hyperpage{4}
   \item \spxentry{resize\_bbox()}\spxextra{comp\_viz.utils.toolbox.ObjectDetection method}, 
-		\hyperpage{10}
+		\hyperpage{11}
 
   \indexspace
   \bigletter S

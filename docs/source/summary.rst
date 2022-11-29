@@ -18,6 +18,6 @@ functions to better interact with, but not limited to, other comp viz subpackage
 .. list-table::    
    :class: borderless
 
-   * - .. image:: ../../4.jpg
-     - .. image:: ../../223.jpg
-     - .. image:: ../../0.jpg
+   * - .. image:: ../4.jpg
+     - .. image:: ../223.jpg
+     - .. image:: ../0.jpg

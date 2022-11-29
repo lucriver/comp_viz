@@ -68,7 +68,7 @@
     
 
 \title{Comp Viz}
-\date{Nov 27, 2022}
+\date{Nov 29, 2022}
 \release{1.0.0}
 \author{Lucas Hirt}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -442,6 +442,8 @@ void
     \PYG{n}{prediction}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{nms\PYGZus{}thresh}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]} \PYG{o}{=} \PYG{n}{nms}
     \PYG{n}{prediction}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{class\PYGZus{}map}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{n}{cid}\PYG{p}{:} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{get\PYGZus{}classes}\PYG{p}{(}\PYG{p}{)}\PYG{p}{[}\PYG{n}{cid}\PYG{p}{]} \PYG{k}{for} \PYG{n}{cid} \PYG{o+ow}{in} \PYG{n+nb}{set}\PYG{p}{(}\PYG{n}{cids}\PYG{p}{)}\PYG{p}{\PYGZcb{}}
     \PYG{n}{prediction}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{time}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]} \PYG{o}{=} \PYG{n+nb}{round}\PYG{p}{(}\PYG{n+nb}{float}\PYG{p}{(}\PYG{n}{end} \PYG{o}{\PYGZhy{}} \PYG{n}{start}\PYG{p}{)}\PYG{p}{,}\PYG{l+m+mi}{4}\PYG{p}{)}
+    \PYG{n}{prediction}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{network}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{net\PYGZus{}name}
+    \PYG{n}{prediction}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{resolution}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{inference\PYGZus{}resolution}
     \PYG{k}{return} \PYG{n}{prediction}
 
   \PYG{k}{def} \PYG{n+nf}{get\PYGZus{}image\PYGZus{}prediction}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,}\PYG{n}{fname}\PYG{p}{,}\PYG{n}{nms}\PYG{o}{=}\PYG{l+m+mf}{0.}\PYG{p}{)}\PYG{p}{:}
