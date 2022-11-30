@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.11.23)  29 NOV 2022 09:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.11.23)  30 NOV 2022 09:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -883,78 +883,83 @@ LaTeX Font Info:    Trying to load font information for TS1+qtm on input line 1
 File: ts1qtm.fd 2009/09/25 v1.2 font definition file for TS1/qtm
 ) [3] [4]
 LaTeX Font Info:    Trying to load font information for TS1+txtt on input line 
-439.
+461.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/ts1txtt.fd
 File: ts1txtt.fd 2000/12/15 v3.1
 )
-Underfull \vbox (badness 1314) detected at line 585
+LaTeX Font Info:    Font shape `TS1/txtt/m/it' in size <10> not available
+(Font)              Font shape `TS1/txtt/m/sl' tried instead on input line 541.
+
+
+Overfull \vbox (3.018pt too high) detected at line 623
  []
 
 [5]
-Underfull \vbox (badness 10000) detected at line 585
+Underfull \vbox (badness 10000) detected at line 623
  []
 
 
-Underfull \vbox (badness 10000) detected at line 585
+Underfull \vbox (badness 10000) detected at line 623
  []
 
 [6]
-Underfull \vbox (badness 10000) detected at line 585
+Underfull \vbox (badness 10000) detected at line 623
  []
 
 
-Underfull \vbox (badness 10000) detected at line 585
+Underfull \vbox (badness 10000) detected at line 623
  []
 
 [7]
-Underfull \vbox (badness 10000) detected at line 585
+Underfull \vbox (badness 10000) detected at line 623
  []
 
 
-Underfull \vbox (badness 10000) detected at line 585
+Underfull \vbox (badness 10000) detected at line 623
  []
 
-[8] [9] [10] [11] [12]
-Underfull \vbox (badness 10000) detected at line 1247
- []
-
-
-Underfull \vbox (badness 10000) detected at line 1247
- []
-
-[13]
-Underfull \vbox (badness 10000) detected at line 1247
+[8]
+Underfull \vbox (badness 10000) detected at line 623
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1247
+Underfull \vbox (badness 10000) detected at line 623
+ []
+
+[9] [10] [11] [12] [13]
+Underfull \vbox (badness 10000) detected at line 1285
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 1285
  []
 
 [14]
-Underfull \vbox (badness 10000) detected at line 1247
+Underfull \vbox (badness 10000) detected at line 1285
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1247
+Underfull \vbox (badness 10000) detected at line 1285
  []
 
 [15]
-Underfull \vbox (badness 10000) detected at line 1247
+Underfull \vbox (badness 10000) detected at line 1285
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1247
+Underfull \vbox (badness 10000) detected at line 1285
  []
 
 [16]
 LaTeX Font Info:    Font shape `TS1/txtt/b/n' in size <10> not available
 (Font)              Font shape `TS1/txtt/bx/n' tried instead on input line 1.
- [17] [18] [19
+ [17] [18] [19] [20
+
+] [21
 
 
-
-] (./compviz.ind [20
+] (./compviz.ind [22
 
 
 ]
@@ -1064,77 +1069,89 @@ _detection.model.Model
  []
 
 
-Underfull \hbox (badness 5460) in paragraph at lines 91--92
+Underfull \hbox (badness 10000) in paragraph at lines 91--93
+[]\T1/txtt/m/n/10 set_inference_resolution()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 91--93
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.object_detection.model.Model
+ []
+
+[23
+
+]
+Underfull \hbox (badness 5460) in paragraph at lines 93--94
 []\T1/txtt/m/n/10 show_image() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.utils.t
 oolbox.Tools method\T1/qtm/m/n/10 ),
  []
 
-[21
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 92--94
+Underfull \hbox (badness 10000) in paragraph at lines 94--96
 []\T1/txtt/m/n/10 show_image_prediction()
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 92--94
+Underfull \hbox (badness 10000) in paragraph at lines 94--96
 \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.object_detection.model.Model
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 94--96
+Underfull \hbox (badness 10000) in paragraph at lines 96--98
 []\T1/txtt/m/n/10 show_pred_bboxes_image()
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 94--96
+Underfull \hbox (badness 10000) in paragraph at lines 96--98
 \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.utils.toolbox.ObjectDetection
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 104--105
+Underfull \hbox (badness 10000) in paragraph at lines 106--107
 []\T1/txtt/m/n/10 verify_exists() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.util
 s.toolbox.Tools
  []
 
-[22
+[24
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1410.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1410.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1448.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1448.
  (./compviz.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1410.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1410.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1448.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1448.
 
 Package rerunfilecheck Info: File `compviz.out' has not changed.
-(rerunfilecheck)             Checksum: 18AF8BA39733EBA99151EF9CBE9DC52D;2919.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1410.
+(rerunfilecheck)             Checksum: CCBC5EF197EE175E64CF12D95696472A;2919.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1448.
  ) 
 Here is how much of TeX's memory you used:
- 15928 strings out of 483183
- 236570 string characters out of 5966291
- 884615 words of memory out of 5000000
- 30467 multiletter control sequences out of 15000+600000
- 587073 words of font info for 68 fonts, out of 8000000 for 9000
+ 15938 strings out of 483183
+ 236743 string characters out of 5966291
+ 897615 words of memory out of 5000000
+ 30470 multiletter control sequences out of 15000+600000
+ 590064 words of font info for 72 fonts, out of 8000000 for 9000
  15 hyphenation exceptions out of 8191
  38i,14n,51p,1761b,640s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/tex-gyre/q-ec.enc}{/usr/share/texmf/fonts/e
-nc/dvips/tex-gyre/q-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-sy5.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qhvb.pfb></usr/share/texm
-f/fonts/type1/public/tex-gyre/qhvbi.pfb></usr/share/texmf/fonts/type1/public/te
-x-gyre/qhvr.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qtmb.pfb></usr/sh
-are/texmf/fonts/type1/public/tex-gyre/qtmr.pfb></usr/share/texmf/fonts/type1/pu
-blic/tex-gyre/qtmri.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfon
-ts/t1xbtt.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/t1xtt.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/txfonts/tcxbtt.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/txfonts/tcxtt.pfb>
-Output written on compviz.pdf (26 pages, 545435 bytes).
+{/usr/share/texmf/fonts/enc/dvips/tex-gyre/q-ec.enc}{/usr/share/texlive/texmf
+-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texmf/fonts/enc/dvips/tex-gyre/q-
+ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/
+texmf/fonts/type1/public/tex-gyre/qhvb.pfb></usr/share/texmf/fonts/type1/public
+/tex-gyre/qhvbi.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qhvr.pfb></us
+r/share/texmf/fonts/type1/public/tex-gyre/qtmb.pfb></usr/share/texmf/fonts/type
+1/public/tex-gyre/qtmr.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qtmri.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/t1xbtt.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/txfonts/tcxbtt.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/txfonts/tcxtt.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/ti
+mes/utmr8a.pfb>
+Output written on compviz.pdf (28 pages, 549021 bytes).
 PDF statistics:
- 375 PDF objects out of 1000 (max. 8388607)
- 321 compressed objects within 4 object streams
- 80 named destinations out of 1000 (max. 500000)
+ 390 PDF objects out of 1000 (max. 8388607)
+ 333 compressed objects within 4 object streams
+ 83 named destinations out of 1000 (max. 500000)
  196 words of extra memory for PDF output out of 10000 (max. 10000000)
 

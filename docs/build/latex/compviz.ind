@@ -12,19 +12,19 @@
   \item \spxentry{comp\_viz.object\_detection.model}
     \subitem \spxentry{module}, \hyperpage{3}
   \item \spxentry{comp\_viz.utils}
-    \subitem \spxentry{module}, \hyperpage{12}
+    \subitem \spxentry{module}, \hyperpage{13}
   \item \spxentry{comp\_viz.utils.toolbox}
-    \subitem \spxentry{module}, \hyperpage{9}
+    \subitem \spxentry{module}, \hyperpage{10}
   \item \spxentry{CompViz}\spxextra{class in comp\_viz.config}, \hyperpage{17}
 
   \indexspace
   \bigletter E
-  \item \spxentry{exists()}\spxextra{comp\_viz.utils.toolbox.Tools method}, \hyperpage{11}
+  \item \spxentry{exists()}\spxextra{comp\_viz.utils.toolbox.Tools method}, \hyperpage{12}
 
   \indexspace
   \bigletter F
   \item \spxentry{filename\_show\_image()}\spxextra{comp\_viz.utils.toolbox.Tools method}, 
-		\hyperpage{11}
+		\hyperpage{12}
   \item \spxentry{format\_object\_classes()}\spxextra{comp\_viz.utils.toolbox.ObjectDetection method}, 
 		\hyperpage{10}
 
@@ -32,7 +32,7 @@
   \bigletter G
   \item \spxentry{get\_classes()}\spxextra{comp\_viz.object\_detection.model.Model method}, 
 		\hyperpage{3}
-  \item \spxentry{get\_cv2\_image()}\spxextra{comp\_viz.utils.toolbox.Tools method}, \hyperpage{11}
+  \item \spxentry{get\_cv2\_image()}\spxextra{comp\_viz.utils.toolbox.Tools method}, \hyperpage{12}
   \item \spxentry{get\_image\_prediction()}\spxextra{comp\_viz.object\_detection.model.Model method}, 
 		\hyperpage{3}
   \item \spxentry{get\_mxnet\_image()}\spxextra{comp\_viz.utils.toolbox.Tools method}, 
@@ -42,38 +42,38 @@
   \item \spxentry{get\_networks()}\spxextra{comp\_viz.utils.toolbox.ObjectDetection method}, 
 		\hyperpage{10}
   \item \spxentry{get\_pred\_bboxes\_image()}\spxextra{comp\_viz.utils.toolbox.ObjectDetection method}, 
-		\hyperpage{10}
+		\hyperpage{11}
   \item \spxentry{get\_prediction()}\spxextra{comp\_viz.object\_detection.model.Model method}, 
 		\hyperpage{4}
-  \item \spxentry{get\_tasks()}\spxextra{comp\_viz.utils.toolbox.Models method}, \hyperpage{9}
+  \item \spxentry{get\_tasks()}\spxextra{comp\_viz.utils.toolbox.Models method}, \hyperpage{10}
 
   \indexspace
   \bigletter L
   \item \spxentry{list\_classes()}\spxextra{comp\_viz.object\_detection.model.Model method}, 
 		\hyperpage{4}
   \item \spxentry{list\_networks()}\spxextra{comp\_viz.utils.toolbox.ObjectDetection method}, 
-		\hyperpage{10}
+		\hyperpage{11}
   \item \spxentry{list\_tasks()}\spxextra{comp\_viz.utils.toolbox.Models method}, \hyperpage{10}
 
   \indexspace
   \bigletter M
   \item \spxentry{Model}\spxextra{class in comp\_viz.object\_detection.model}, \hyperpage{3}
-  \item \spxentry{Models}\spxextra{class in comp\_viz.config}, \hyperpage{17}
-  \item \spxentry{Models}\spxextra{class in comp\_viz.utils.toolbox}, \hyperpage{9}
+  \item \spxentry{Models}\spxextra{class in comp\_viz.config}, \hyperpage{18}
+  \item \spxentry{Models}\spxextra{class in comp\_viz.utils.toolbox}, \hyperpage{10}
   \item \spxentry{module}
     \subitem \spxentry{comp\_viz.config}, \hyperpage{17}
     \subitem \spxentry{comp\_viz.object\_detection}, \hyperpage{5}
     \subitem \spxentry{comp\_viz.object\_detection.model}, \hyperpage{3}
-    \subitem \spxentry{comp\_viz.utils}, \hyperpage{12}
-    \subitem \spxentry{comp\_viz.utils.toolbox}, \hyperpage{9}
+    \subitem \spxentry{comp\_viz.utils}, \hyperpage{13}
+    \subitem \spxentry{comp\_viz.utils.toolbox}, \hyperpage{10}
 
   \indexspace
   \bigletter N
-  \item \spxentry{networks}\spxextra{comp\_viz.config.ObjectDetection attribute}, \hyperpage{17}
+  \item \spxentry{networks}\spxextra{comp\_viz.config.ObjectDetection attribute}, \hyperpage{18}
 
   \indexspace
   \bigletter O
-  \item \spxentry{ObjectDetection}\spxextra{class in comp\_viz.config}, \hyperpage{17}
+  \item \spxentry{ObjectDetection}\spxextra{class in comp\_viz.config}, \hyperpage{18}
   \item \spxentry{ObjectDetection}\spxextra{class in comp\_viz.utils.toolbox}, \hyperpage{10}
 
   \indexspace
@@ -88,6 +88,8 @@
   \item \spxentry{save\_image()}\spxextra{comp\_viz.utils.toolbox.Tools method}, \hyperpage{12}
   \item \spxentry{set\_classes()}\spxextra{comp\_viz.object\_detection.model.Model method}, 
 		\hyperpage{4}
+  \item \spxentry{set\_inference\_resolution()}\spxextra{comp\_viz.object\_detection.model.Model method}, 
+		\hyperpage{4}
   \item \spxentry{show\_image()}\spxextra{comp\_viz.utils.toolbox.Tools method}, \hyperpage{12}
   \item \spxentry{show\_image\_prediction()}\spxextra{comp\_viz.object\_detection.model.Model method}, 
 		\hyperpage{4}
@@ -96,12 +98,12 @@
 
   \indexspace
   \bigletter T
-  \item \spxentry{tasks}\spxextra{comp\_viz.config.Models attribute}, \hyperpage{17}
-  \item \spxentry{Tools}\spxextra{class in comp\_viz.utils.toolbox}, \hyperpage{11}
+  \item \spxentry{tasks}\spxextra{comp\_viz.config.Models attribute}, \hyperpage{18}
+  \item \spxentry{Tools}\spxextra{class in comp\_viz.utils.toolbox}, \hyperpage{12}
 
   \indexspace
   \bigletter V
-  \item \spxentry{verify\_exists()}\spxextra{comp\_viz.utils.toolbox.Tools method}, \hyperpage{12}
+  \item \spxentry{verify\_exists()}\spxextra{comp\_viz.utils.toolbox.Tools method}, \hyperpage{13}
   \item \spxentry{version}\spxextra{comp\_viz.config.CompViz attribute}, \hyperpage{17}
 
 \end{sphinxtheindex}

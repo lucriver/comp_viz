@@ -328,7 +328,12 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/txfonts/t1xtt.tfm
 INPUT /usr/share/texlive/texmf-dist/tex/latex/txfonts/ts1txtt.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/txfonts/ts1txtt.fd
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/txfonts/tcxtt.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/txfonts/tcxsl.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/tex-gyre/ec-qtmr.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/txfonts/tcxsl.vf
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/txfonts/rtxptmro.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/txfonts/rtcxsl.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/txfonts/rtxptmr.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/txfonts/tcxbtt.tfm
 INPUT compviz.ind
 INPUT compviz.ind
@@ -336,6 +341,7 @@ INPUT compviz.aux
 INPUT ./compviz.out
 INPUT ./compviz.out
 INPUT /usr/share/texmf/fonts/enc/dvips/tex-gyre/q-ec.enc
+INPUT /usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc
 INPUT /usr/share/texmf/fonts/enc/dvips/tex-gyre/q-ts1.enc
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
@@ -351,3 +357,4 @@ INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/tcxbtt.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/tcxtt.pfb
+INPUT /usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb

@@ -68,7 +68,7 @@
     
 
 \title{Comp Viz}
-\date{Nov 29, 2022}
+\date{Nov 30, 2022}
 \release{1.0.0}
 \author{Lucas Hirt}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -185,7 +185,7 @@ our package aims to provides a layer of abstraction over.
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{default\_object\_classes}} \textendash{} Stores the default object classes that come with chosen network:
+\sphinxstyleliteralstrong{\sphinxupquote{\_default\_object\_classes}} \textendash{} Stores the default object classes that come with chosen network:
 
 \end{itemize}
 
@@ -332,6 +332,28 @@ void
 
 \end{fulllineitems}
 
+\index{set\_inference\_resolution() (comp\_viz.object\_detection.model.Model method)@\spxentry{set\_inference\_resolution()}\spxextra{comp\_viz.object\_detection.model.Model method}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{comp_viz.object_detection:comp_viz.object_detection.model.Model.set_inference_resolution}}
+\pysigstartsignatures
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{set\_inference\_resolution}}}{\emph{\DUrole{n}{res}}}{}
+\pysigstopsignatures
+\sphinxAtStartPar
+Alter the resolution of the image that is input to the model to get prediction for. Can effect speed and precision of model.
+\begin{quote}\begin{description}
+\sphinxlineitem{Parameters}
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{res}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}) \textendash{} Desired resolution of image.
+
+\sphinxlineitem{Return type}
+\sphinxAtStartPar
+void
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
 \index{show\_image\_prediction() (comp\_viz.object\_detection.model.Model method)@\spxentry{show\_image\_prediction()}\spxextra{comp\_viz.object\_detection.model.Model method}}
 
 \begin{fulllineitems}
@@ -394,7 +416,7 @@ void
 \PYG{l+s+sd}{  :ivar net: Holds the crucial mxnet\PYGZhy{}gluoncv instantiated computer vision model for which}
 \PYG{l+s+sd}{             our package aims to provides a layer of abstraction over.}
 \PYG{l+s+sd}{  :ivar inference\PYGZus{}resolution: Stores the resolution of images we are to perform inference on.}
-\PYG{l+s+sd}{  :ivar default\PYGZus{}object\PYGZus{}classes: Stores the default object classes that come with chosen network:}
+\PYG{l+s+sd}{  :ivar \PYGZus{}default\PYGZus{}object\PYGZus{}classes: Stores the default object classes that come with chosen network:}
 \PYG{l+s+sd}{  \PYGZdq{}\PYGZdq{}\PYGZdq{}}
 
   \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,}\PYG{n}{network\PYGZus{}name}\PYG{p}{)}\PYG{p}{:}
@@ -403,7 +425,7 @@ void
     \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{net\PYGZus{}name} \PYG{o}{=} \PYG{n}{network\PYGZus{}name}
     \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{net} \PYG{o}{=} \PYG{n}{gluoncv}\PYG{o}{.}\PYG{n}{model\PYGZus{}zoo}\PYG{o}{.}\PYG{n}{get\PYGZus{}model}\PYG{p}{(}\PYG{n}{network\PYGZus{}name}\PYG{p}{,} \PYG{n}{pretrained}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}
     \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{inference\PYGZus{}resolution} \PYG{o}{=} \PYG{n}{utils}\PYG{o}{.}\PYG{n}{ObjectDetection}\PYG{o}{.}\PYG{n}{get\PYGZus{}network\PYGZus{}resolution}\PYG{p}{(}\PYG{n}{network\PYGZus{}name}\PYG{p}{)}
-    \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{default\PYGZus{}object\PYGZus{}classes} \PYG{o}{=} \PYG{n}{gluoncv}\PYG{o}{.}\PYG{n}{model\PYGZus{}zoo}\PYG{o}{.}\PYG{n}{get\PYGZus{}model}\PYG{p}{(}\PYG{n}{network\PYGZus{}name}\PYG{p}{,} \PYG{n}{pretrained}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}\PYG{o}{.}\PYG{n}{classes}
+    \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{\PYGZus{}default\PYGZus{}object\PYGZus{}classes} \PYG{o}{=} \PYG{n}{gluoncv}\PYG{o}{.}\PYG{n}{model\PYGZus{}zoo}\PYG{o}{.}\PYG{n}{get\PYGZus{}model}\PYG{p}{(}\PYG{n}{network\PYGZus{}name}\PYG{p}{,} \PYG{n}{pretrained}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}\PYG{o}{.}\PYG{n}{classes}
 
   \PYG{k}{def} \PYG{n+nf}{list\PYGZus{}classes}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{:}
     \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Print the object classes that the computer vision model is detecting for in images.}
@@ -490,10 +512,10 @@ void
 \PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
     \PYG{n}{unsupported} \PYG{o}{=} \PYG{p}{[}\PYG{p}{]}
     \PYG{k}{for} \PYG{n}{obj\PYGZus{}class} \PYG{o+ow}{in} \PYG{n}{object\PYGZus{}classes}\PYG{p}{:}
-      \PYG{k}{if} \PYG{n}{obj\PYGZus{}class} \PYG{o+ow}{not} \PYG{o+ow}{in} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{default\PYGZus{}object\PYGZus{}classes}\PYG{p}{:}
+      \PYG{k}{if} \PYG{n}{obj\PYGZus{}class} \PYG{o+ow}{not} \PYG{o+ow}{in} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{\PYGZus{}default\PYGZus{}object\PYGZus{}classes}\PYG{p}{:}
         \PYG{n}{unsupported}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{obj\PYGZus{}class}\PYG{p}{)}
     \PYG{k}{if} \PYG{n}{unsupported}\PYG{p}{:}    
-      \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{WARNING: object classes }\PYG{l+s+se}{\PYGZbs{}\PYGZdq{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{unsupported}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+se}{\PYGZbs{}\PYGZdq{}}\PYG{l+s+s2}{ are not supported by default for object detection. Expect no capability for detection.}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+      \PYG{k}{raise} \PYG{n+ne}{ValueError}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Object class(es) }\PYG{l+s+se}{\PYGZbs{}\PYGZdq{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{unsupported}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+se}{\PYGZbs{}\PYGZdq{}}\PYG{l+s+s2}{ are not supported for object detection.}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
     \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{net}\PYG{o}{.}\PYG{n}{reset\PYGZus{}class}\PYG{p}{(}\PYG{n}{object\PYGZus{}classes}\PYG{p}{,} \PYG{n}{reuse\PYGZus{}weights}\PYG{o}{=}\PYG{n}{object\PYGZus{}classes}\PYG{p}{)}
     \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Complete. Model set to detect for object classes: }\PYG{l+s+si}{\PYGZob{}}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{get\PYGZus{}classes}\PYG{p}{(}\PYG{p}{)}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{.}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
 
@@ -502,8 +524,23 @@ void
 
 \PYG{l+s+sd}{    :rtype: void}
 \PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
-    \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{net}\PYG{o}{.}\PYG{n}{reset\PYGZus{}class}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{default\PYGZus{}object\PYGZus{}classes}\PYG{p}{,}\PYG{n}{reuse\PYGZus{}weights}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{default\PYGZus{}object\PYGZus{}classes}\PYG{p}{)}
+    \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{net}\PYG{o}{.}\PYG{n}{reset\PYGZus{}class}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{\PYGZus{}default\PYGZus{}object\PYGZus{}classes}\PYG{p}{,}\PYG{n}{reuse\PYGZus{}weights}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{\PYGZus{}default\PYGZus{}object\PYGZus{}classes}\PYG{p}{)}
     \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Object classes for detection restored to defaults.}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+
+  \PYG{k}{def} \PYG{n+nf}{set\PYGZus{}inference\PYGZus{}resolution}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,}\PYG{n}{res}\PYG{p}{)}\PYG{p}{:}
+    \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Alter the resolution of the image that is input to the model to get prediction for. Can effect speed and precision of model.}
+
+\PYG{l+s+sd}{    :param res: Desired resolution of image.}
+\PYG{l+s+sd}{    :type res: int}
+\PYG{l+s+sd}{    :rtype: void}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{k}{if} \PYG{n}{res} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{1} \PYG{o+ow}{or} \PYG{n}{res} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{1024}\PYG{p}{:}
+      \PYG{k}{raise} \PYG{n+ne}{ValueError}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{res}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ is too small or too large of value.}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+    \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{\PYGZus{}set\PYGZus{}inference\PYGZus{}resolution}\PYG{p}{(}\PYG{n}{res}\PYG{p}{)}
+
+  \PYG{c+c1}{\PYGZsh{} Change actual object attribute\PYGZsq{}s inference\PYGZus{}resolution value.}
+  \PYG{k}{def} \PYG{n+nf}{\PYGZus{}set\PYGZus{}inference\PYGZus{}resolution}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,}\PYG{n}{res}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{inference\PYGZus{}resolution} \PYG{o}{=} \PYG{n}{res}
 
   \PYG{c+c1}{\PYGZsh{} Get tuple containing class ids, confidence scores and bounding boxes for an image prediction,}
   \PYG{c+c1}{\PYGZsh{} apply NMS if specified and return the tuple.}
@@ -519,6 +556,7 @@ void
     \PYG{n}{nms\PYGZus{}cids}\PYG{p}{,} \PYG{n}{nms\PYGZus{}scores}\PYG{p}{,} \PYG{n}{nms\PYGZus{}bboxes} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{\PYGZus{}apply\PYGZus{}nms}\PYG{p}{(}\PYG{n}{cids}\PYG{p}{,} \PYG{n}{scores}\PYG{p}{,} \PYG{n}{bboxes}\PYG{p}{,} \PYG{n}{nms}\PYG{p}{)}
     \PYG{k}{return} \PYG{p}{(}\PYG{n}{nms\PYGZus{}cids}\PYG{p}{,}\PYG{n}{nms\PYGZus{}scores}\PYG{p}{,}\PYG{n}{nms\PYGZus{}bboxes}\PYG{p}{)}
 
+  \PYG{c+c1}{\PYGZsh{} Get the CURRENT object classes for the model.}
   \PYG{k}{def} \PYG{n+nf}{\PYGZus{}get\PYGZus{}classes}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{:}
     \PYG{k}{return} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{net}\PYG{o}{.}\PYG{n}{classes}
     
