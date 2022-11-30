@@ -18,7 +18,7 @@ class Model:
   :ivar net: Holds the crucial mxnet-gluoncv instantiated computer vision model for which
              our package aims to provides a layer of abstraction over.
   :ivar inference_resolution: Stores the resolution of images we are to perform inference on.
-  :ivar default_object_classes: Stores the default object classes that come with chosen network:
+  :ivar _default_object_classes: Stores the default object classes that come with chosen network:
   """
 
   def __init__(self,network_name):
@@ -27,7 +27,7 @@ class Model:
     self.net_name = network_name
     self.net = gluoncv.model_zoo.get_model(network_name, pretrained=True)
     self.inference_resolution = utils.ObjectDetection.get_network_resolution(network_name)
-    self.default_object_classes = gluoncv.model_zoo.get_model(network_name, pretrained=True).classes
+    self._default_object_classes = gluoncv.model_zoo.get_model(network_name, pretrained=True).classes
 
   def list_classes(self):
     """Print the object classes that the computer vision model is detecting for in images.
@@ -114,10 +114,10 @@ class Model:
     """
     unsupported = []
     for obj_class in object_classes:
-      if obj_class not in self.default_object_classes:
+      if obj_class not in self._default_object_classes:
         unsupported.append(obj_class)
     if unsupported:    
-      print(f"WARNING: object classes \"{unsupported}\" are not supported by default for object detection. Expect no capability for detection.")
+      raise ValueError(f"Object class(es) \"{unsupported}\" are not supported for object detection.")
     self.net.reset_class(object_classes, reuse_weights=object_classes)
     print(f"Complete. Model set to detect for object classes: {self.get_classes()}.")
 
@@ -126,8 +126,23 @@ class Model:
 
     :rtype: void
     """
-    self.net.reset_class(self.default_object_classes,reuse_weights=self.default_object_classes)
+    self.net.reset_class(self._default_object_classes,reuse_weights=self._default_object_classes)
     print("Object classes for detection restored to defaults.")
+
+  def set_inference_resolution(self,res):
+    """Alter the resolution of the image that is input to the model to get prediction for. Can effect speed and precision of model.
+
+    :param res: Desired resolution of image.
+    :type res: int
+    :rtype: void
+    """
+    if res < 1 or res > 1024:
+      raise ValueError(f"{res} is too small or too large of value.")
+    self._set_inference_resolution(res)
+
+  # Change actual object attribute's inference_resolution value.
+  def _set_inference_resolution(self,res):
+    self.inference_resolution = res
 
   # Get tuple containing class ids, confidence scores and bounding boxes for an image prediction,
   # apply NMS if specified and return the tuple.
@@ -143,6 +158,7 @@ class Model:
     nms_cids, nms_scores, nms_bboxes = self._apply_nms(cids, scores, bboxes, nms)
     return (nms_cids,nms_scores,nms_bboxes)
 
+  # Get the CURRENT object classes for the model.
   def _get_classes(self):
     return self.net.classes
     
