@@ -30,6 +30,7 @@ class Model:
     self.net = gluoncv.model_zoo.get_model(network_name, pretrained=True)
     self.inference_resolution = utils.ObjectDetection.get_network_resolution(network_name)
     self._default_object_classes = gluoncv.model_zoo.get_model(network_name, pretrained=True).classes
+    print("Model successfully initialized.")
 
   def list_classes(self):
     """Print the object classes that the computer vision model is detecting for in images.

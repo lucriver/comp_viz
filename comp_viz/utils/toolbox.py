@@ -142,9 +142,14 @@ class Tools:
   """Utility class centered around images and filesnames.
   """
   def verify_exists(fname: str):
+    """Function to determine if path to filename exists.
+
+    :param fname: Path to file.
+    :type fname: string
+    :rtype: void or Exception
+    """
     if not Tools._exists(fname):
-      print(f"Error: file {fname} could not be located.")
-      return
+      raise OSError(f"File \"{fname}\" could not be located.")
 
   def exists(fname: str) -> bool:
     """Boolean function to determine if path to filename exists.
@@ -204,8 +209,17 @@ class Tools:
     :type path: string
     :rtype: void
     """
+    Tools.verify_exists(path)
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     cv2.imwrite(path, img)
+
+  def filename_resize_image(fname: str, height, width):
+    Tools.verify_exists(fname)
+    img = Tools.get_cv2_image(fname)
+    return cv2.resize(img, (width, height))
+
+  def resize_image(img: numpy.array, height, width):
+    return cv2.resize(img, (width, height))
     
   def _exists(fname: str) -> bool:
     if os.path.exists(fname):
