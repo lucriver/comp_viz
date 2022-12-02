@@ -10,12 +10,12 @@
 \contentsline {paragraph}{\_\_init\_\_.py}{10}{paragraph*.16}%
 \contentsline {subsubsection}{Utils package}{10}{subsubsection*.17}%
 \contentsline {paragraph}{utils.toolbox module}{10}{paragraph*.18}%
-\contentsline {paragraph}{Module contents}{13}{paragraph*.38}%
-\contentsline {paragraph}{toolbox.py}{13}{paragraph*.39}%
-\contentsline {paragraph}{\_\_init\_\_.py}{17}{paragraph*.40}%
-\contentsline {subsection}{\numberline {2.1.2}Comp Viz package configuration file}{17}{subsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.1.3}comp\_viz.config}{17}{subsection.2.1.3}%
-\contentsline {subsection}{\numberline {2.1.4}config.py source code}{18}{subsection.2.1.4}%
+\contentsline {paragraph}{Module contents}{13}{paragraph*.40}%
+\contentsline {paragraph}{toolbox.py}{13}{paragraph*.41}%
+\contentsline {paragraph}{\_\_init\_\_.py}{18}{paragraph*.42}%
+\contentsline {subsection}{\numberline {2.1.2}Comp Viz package configuration file}{18}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}comp\_viz.config}{18}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.4}config.py source code}{19}{subsection.2.1.4}%
 \contentsline {subsection}{\numberline {2.1.5}\_\_init\_\_.py source code}{19}{subsection.2.1.5}%
-\contentsline {chapter}{Python Module Index}{21}{section*.47}%
-\contentsline {chapter}{Index}{23}{section*.48}%
+\contentsline {chapter}{Python Module Index}{21}{section*.49}%
+\contentsline {chapter}{Index}{23}{section*.50}%

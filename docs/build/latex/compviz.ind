@@ -6,7 +6,7 @@
 
   \bigletter C
   \item \spxentry{comp\_viz.config}
-    \subitem \spxentry{module}, \hyperpage{17}
+    \subitem \spxentry{module}, \hyperpage{18}
   \item \spxentry{comp\_viz.object\_detection}
     \subitem \spxentry{module}, \hyperpage{5}
   \item \spxentry{comp\_viz.object\_detection.model}
@@ -15,7 +15,7 @@
     \subitem \spxentry{module}, \hyperpage{13}
   \item \spxentry{comp\_viz.utils.toolbox}
     \subitem \spxentry{module}, \hyperpage{10}
-  \item \spxentry{CompViz}\spxextra{class in comp\_viz.config}, \hyperpage{17}
+  \item \spxentry{CompViz}\spxextra{class in comp\_viz.config}, \hyperpage{18}
 
   \indexspace
   \bigletter E
@@ -23,6 +23,8 @@
 
   \indexspace
   \bigletter F
+  \item \spxentry{filename\_resize\_image()}\spxextra{comp\_viz.utils.toolbox.Tools method}, 
+		\hyperpage{12}
   \item \spxentry{filename\_show\_image()}\spxextra{comp\_viz.utils.toolbox.Tools method}, 
 		\hyperpage{12}
   \item \spxentry{format\_object\_classes()}\spxextra{comp\_viz.utils.toolbox.ObjectDetection method}, 
@@ -61,7 +63,7 @@
   \item \spxentry{Models}\spxextra{class in comp\_viz.config}, \hyperpage{18}
   \item \spxentry{Models}\spxextra{class in comp\_viz.utils.toolbox}, \hyperpage{10}
   \item \spxentry{module}
-    \subitem \spxentry{comp\_viz.config}, \hyperpage{17}
+    \subitem \spxentry{comp\_viz.config}, \hyperpage{18}
     \subitem \spxentry{comp\_viz.object\_detection}, \hyperpage{5}
     \subitem \spxentry{comp\_viz.object\_detection.model}, \hyperpage{3}
     \subitem \spxentry{comp\_viz.utils}, \hyperpage{13}
@@ -82,6 +84,7 @@
 		\hyperpage{4}
   \item \spxentry{resize\_bbox()}\spxextra{comp\_viz.utils.toolbox.ObjectDetection method}, 
 		\hyperpage{11}
+  \item \spxentry{resize\_image()}\spxextra{comp\_viz.utils.toolbox.Tools method}, \hyperpage{12}
 
   \indexspace
   \bigletter S
@@ -104,6 +107,6 @@
   \indexspace
   \bigletter V
   \item \spxentry{verify\_exists()}\spxextra{comp\_viz.utils.toolbox.Tools method}, \hyperpage{13}
-  \item \spxentry{version}\spxextra{comp\_viz.config.CompViz attribute}, \hyperpage{17}
+  \item \spxentry{version}\spxextra{comp\_viz.config.CompViz attribute}, \hyperpage{18}
 
 \end{sphinxtheindex}

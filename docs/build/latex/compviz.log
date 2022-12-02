@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.11.23)  30 NOV 2022 09:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.11.23)  2 DEC 2022 09:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -883,78 +883,90 @@ LaTeX Font Info:    Trying to load font information for TS1+qtm on input line 1
 File: ts1qtm.fd 2009/09/25 v1.2 font definition file for TS1/qtm
 ) [3] [4]
 LaTeX Font Info:    Trying to load font information for TS1+txtt on input line 
-461.
+464.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/ts1txtt.fd
 File: ts1txtt.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `TS1/txtt/m/it' in size <10> not available
-(Font)              Font shape `TS1/txtt/m/sl' tried instead on input line 541.
+(Font)              Font shape `TS1/txtt/m/sl' tried instead on input line 544.
 
 
-Overfull \vbox (3.018pt too high) detected at line 623
+Overfull \vbox (3.018pt too high) detected at line 626
  []
 
 [5]
-Underfull \vbox (badness 10000) detected at line 623
+Underfull \vbox (badness 10000) detected at line 626
  []
 
 
-Underfull \vbox (badness 10000) detected at line 623
+Underfull \vbox (badness 10000) detected at line 626
  []
 
 [6]
-Underfull \vbox (badness 10000) detected at line 623
+Underfull \vbox (badness 10000) detected at line 626
  []
 
 
-Underfull \vbox (badness 10000) detected at line 623
+Underfull \vbox (badness 10000) detected at line 626
  []
 
 [7]
-Underfull \vbox (badness 10000) detected at line 623
+Underfull \vbox (badness 10000) detected at line 626
  []
 
 
-Underfull \vbox (badness 10000) detected at line 623
+Underfull \vbox (badness 10000) detected at line 626
  []
 
 [8]
-Underfull \vbox (badness 10000) detected at line 623
+Underfull \vbox (badness 10000) detected at line 626
  []
 
 
-Underfull \vbox (badness 10000) detected at line 623
+Underfull \vbox (badness 10000) detected at line 626
  []
 
-[9] [10] [11] [12] [13]
-Underfull \vbox (badness 10000) detected at line 1285
+[9] [10] [11] [12]
+Overfull \vbox (1.418pt too high) detected at line 1333
+ []
+
+[13]
+Underfull \vbox (badness 10000) detected at line 1333
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1285
+Underfull \vbox (badness 10000) detected at line 1333
  []
 
 [14]
-Underfull \vbox (badness 10000) detected at line 1285
+Underfull \vbox (badness 10000) detected at line 1333
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1285
+Underfull \vbox (badness 10000) detected at line 1333
  []
 
 [15]
-Underfull \vbox (badness 10000) detected at line 1285
+Underfull \vbox (badness 10000) detected at line 1333
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1285
+Underfull \vbox (badness 10000) detected at line 1333
  []
 
 [16]
+Underfull \vbox (badness 10000) detected at line 1333
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 1333
+ []
+
+[17]
 LaTeX Font Info:    Font shape `TS1/txtt/b/n' in size <10> not available
 (Font)              Font shape `TS1/txtt/bx/n' tried instead on input line 1.
- [17] [18] [19] [20
+ [18] [19] [20
 
 ] [21
 
@@ -963,132 +975,121 @@ LaTeX Font Info:    Font shape `TS1/txtt/b/n' in size <10> not available
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 28--30
+Underfull \hbox (badness 10000) in paragraph at lines 26--28
+[]\T1/txtt/m/n/10 filename_resize_image()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 30--32
 []\T1/txtt/m/n/10 format_object_classes()
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 28--30
+Underfull \hbox (badness 10000) in paragraph at lines 30--32
 \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.utils.toolbox.ObjectDetection
  []
 
 
-Overfull \hbox (4.43233pt too wide) in paragraph at lines 33--35
+Overfull \hbox (4.43233pt too wide) in paragraph at lines 35--37
 []\T1/txtt/m/n/10 get_classes() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.object
 _detection.model.Model
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 35--36
+Underfull \hbox (badness 10000) in paragraph at lines 37--38
 []\T1/txtt/m/n/10 get_cv2_image() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.util
 s.toolbox.Tools
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 36--38
+Underfull \hbox (badness 10000) in paragraph at lines 38--40
 []\T1/txtt/m/n/10 get_image_prediction()
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 36--38
+Underfull \hbox (badness 10000) in paragraph at lines 38--40
 \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.object_detection.model.Model
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 38--40
+Underfull \hbox (badness 10000) in paragraph at lines 40--42
 []\T1/txtt/m/n/10 get_mxnet_image() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.ut
 ils.toolbox.Tools
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 40--42
+Underfull \hbox (badness 10000) in paragraph at lines 42--44
 []\T1/txtt/m/n/10 get_network_resolution()
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 40--42
+Underfull \hbox (badness 10000) in paragraph at lines 42--44
 \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.utils.toolbox.ObjectDetection
  []
 
 
-Overfull \hbox (5.96228pt too wide) in paragraph at lines 42--44
+Overfull \hbox (5.96228pt too wide) in paragraph at lines 44--46
 []\T1/txtt/m/n/10 get_networks() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.utils
 .toolbox.ObjectDetection
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 44--46
+Underfull \hbox (badness 10000) in paragraph at lines 46--48
 []\T1/txtt/m/n/10 get_pred_bboxes_image()
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 44--46
+Underfull \hbox (badness 10000) in paragraph at lines 46--48
 \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.utils.toolbox.ObjectDetection
  []
 
 
-Overfull \hbox (20.18228pt too wide) in paragraph at lines 46--48
+Overfull \hbox (20.18228pt too wide) in paragraph at lines 48--50
 []\T1/txtt/m/n/10 get_prediction() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.obj
 ect_detection.model.Model
  []
 
 
-Overfull \hbox (9.68231pt too wide) in paragraph at lines 52--54
+Overfull \hbox (9.68231pt too wide) in paragraph at lines 54--56
 []\T1/txtt/m/n/10 list_classes() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.objec
 t_detection.model.Model
  []
 
 
-Overfull \hbox (11.21227pt too wide) in paragraph at lines 54--56
+Overfull \hbox (11.21227pt too wide) in paragraph at lines 56--58
 []\T1/txtt/m/n/10 list_networks() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.util
 s.toolbox.ObjectDetection
  []
 
 
-Overfull \hbox (14.9323pt too wide) in paragraph at lines 81--83
+Overfull \hbox (14.9323pt too wide) in paragraph at lines 83--85
 []\T1/txtt/m/n/10 reset_classes() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.obje
 ct_detection.model.Model
  []
 
 
-Overfull \hbox (0.7123pt too wide) in paragraph at lines 83--85
+Overfull \hbox (0.7123pt too wide) in paragraph at lines 85--87
 []\T1/txtt/m/n/10 resize_bbox() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.utils.
 toolbox.ObjectDetection
  []
 
 
-Underfull \hbox (badness 5460) in paragraph at lines 88--89
+Underfull \hbox (badness 5460) in paragraph at lines 91--92
 []\T1/txtt/m/n/10 save_image() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.utils.t
 oolbox.Tools method\T1/qtm/m/n/10 ),
- []
-
-
-Overfull \hbox (4.43233pt too wide) in paragraph at lines 89--91
-[]\T1/txtt/m/n/10 set_classes() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.object
-_detection.model.Model
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 91--93
-[]\T1/txtt/m/n/10 set_inference_resolution()
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 91--93
-\T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.object_detection.model.Model
  []
 
 [23
 
 ]
-Underfull \hbox (badness 5460) in paragraph at lines 93--94
-[]\T1/txtt/m/n/10 show_image() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.utils.t
-oolbox.Tools method\T1/qtm/m/n/10 ),
+Overfull \hbox (4.43233pt too wide) in paragraph at lines 92--94
+[]\T1/txtt/m/n/10 set_classes() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.object
+_detection.model.Model
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 94--96
-[]\T1/txtt/m/n/10 show_image_prediction()
+[]\T1/txtt/m/n/10 set_inference_resolution()
  []
 
 
@@ -1097,17 +1098,33 @@ Underfull \hbox (badness 10000) in paragraph at lines 94--96
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 96--98
+Underfull \hbox (badness 5460) in paragraph at lines 96--97
+[]\T1/txtt/m/n/10 show_image() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.utils.t
+oolbox.Tools method\T1/qtm/m/n/10 ),
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 97--99
+[]\T1/txtt/m/n/10 show_image_prediction()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 97--99
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.object_detection.model.Model
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 99--101
 []\T1/txtt/m/n/10 show_pred_bboxes_image()
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 96--98
+Underfull \hbox (badness 10000) in paragraph at lines 99--101
 \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.utils.toolbox.ObjectDetection
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 106--107
+Underfull \hbox (badness 10000) in paragraph at lines 109--110
 []\T1/txtt/m/n/10 verify_exists() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 comp_viz.util
 s.toolbox.Tools
  []
@@ -1115,21 +1132,21 @@ s.toolbox.Tools
 [24
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1448.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1448.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1496.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1496.
  (./compviz.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1448.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1448.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1496.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1496.
 
 Package rerunfilecheck Info: File `compviz.out' has not changed.
-(rerunfilecheck)             Checksum: CCBC5EF197EE175E64CF12D95696472A;2919.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1448.
+(rerunfilecheck)             Checksum: B4D4BCA319173099860BA74217C9BAB0;2919.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1496.
  ) 
 Here is how much of TeX's memory you used:
- 15938 strings out of 483183
- 236743 string characters out of 5966291
- 897615 words of memory out of 5000000
- 30470 multiletter control sequences out of 15000+600000
+ 15942 strings out of 483183
+ 236890 string characters out of 5966291
+ 900615 words of memory out of 5000000
+ 30472 multiletter control sequences out of 15000+600000
  590064 words of font info for 72 fonts, out of 8000000 for 9000
  15 hyphenation exceptions out of 8191
  38i,14n,51p,1761b,640s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1148,10 +1165,10 @@ ve/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/public/txfonts/tcxbtt.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/public/txfonts/tcxtt.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/ti
 mes/utmr8a.pfb>
-Output written on compviz.pdf (28 pages, 549021 bytes).
+Output written on compviz.pdf (28 pages, 550412 bytes).
 PDF statistics:
- 390 PDF objects out of 1000 (max. 8388607)
- 333 compressed objects within 4 object streams
- 83 named destinations out of 1000 (max. 500000)
+ 395 PDF objects out of 1000 (max. 8388607)
+ 338 compressed objects within 4 object streams
+ 85 named destinations out of 1000 (max. 500000)
  196 words of extra memory for PDF output out of 10000 (max. 10000000)
 

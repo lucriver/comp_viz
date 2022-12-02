@@ -68,7 +68,7 @@
     
 
 \title{Comp Viz}
-\date{Nov 30, 2022}
+\date{Dec 02, 2022}
 \release{1.0.0}
 \author{Lucas Hirt}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -422,10 +422,13 @@ void
   \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,}\PYG{n}{network\PYGZus{}name}\PYG{p}{)}\PYG{p}{:}
     \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Constructor method}
 \PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{k}{if} \PYG{n}{network\PYGZus{}name} \PYG{o+ow}{not} \PYG{o+ow}{in} \PYG{n}{utils}\PYG{o}{.}\PYG{n}{ObjectDetection}\PYG{o}{.}\PYG{n}{get\PYGZus{}networks}\PYG{p}{(}\PYG{p}{)}\PYG{p}{:}
+      \PYG{k}{raise} \PYG{n+ne}{ValueError}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{network\PYGZus{}name}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ is an invalid network.}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
     \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{net\PYGZus{}name} \PYG{o}{=} \PYG{n}{network\PYGZus{}name}
     \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{net} \PYG{o}{=} \PYG{n}{gluoncv}\PYG{o}{.}\PYG{n}{model\PYGZus{}zoo}\PYG{o}{.}\PYG{n}{get\PYGZus{}model}\PYG{p}{(}\PYG{n}{network\PYGZus{}name}\PYG{p}{,} \PYG{n}{pretrained}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}
     \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{inference\PYGZus{}resolution} \PYG{o}{=} \PYG{n}{utils}\PYG{o}{.}\PYG{n}{ObjectDetection}\PYG{o}{.}\PYG{n}{get\PYGZus{}network\PYGZus{}resolution}\PYG{p}{(}\PYG{n}{network\PYGZus{}name}\PYG{p}{)}
     \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{\PYGZus{}default\PYGZus{}object\PYGZus{}classes} \PYG{o}{=} \PYG{n}{gluoncv}\PYG{o}{.}\PYG{n}{model\PYGZus{}zoo}\PYG{o}{.}\PYG{n}{get\PYGZus{}model}\PYG{p}{(}\PYG{n}{network\PYGZus{}name}\PYG{p}{,} \PYG{n}{pretrained}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}\PYG{o}{.}\PYG{n}{classes}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Model successfully initialized.}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
 
   \PYG{k}{def} \PYG{n+nf}{list\PYGZus{}classes}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{:}
     \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Print the object classes that the computer vision model is detecting for in images.}
@@ -931,6 +934,15 @@ boolean
 
 \end{fulllineitems}
 
+\index{filename\_resize\_image() (comp\_viz.utils.toolbox.Tools method)@\spxentry{filename\_resize\_image()}\spxextra{comp\_viz.utils.toolbox.Tools method}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{comp_viz.utils:comp_viz.utils.toolbox.Tools.filename_resize_image}}
+\pysigstartsignatures
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{filename\_resize\_image}}}{\emph{\DUrole{n}{height}}, \emph{\DUrole{n}{width}}}{}
+\pysigstopsignatures
+\end{fulllineitems}
+
 \index{filename\_show\_image() (comp\_viz.utils.toolbox.Tools method)@\spxentry{filename\_show\_image()}\spxextra{comp\_viz.utils.toolbox.Tools method}}
 
 \begin{fulllineitems}
@@ -997,6 +1009,15 @@ mxnet.ndarray.ndarray.NDArray
 
 \end{fulllineitems}
 
+\index{resize\_image() (comp\_viz.utils.toolbox.Tools method)@\spxentry{resize\_image()}\spxextra{comp\_viz.utils.toolbox.Tools method}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{comp_viz.utils:comp_viz.utils.toolbox.Tools.resize_image}}
+\pysigstartsignatures
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{resize\_image}}}{\emph{\DUrole{n}{height}}, \emph{\DUrole{n}{width}}}{}
+\pysigstopsignatures
+\end{fulllineitems}
+
 \index{save\_image() (comp\_viz.utils.toolbox.Tools method)@\spxentry{save\_image()}\spxextra{comp\_viz.utils.toolbox.Tools method}}
 
 \begin{fulllineitems}
@@ -1055,6 +1076,19 @@ void
 \pysigstartsignatures
 \pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{verify\_exists}}}{}{}
 \pysigstopsignatures
+\sphinxAtStartPar
+Function to determine if path to filename exists.
+\begin{quote}\begin{description}
+\sphinxlineitem{Parameters}
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{fname}} (\sphinxstyleliteralemphasis{\sphinxupquote{string}}) \textendash{} Path to file.
+
+\sphinxlineitem{Return type}
+\sphinxAtStartPar
+void or Exception
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -1212,9 +1246,14 @@ void
   \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Utility class centered around images and filesnames.}
 \PYG{l+s+sd}{  \PYGZdq{}\PYGZdq{}\PYGZdq{}}
   \PYG{k}{def} \PYG{n+nf}{verify\PYGZus{}exists}\PYG{p}{(}\PYG{n}{fname}\PYG{p}{:} \PYG{n+nb}{str}\PYG{p}{)}\PYG{p}{:}
+    \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Function to determine if path to filename exists.}
+
+\PYG{l+s+sd}{    :param fname: Path to file.}
+\PYG{l+s+sd}{    :type fname: string}
+\PYG{l+s+sd}{    :rtype: void or Exception}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
     \PYG{k}{if} \PYG{o+ow}{not} \PYG{n}{Tools}\PYG{o}{.}\PYG{n}{\PYGZus{}exists}\PYG{p}{(}\PYG{n}{fname}\PYG{p}{)}\PYG{p}{:}
-      \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Error: file }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{fname}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ could not be located.}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
-      \PYG{k}{return}
+      \PYG{k}{raise} \PYG{n+ne}{OSError}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{File }\PYG{l+s+se}{\PYGZbs{}\PYGZdq{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{fname}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+se}{\PYGZbs{}\PYGZdq{}}\PYG{l+s+s2}{ could not be located.}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
 
   \PYG{k}{def} \PYG{n+nf}{exists}\PYG{p}{(}\PYG{n}{fname}\PYG{p}{:} \PYG{n+nb}{str}\PYG{p}{)} \PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}} \PYG{n+nb}{bool}\PYG{p}{:}
     \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Boolean function to determine if path to filename exists.}
@@ -1274,8 +1313,17 @@ void
 \PYG{l+s+sd}{    :type path: string}
 \PYG{l+s+sd}{    :rtype: void}
 \PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{n}{Tools}\PYG{o}{.}\PYG{n}{verify\PYGZus{}exists}\PYG{p}{(}\PYG{n}{path}\PYG{p}{)}
     \PYG{n}{img} \PYG{o}{=} \PYG{n}{cv2}\PYG{o}{.}\PYG{n}{cvtColor}\PYG{p}{(}\PYG{n}{img}\PYG{p}{,} \PYG{n}{cv2}\PYG{o}{.}\PYG{n}{COLOR\PYGZus{}BGR2RGB}\PYG{p}{)}
     \PYG{n}{cv2}\PYG{o}{.}\PYG{n}{imwrite}\PYG{p}{(}\PYG{n}{path}\PYG{p}{,} \PYG{n}{img}\PYG{p}{)}
+
+  \PYG{k}{def} \PYG{n+nf}{filename\PYGZus{}resize\PYGZus{}image}\PYG{p}{(}\PYG{n}{fname}\PYG{p}{:} \PYG{n+nb}{str}\PYG{p}{,} \PYG{n}{height}\PYG{p}{,} \PYG{n}{width}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{Tools}\PYG{o}{.}\PYG{n}{verify\PYGZus{}exists}\PYG{p}{(}\PYG{n}{fname}\PYG{p}{)}
+    \PYG{n}{img} \PYG{o}{=} \PYG{n}{Tools}\PYG{o}{.}\PYG{n}{get\PYGZus{}cv2\PYGZus{}image}\PYG{p}{(}\PYG{n}{fname}\PYG{p}{)}
+    \PYG{k}{return} \PYG{n}{cv2}\PYG{o}{.}\PYG{n}{resize}\PYG{p}{(}\PYG{n}{img}\PYG{p}{,} \PYG{p}{(}\PYG{n}{width}\PYG{p}{,} \PYG{n}{height}\PYG{p}{)}\PYG{p}{)}
+
+  \PYG{k}{def} \PYG{n+nf}{resize\PYGZus{}image}\PYG{p}{(}\PYG{n}{img}\PYG{p}{:} \PYG{n}{numpy}\PYG{o}{.}\PYG{n}{array}\PYG{p}{,} \PYG{n}{height}\PYG{p}{,} \PYG{n}{width}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{return} \PYG{n}{cv2}\PYG{o}{.}\PYG{n}{resize}\PYG{p}{(}\PYG{n}{img}\PYG{p}{,} \PYG{p}{(}\PYG{n}{width}\PYG{p}{,} \PYG{n}{height}\PYG{p}{)}\PYG{p}{)}
     
   \PYG{k}{def} \PYG{n+nf}{\PYGZus{}exists}\PYG{p}{(}\PYG{n}{fname}\PYG{p}{:} \PYG{n+nb}{str}\PYG{p}{)} \PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}} \PYG{n+nb}{bool}\PYG{p}{:}
     \PYG{k}{if} \PYG{n}{os}\PYG{o}{.}\PYG{n}{path}\PYG{o}{.}\PYG{n}{exists}\PYG{p}{(}\PYG{n}{fname}\PYG{p}{)}\PYG{p}{:}

@@ -26,18 +26,20 @@
 \indexentry{show\_pred\_bboxes\_image() (comp\_viz.utils.toolbox.ObjectDetection method)@\spxentry{show\_pred\_bboxes\_image()}\spxextra{comp\_viz.utils.toolbox.ObjectDetection method}|hyperpage}{11}
 \indexentry{Tools (class in comp\_viz.utils.toolbox)@\spxentry{Tools}\spxextra{class in comp\_viz.utils.toolbox}|hyperpage}{12}
 \indexentry{exists() (comp\_viz.utils.toolbox.Tools method)@\spxentry{exists()}\spxextra{comp\_viz.utils.toolbox.Tools method}|hyperpage}{12}
+\indexentry{filename\_resize\_image() (comp\_viz.utils.toolbox.Tools method)@\spxentry{filename\_resize\_image()}\spxextra{comp\_viz.utils.toolbox.Tools method}|hyperpage}{12}
 \indexentry{filename\_show\_image() (comp\_viz.utils.toolbox.Tools method)@\spxentry{filename\_show\_image()}\spxextra{comp\_viz.utils.toolbox.Tools method}|hyperpage}{12}
 \indexentry{get\_cv2\_image() (comp\_viz.utils.toolbox.Tools method)@\spxentry{get\_cv2\_image()}\spxextra{comp\_viz.utils.toolbox.Tools method}|hyperpage}{12}
 \indexentry{get\_mxnet\_image() (comp\_viz.utils.toolbox.Tools method)@\spxentry{get\_mxnet\_image()}\spxextra{comp\_viz.utils.toolbox.Tools method}|hyperpage}{12}
+\indexentry{resize\_image() (comp\_viz.utils.toolbox.Tools method)@\spxentry{resize\_image()}\spxextra{comp\_viz.utils.toolbox.Tools method}|hyperpage}{12}
 \indexentry{save\_image() (comp\_viz.utils.toolbox.Tools method)@\spxentry{save\_image()}\spxextra{comp\_viz.utils.toolbox.Tools method}|hyperpage}{12}
 \indexentry{show\_image() (comp\_viz.utils.toolbox.Tools method)@\spxentry{show\_image()}\spxextra{comp\_viz.utils.toolbox.Tools method}|hyperpage}{12}
 \indexentry{verify\_exists() (comp\_viz.utils.toolbox.Tools method)@\spxentry{verify\_exists()}\spxextra{comp\_viz.utils.toolbox.Tools method}|hyperpage}{13}
 \indexentry{module@\spxentry{module}!comp\_viz.utils@\spxentry{comp\_viz.utils}|hyperpage}{13}
 \indexentry{comp\_viz.utils@\spxentry{comp\_viz.utils}!module@\spxentry{module}|hyperpage}{13}
-\indexentry{module@\spxentry{module}!comp\_viz.config@\spxentry{comp\_viz.config}|hyperpage}{17}
-\indexentry{comp\_viz.config@\spxentry{comp\_viz.config}!module@\spxentry{module}|hyperpage}{17}
-\indexentry{CompViz (class in comp\_viz.config)@\spxentry{CompViz}\spxextra{class in comp\_viz.config}|hyperpage}{17}
-\indexentry{version (comp\_viz.config.CompViz attribute)@\spxentry{version}\spxextra{comp\_viz.config.CompViz attribute}|hyperpage}{17}
+\indexentry{module@\spxentry{module}!comp\_viz.config@\spxentry{comp\_viz.config}|hyperpage}{18}
+\indexentry{comp\_viz.config@\spxentry{comp\_viz.config}!module@\spxentry{module}|hyperpage}{18}
+\indexentry{CompViz (class in comp\_viz.config)@\spxentry{CompViz}\spxextra{class in comp\_viz.config}|hyperpage}{18}
+\indexentry{version (comp\_viz.config.CompViz attribute)@\spxentry{version}\spxextra{comp\_viz.config.CompViz attribute}|hyperpage}{18}
 \indexentry{Models (class in comp\_viz.config)@\spxentry{Models}\spxextra{class in comp\_viz.config}|hyperpage}{18}
 \indexentry{tasks (comp\_viz.config.Models attribute)@\spxentry{tasks}\spxextra{comp\_viz.config.Models attribute}|hyperpage}{18}
 \indexentry{ObjectDetection (class in comp\_viz.config)@\spxentry{ObjectDetection}\spxextra{class in comp\_viz.config}|hyperpage}{18}
