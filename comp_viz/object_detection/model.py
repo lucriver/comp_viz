@@ -8,6 +8,12 @@ import time
 
 from .. import utils
 
+try:
+    a = mxnet.nd.zeros((1,), ctx=mxnet.gpu())
+    ctx = [mxnet.gpu()]
+except:
+    ctx = [mxnet.cpu()]
+
 class Model:
   """Computer vision object detection model.
 
@@ -24,11 +30,7 @@ class Model:
   def __init__(self,network_name):
     """Constructor method
     """
-    try:
-        a = mxnet.nd.zeros((1,), ctx=mxnet.gpu(1))
-        ctx = [mxnet.gpu(1)]
-    except:
-        ctx = [mxnet.cpu()]
+    print(ctx)
     if network_name not in utils.ObjectDetection.get_networks():
       raise ValueError(f"{network_name} is an invalid network.")
     self.net_name = network_name
@@ -36,7 +38,6 @@ class Model:
     self.inference_resolution = utils.ObjectDetection.get_network_resolution(network_name)
     self._default_object_classes = gluoncv.model_zoo.get_model(network_name, pretrained=True).classes
     print("Model successfully initialized.")
-    print(mxnet.gpu())
 
   def list_classes(self):
     """Print the object classes that the computer vision model is detecting for in images.
@@ -158,7 +159,7 @@ class Model:
   def _predict(self,fname,nms) -> tuple:
     base_img = mxnet.image.imread(fname)
     x, img = self.__prepare_image(base_img)
-    pred = self.net(x)
+    pred = self.net(x.as_in_context(ctx[0]))
     cids, scores, bboxes = self._extract_cids_scores_bboxes(pred)
     # resize bounding box from network inference resolution to original image resolution
     bboxes = [utils.ObjectDetection.resize_bbox(bbox,img.shape,base_img.shape) for bbox in bboxes]
