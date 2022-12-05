@@ -24,13 +24,19 @@ class Model:
   def __init__(self,network_name):
     """Constructor method
     """
+    try:
+        a = mxnet.nd.zeros((1,), ctx=mxnet.gpu(1))
+        ctx = [mxnet.gpu(1)]
+    except:
+        ctx = [mxnet.cpu()]
     if network_name not in utils.ObjectDetection.get_networks():
       raise ValueError(f"{network_name} is an invalid network.")
     self.net_name = network_name
-    self.net = gluoncv.model_zoo.get_model(network_name, pretrained=True)
+    self.net = gluoncv.model_zoo.get_model(network_name, pretrained=True, ctx=ctx)
     self.inference_resolution = utils.ObjectDetection.get_network_resolution(network_name)
     self._default_object_classes = gluoncv.model_zoo.get_model(network_name, pretrained=True).classes
     print("Model successfully initialized.")
+    print(mxnet.gpu())
 
   def list_classes(self):
     """Print the object classes that the computer vision model is detecting for in images.
