@@ -8,7 +8,7 @@
 #   - User can bring their own images and have the object detector scan for objects in the image
 #   - User can bring multiple images (potentially thousands!)
 #   - User can save results and calculate performance metrics from the data.
-#   - User can change the network and objects they are detecting for in realtime!
+#   - User can change the network and objects they are detecting for in realtime
 
 import os
 import sys
